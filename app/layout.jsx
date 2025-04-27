@@ -4,6 +4,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import ScrollToTopBtn from "./components/ScrollToTopBtn";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Analytics />
+        <ScrollToTopBtn />
         <Footer />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />

@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Footer() {
-  return <div>footer here</div>;
+  return <div className="h-[100dvh]">footer here</div>;
 }
