@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-10 py-4 transition-all duration-300 ${
+      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-10 py-10 transition-all duration-300 ${
         isScrolled
           ? "bg-background/70 backdrop-blur-md shadow-md"
           : "bg-background"
@@ -42,21 +42,17 @@ export default function Navbar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-8 text-lg">
-        <Link href="#projects" onClick={closeMenu} className="hover:text-brand">
-          Projects
+        <Link href="/" className="hover:text-brand">
+          home
         </Link>
-        <Link href="#about" onClick={closeMenu} className="hover:text-brand">
-          About
+        <Link href="#projects" className="hover:text-brand">
+          projects
         </Link>
-        <Link
-          href="#experience"
-          onClick={closeMenu}
-          className="hover:text-brand"
-        >
-          Experience
+        <Link href="#about" className="hover:text-brand">
+          about
         </Link>
-        <Link href="#contact" onClick={closeMenu} className="hover:text-brand">
-          Contact
+        <Link href="#contact" className="hover:text-brand">
+          contact
         </Link>
       </div>
 
@@ -68,29 +64,25 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="flex flex-col items-center justify-center gap-10 absolute top-0 left-0 w-full h-screen bg-black text-white text-2xl">
+          <Link href="/" onClick={closeMenu} className="hover:text-brand">
+            home
+          </Link>
           <Link
             href="#projects"
             onClick={closeMenu}
             className="hover:text-brand"
           >
-            Projects
+            projects
           </Link>
           <Link href="#about" onClick={closeMenu} className="hover:text-brand">
-            About
-          </Link>
-          <Link
-            href="#experience"
-            onClick={closeMenu}
-            className="hover:text-brand"
-          >
-            Experience
+            about
           </Link>
           <Link
             href="#contact"
             onClick={closeMenu}
             className="hover:text-brand"
           >
-            Contact
+            contact
           </Link>
         </div>
       )}
