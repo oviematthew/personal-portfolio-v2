@@ -1,19 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Lato, Quicksand, Montserrat } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const quickSand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "300", "400", "700", "900"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata = {
@@ -29,7 +39,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${quickSand.variable} ${lato.variable} ${montserrat.variable} antialiased`}
       >
         <Navbar />
         {children}

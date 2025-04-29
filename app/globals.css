@@ -44,3 +44,8 @@ body {
 .text-brand-dark {
   color: var(--brand-dark);
 }
+
+
+html {
+  font-family: var(--font-lato);
+}

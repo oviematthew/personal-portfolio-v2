@@ -45,13 +45,16 @@ export default function Navbar() {
         <Link href="/" className="hover:text-brand">
           home
         </Link>
-        <Link href="#projects" className="hover:text-brand">
+        <Link href="/#projects" className="hover:text-brand">
           projects
         </Link>
-        <Link href="#about" className="hover:text-brand">
+        <Link href="/#about" className="hover:text-brand">
           about
         </Link>
-        <Link href="#contact" className="hover:text-brand">
+        <Link href="/blog" className="hover:text-brand">
+          blog
+        </Link>
+        <Link href="/#contact" className="hover:text-brand">
           contact
         </Link>
       </div>
@@ -68,17 +71,20 @@ export default function Navbar() {
             home
           </Link>
           <Link
-            href="#projects"
+            href="/#projects"
             onClick={closeMenu}
             className="hover:text-brand"
           >
             projects
           </Link>
-          <Link href="#about" onClick={closeMenu} className="hover:text-brand">
+          <Link href="/#about" onClick={closeMenu} className="hover:text-brand">
             about
           </Link>
+          <Link href="/blog" onClick={closeMenu} className="hover:text-brand">
+            blog
+          </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             onClick={closeMenu}
             className="hover:text-brand"
           >

@@ -1,10 +1,16 @@
 /** @type {import('tailwindcss').Config} */
-const config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  theme: {
-    extend: {},
+export const content = [
+  "./pages/**/*.{js,ts,jsx,tsx}",
+  "./components/**/*.{js,ts,jsx,tsx}",
+  "./app/**/*.{js,ts,jsx,tsx}",
+];
+export const theme = {
+  extend: {
+    fontFamily: {
+      lato: ["var(--font-lato)", "serif"],
+      montserrat: ["var(--font-montserrat)", "serif"],
+      quicksand: ["var(--font-quicksand)", "sans-serif"],
+    },
   },
-  plugins: [],
 };
-
-export default config;
+export const plugins = [];

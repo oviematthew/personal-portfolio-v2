@@ -3,7 +3,7 @@ import React from "react";
 export default function HeroSection() {
   return (
     <>
-      <div className="relative h-[100dvh]">Hero Section</div>
+      <p className="relative h-[100dvh] font-montserrat">Hero Section</p>
     </>
   );
 }
