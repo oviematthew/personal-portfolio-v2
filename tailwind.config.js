@@ -1,15 +1,15 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+import plugin from "tailwindcss/plugin";
+
 export const content = [
-  "./pages/**/*.{js,ts,jsx,tsx}",
-  "./components/**/*.{js,ts,jsx,tsx}",
   "./app/**/*.{js,ts,jsx,tsx}",
+  "./components/**/*.{js,ts,jsx,tsx}",
+  "./pages/**/*.{js,ts,jsx,tsx}",
 ];
 export const theme = {
   extend: {
-    fontFamily: {
-      lato: ["var(--font-lato)", "serif"],
-      montserrat: ["var(--font-montserrat)", "serif"],
-      quicksand: ["var(--font-quicksand)", "sans-serif"],
+    colors: {
+      brand: "#F15A24",
     },
   },
 };

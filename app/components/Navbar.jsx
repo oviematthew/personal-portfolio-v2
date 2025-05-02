@@ -35,13 +35,13 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div>
-        <Link href="/" className="text-xl font-bold">
+        <Link href="/" className="text-xl font-bold font-text ">
           Ovie<span className="text-brand">.</span>
         </Link>
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex gap-8 text-lg">
+      <div className="hidden md:flex gap-8 text-lg italic">
         <Link href="/" className="hover:text-brand">
           home
         </Link>

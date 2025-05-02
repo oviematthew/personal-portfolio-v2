@@ -1,29 +1,21 @@
 import "./globals.css";
-import { Lato, Quicksand, Montserrat } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
 
-const quickSand = Quicksand({
-  variable: "--font-quicksand",
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
 });
 
-const lato = Lato({
-  variable: "--font-lato",
+const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "300", "400", "700", "900"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-playfair",
 });
 
 export const metadata = {
@@ -38,9 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
-      <body
-        className={`${quickSand.variable} ${lato.variable} ${montserrat.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <Navbar />
         {children}
         <Analytics />
