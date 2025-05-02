@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "bedge-pictures",
+    "name": "Bedge Pictures",
+    "techStack": ["Next.js", "Framer Motion", "Tailwind CSS"],
+    "description": "A sleek wedding photography site with fast UX and a headless WooCommerce shop.",
+    "featuredImage": "/images/bedge/featured.jpg",
+    "images": ["/images/bedge/1.jpg", "/images/bedge/2.jpg"],
+    "github": "https://github.com/yourusername/bedge-pictures",
+    "live": "https://bedgepictures.com"
+  },
+  {
+    "slug": "portfolio-v2",
+    "name": "Portfolio v2",
+    "techStack": ["Next.js", "Framer Motion"],
+    "description": "A minimalist developer portfolio to showcase my projects.",
+    "featuredImage": "/images/portfolio-v2/featured.jpg",
+    "images": ["/images/portfolio-v2/1.jpg", "/images/portfolio-v2/2.jpg"],
+    "github": "https://github.com/yourusername/portfolio-v2",
+    "live": "https://yourportfolio.com"
+  },
+  {
+    "slug": "another-project",
+    "name": "Another Project",
+    "techStack": ["React", "Firebase"],
+    "description": "A cool project doing awesome things.",
+    "featuredImage": "/images/another/featured.jpg",
+    "images": ["/images/another/1.jpg"],
+    "github": "https://github.com/yourusername/another-project",
+    "live": "https://anotherproject.com"
+  }
+]

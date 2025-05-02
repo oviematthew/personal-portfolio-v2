@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-10 py-10 transition-all duration-300 ${
+      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-5 py-5 transition-all duration-300 ${
         isScrolled
           ? "bg-background/70 backdrop-blur-md shadow-md"
           : "bg-background"
