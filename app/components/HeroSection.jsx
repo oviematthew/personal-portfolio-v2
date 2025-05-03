@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { Volume2, ChevronDown } from "lucide-react";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
 
 export default function HeroSection() {
   const handleClick = () => {
@@ -13,7 +14,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="h-screen w-full mx-auto px-6 flex items-center justify-center">
+    <div className="h-[100%] w-full mx-auto px-6 py-10 mt-5 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -42,16 +43,45 @@ export default function HeroSection() {
             className="p-2 cursor-pointer rounded-full bg-white/10 hover:bg-white/20 transition"
             aria-label="Hear how to pronounce Ovie"
           >
-            <Volume2 className="w-6 h-6 text-white animate-pulse" />
+            <Volume2 className="w-6 h-6 text-white" />
           </button>
         </div>
 
         {/* Description */}
         <p className="mt-2 text-base text-gray-400 max-w-md">
-          I specialize in building fast, accessible, and user-focused frontend &
-          mobile experiences. Clean code, intuitive UX, and performance are my
-          top priorities.
+          I specialize in building fast, responsive, accessible, and
+          user-focused frontend & mobile experiences. Clean code, intuitive UX,
+          and performance are my top priorities.
         </p>
+
+        {/* Social Media Links */}
+        <div className="social-links mt-5 mb-5 flex gap-6">
+          <Link
+            href="https://github.com/oviematthew"
+            target="_blank"
+            aria-label="GitHub"
+            className="text-white hover:text-brand hover:scale-95 transition duration-300"
+          >
+            <FaGithub size={20} />
+          </Link>
+
+          <Link
+            href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
+            target="_blank"
+            aria-label="LinkedIn"
+            className="text-white hover:text-brand hover:scale-95 transition duration-300"
+          >
+            <FaLinkedin size={20} />
+          </Link>
+
+          <Link
+            href="mailto:hello@oviematthew.com"
+            aria-label="Email"
+            className="text-white hover:text-brand hover:scale-95 transition duration-300"
+          >
+            <FaEnvelope size={20} />
+          </Link>
+        </div>
 
         {/* Call-to-Action */}
         <div className="mt-6">
@@ -60,7 +90,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             View Projects
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5 animate-pulse" />
           </Link>
         </div>
       </motion.div>

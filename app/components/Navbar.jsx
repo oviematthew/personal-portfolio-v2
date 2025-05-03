@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-5 py-5 transition-all duration-300 ${
+      className={`sticky top-0 z-50 flex justify-between lg:justify-around items-center px-5 py-10 transition-all duration-300 ${
         isScrolled
           ? "bg-background/70 backdrop-blur-md shadow-md"
           : "bg-background"
@@ -45,11 +45,11 @@ export default function Navbar() {
         <Link href="/" className="hover:text-brand">
           home
         </Link>
-        <Link href="/#projects" className="hover:text-brand">
-          projects
-        </Link>
         <Link href="/#about" className="hover:text-brand">
           about
+        </Link>
+        <Link href="/#projects" className="hover:text-brand">
+          projects
         </Link>
         <Link href="/blog" className="hover:text-brand">
           blog
@@ -70,15 +70,15 @@ export default function Navbar() {
           <Link href="/" onClick={closeMenu} className="hover:text-brand">
             home
           </Link>
+          <Link href="/#about" onClick={closeMenu} className="hover:text-brand">
+            about
+          </Link>
           <Link
             href="/#projects"
             onClick={closeMenu}
             className="hover:text-brand"
           >
             projects
-          </Link>
-          <Link href="/#about" onClick={closeMenu} className="hover:text-brand">
-            about
           </Link>
           <Link href="/blog" onClick={closeMenu} className="hover:text-brand">
             blog

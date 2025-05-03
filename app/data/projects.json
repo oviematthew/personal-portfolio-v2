@@ -1,0 +1,30 @@
+[
+  {
+    "name": "My Web Portfolio",
+    "slug": "my-web-portfolio",
+    "type": "web",
+    "techStack": ["Next.js", "Framer Motion", "TailwindCSS"],
+    "description": "A fast and accessible developer portfolio.",
+    "featuredImage": "/projects/portfolio/cover.jpg",
+    "images": [
+      "/projects/portfolio/1.jpg",
+      "/projects/portfolio/2.jpg"
+    ],
+    "github": "https://github.com/yourname/portfolio",
+    "live": "https://yourportfolio.com"
+  },
+  {
+    "name": "FitTrack App",
+    "slug": "fittrack-app",
+    "type": "mobile",
+    "techStack": ["React Native", "Expo", "Firebase"],
+    "description": "A mobile app for tracking workouts and progress.",
+    "featuredImage": "/projects/fittrack/cover.jpg",
+    "images": [
+      "/projects/fittrack/1.jpg",
+      "/projects/fittrack/2.jpg"
+    ],
+    "github": "https://github.com/yourname/fittrack",
+    "live": "https://expo.dev/@yourname/fittrack"
+  }
+]
