@@ -1,6 +1,8 @@
 import projectsData from "../../data/projects.json";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   return projectsData.map((project) => ({ slug: project.slug }));
@@ -13,8 +15,45 @@ export default function ProjectPage({ params }) {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
-      <p className="text-gray-300 mb-6">{project.description}</p>
+      <div className="title-section flex items-center justify-between mb-6 ">
+        <Link href="/">
+          <ArrowLeft className="text-gray-300 hover:scale-95" />
+        </Link>
+
+        <h1 className="text-3xl font-bold font-heading">{project.name}</h1>
+
+        <Link
+          href={project.live}
+          target="_blank"
+          className="ml-auto flex items-center gap-2 text-gray-300 hover:text-brand"
+        >
+          Visit Project
+          <ArrowUpRight className="" />
+        </Link>
+      </div>
+
+      <p className="text-gray-300 mb-6 font-text">{project.longDescription}</p>
+      <div className="flex gap-4 mb-6">
+        {project.techStack.map((tech) => (
+          <span
+            key={tech}
+            className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="featuredImage">
+        <Image
+          src={project.featuredImage}
+          alt={`${project.name} featured image`}
+          width={1200}
+          height={800}
+          className="rounded-lg mb-6"
+        />
+      </div>
+
       <div className="grid gap-4 md:grid-cols-2">
         {project.images.map((img, index) => (
           <Image

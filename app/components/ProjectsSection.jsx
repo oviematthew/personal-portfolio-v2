@@ -18,23 +18,29 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="px-6 py-12 max-w-7xl mx-auto">
-      <div className="flex gap-4 mb-6">
-        {FILTERS.map((f) => (
-          <button
-            key={f}
-            onClick={() => {
-              setFilter(f);
-              setVisible(9);
-            }}
-            className={`px-4 py-2 rounded-full border ${
-              filter === f
-                ? "bg-brand text-white"
-                : "text-gray-300 border-gray-600"
-            }`}
-          >
-            {f.charAt(0).toUpperCase() + f.slice(1)}
-          </button>
-        ))}
+      <div className="flex justify-between gap-4 mb-6">
+        <h2 className="text-3xl font-bold text-white">
+          My Projects <span className="text-brand">.</span>
+        </h2>
+
+        <div className="filters flex gap-2 md:gap-4">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => {
+                setFilter(f);
+                setVisible(9);
+              }}
+              className={`px-4 py-2 rounded-full border cursor-pointer ${
+                filter === f
+                  ? "bg-brand text-white"
+                  : "text-gray-300 border-gray-600 hover:scale-95"
+              }`}
+            >
+              {f.charAt(0).toUpperCase() + f.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -42,20 +48,42 @@ export default function ProjectsSection() {
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
-            className="group bg-white/5 rounded-xl overflow-hidden shadow hover:scale-[1.02] transition"
+            className="group relative bg-white/5 rounded-xl overflow-hidden shadow hover:shadow-xl transition-transform transform hover:-translate-y-1 hover:scale-[1.01] duration-300"
           >
-            <Image
-              src={project.featuredImage}
-              alt={project.name}
-              width={400}
-              height={300}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 text-left">
-              <h3 className="text-lg font-semibold text-white">
+            <div className="relative w-full h-48 overflow-hidden">
+              <Image
+                src={project.featuredImage}
+                alt={project.name}
+                width={400}
+                height={300}
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              />
+            </div>
+
+            <div className="p-4 space-y-2">
+              <h3 className="text-lg font-bold text-white group-hover:text-brand transition">
                 {project.name}
               </h3>
-              <p className="text-sm text-gray-400">{project.description}</p>
+              <p className="text-sm text-gray-400 line-clamp-2">
+                {project.description}
+              </p>
+
+              <div className="flex items-center flex-wrap gap-2 mt-3">
+                {project.techStack.slice(0, 3).map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center gap-1 bg-white/10 text-white text-xs font-medium px-2.5 py-1 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+
+                {project.techStack.length > 3 && (
+                  <span className="text-xs text-gray-400">
+                    +{project.techStack.length - 3} more
+                  </span>
+                )}
+              </div>
             </div>
           </Link>
         ))}

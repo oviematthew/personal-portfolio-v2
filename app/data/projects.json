@@ -1,11 +1,13 @@
 [
   {
-    "name": "My Web Portfolio",
-    "slug": "my-web-portfolio",
+    "name": "Bedge Pictures",
+    "slug": "bedge-pictures",
     "type": "web",
-    "techStack": ["Next.js", "Framer Motion", "TailwindCSS"],
-    "description": "A fast and accessible developer portfolio.",
-    "featuredImage": "/projects/portfolio/cover.jpg",
+    "jobType": "Freelance",
+    "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "Google Analytics", "Google Tag Manager"],
+    "description": "Wedding Photography company.",
+    "longDescription": "Bedge Pictures is a wedding photography company that specializes in capturing the most beautiful moments of your special day. With a keen eye for detail and a passion for storytelling, we create stunning visual narratives that you will cherish for a lifetime.",
+    "featuredImage": "/media/projects/bedge-featured.png",
     "images": [
       "/projects/portfolio/1.jpg",
       "/projects/portfolio/2.jpg"
@@ -14,12 +16,30 @@
     "live": "https://yourportfolio.com"
   },
   {
-    "name": "FitTrack App",
-    "slug": "fittrack-app",
-    "type": "mobile",
-    "techStack": ["React Native", "Expo", "Firebase"],
-    "description": "A mobile app for tracking workouts and progress.",
-    "featuredImage": "/projects/fittrack/cover.jpg",
+    "name": "BOAS",
+    "slug": "boas",
+    "type": "web",
+    "jobType": "Full Time",
+    "techStack": ["Shopify", "Next.js", "GraphQL", "Typescript", "Strapi", "Liquid"],
+    "description": "Jeans Wholesale company.",
+    "longDescription": "BOAS is a jeans wholesale company that specializes in providing high-quality denim products to retailers and businesses. With a focus on sustainability and ethical production, they focus on donating larger chunk of the proceeds to charity.",
+    "featuredImage": "/media/projects/boas-featured.png",
+    "images": [
+      "/projects/fittrack/1.jpg",
+      "/projects/fittrack/2.jpg"
+    ],
+    "github": "https://github.com/yourname/fittrack",
+    "live": "https://expo.dev/@yourname/fittrack"
+  },
+  {
+    "name": "Employee Voting System",
+    "slug": "employee-voting-system",
+    "type": "web",
+    "jobType": "Freelance",
+    "techStack": ["React.JS", "Vite", "Firestore", "Firebase Auth", "TailwindCSS"],
+    "description": "A voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
     "images": [
       "/projects/fittrack/1.jpg",
       "/projects/fittrack/2.jpg"
