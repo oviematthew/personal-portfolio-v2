@@ -16,24 +16,39 @@ export default function ProjectPage({ params }) {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
       <div className="title-section flex items-center justify-between mb-6 ">
-        <Link href="/">
-          <ArrowLeft className="text-gray-300 hover:scale-95" />
-        </Link>
+        <div className="back-link hover:scale-95">
+          <Link
+            href="/#projects"
+            className="flex items-center gap-2 text-gray-300 text-md hover:scale-95"
+          >
+            <ArrowLeft className="text-gray-300 " />
+            Back
+          </Link>
+        </div>
 
-        <h1 className="text-3xl font-bold font-heading">{project.name}</h1>
+        <div className="title">
+          <h1 className="text-xl md:text-3xl font-bold font-heading">
+            {project.name}
+          </h1>
+        </div>
 
-        <Link
-          href={project.live}
-          target="_blank"
-          className="ml-auto flex items-center gap-2 text-gray-300 hover:text-brand"
-        >
-          Visit Project
-          <ArrowUpRight className="" />
-        </Link>
+        <div className="forward-link">
+          <Link
+            href={project.live}
+            target="_blank"
+            className="ml-auto flex items-center gap-2 text-gray-300 hover:text-brand text-md "
+          >
+            Visit Project
+            <ArrowUpRight className="" />
+          </Link>
+        </div>
       </div>
+      <p className="text-sm italic text-gray-400 mb-5">
+        Job Type: {project.jobType}
+      </p>
 
       <p className="text-gray-300 mb-6 font-text">{project.longDescription}</p>
-      <div className="flex gap-4 mb-6">
+      <div className="flex flex-wrap gap-4 mb-6">
         {project.techStack.map((tech) => (
           <span
             key={tech}

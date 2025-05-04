@@ -4,16 +4,15 @@
     "slug": "bedge-pictures",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "Google Analytics", "Google Tag Manager"],
+    "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "Google Analytics", "Google Tag Manager", "Playwright", "Woocommerce"],
     "description": "Wedding Photography company.",
     "longDescription": "Bedge Pictures is a wedding photography company that specializes in capturing the most beautiful moments of your special day. With a keen eye for detail and a passion for storytelling, we create stunning visual narratives that you will cherish for a lifetime.",
     "featuredImage": "/media/projects/bedge-featured.png",
     "images": [
-      "/projects/portfolio/1.jpg",
-      "/projects/portfolio/2.jpg"
+      "/media/projects/page-images/bedge-pictures-1.png",
+      "/media/projects/page-images/bedge-pictures-2.png"
     ],
-    "github": "https://github.com/yourname/portfolio",
-    "live": "https://yourportfolio.com"
+    "live": "https://bedgepictures.com"
   },
   {
     "name": "BOAS",
@@ -21,30 +20,76 @@
     "type": "web",
     "jobType": "Full Time",
     "techStack": ["Shopify", "Next.js", "GraphQL", "Typescript", "Strapi", "Liquid"],
-    "description": "Jeans Wholesale company.",
+    "description": "Vintage Jeans Ecommerce Brand that supports giving back majority of the proceeds to charity.",
     "longDescription": "BOAS is a jeans wholesale company that specializes in providing high-quality denim products to retailers and businesses. With a focus on sustainability and ethical production, they focus on donating larger chunk of the proceeds to charity.",
     "featuredImage": "/media/projects/boas-featured.png",
     "images": [
       "/projects/fittrack/1.jpg",
       "/projects/fittrack/2.jpg"
     ],
-    "github": "https://github.com/yourname/fittrack",
-    "live": "https://expo.dev/@yourname/fittrack"
+    "live": "https://boas.co"
   },
   {
-    "name": "Employee Voting System",
-    "slug": "employee-voting-system",
+    "name": "WPS Bedge",
+    "slug": "wps-bedge",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["React.JS", "Vite", "Firestore", "Firebase Auth", "TailwindCSS"],
-    "description": "A voting system for employees.",
+    "techStack": ["Wordpress", "Google Analytics", "Mailchimp" , "Google Tag Manager"],
+    "description": "Photography Studio made for creatives to showcase their creativity.",
     "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "featuredImage": "/media/projects/wps-featured.png",
     "images": [
       "/projects/fittrack/1.jpg",
       "/projects/fittrack/2.jpg"
     ],
-    "github": "https://github.com/yourname/fittrack",
-    "live": "https://expo.dev/@yourname/fittrack"
+    "live": "https://wpsbedge.com"
+  },
+
+   {
+    "name": "Lizz Davies",
+    "slug": "lizz-davies",
+    "type": "web",
+    "jobType": "Freelance",
+    "techStack": ["Wordpress", "Google Analytics", "Google Tag Manager"],
+    "description": "Photography Studio tmade for creatives to showcase their creativity.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/lizzdavies-featured.png",
+    "images": [
+      "/projects/fittrack/1.jpg",
+      "/projects/fittrack/2.jpg"
+    ],
+    "live": "https://wpsbedge.com"
+  },
+
+  {
+    "name": "Employee Voting System",
+    "slug": "employee-voting-system",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+
+  {
+    "name": "Business Finder App",
+    "slug": "business-finder-app",
+    "type": "mobile",
+    "jobType": "Hobby",
+    "techStack": ["Kotlin", "Yelp Fusion", "Retrofit Api", "MVVM Design", "Coroutines", "Room Database"],
+    "description": "A mobile app that helps you find businesses using Yelp API.",
+    "longDescription": "The Business Finder App is a mobile application that allows users to search for businesses in their area using the Yelp Fusion API. The app provides a user-friendly interface and utilizes the MVVM design pattern for efficient data management.",
+    "featuredImage": "/media/projects/yelp-app-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://github.com/oviematthew/kotlin-api-project"
   }
 ]

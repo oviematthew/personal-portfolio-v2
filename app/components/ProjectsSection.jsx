@@ -43,7 +43,7 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedProjects.map((project) => (
           <Link
             key={project.slug}
@@ -54,9 +54,9 @@ export default function ProjectsSection() {
               <Image
                 src={project.featuredImage}
                 alt={project.name}
-                width={400}
+                width={500}
                 height={300}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
               />
             </div>
 

@@ -52,7 +52,7 @@ export default function AboutSection() {
           </p>
 
           <p className="text-lg text-gray-300 leading-relaxed mb-4">
-            My most recent full time position was{" "}
+            One of my most recent full time position was{" "}
             <Link
               href="https://boas.co"
               className="text-brand hover:underline"
@@ -61,8 +61,8 @@ export default function AboutSection() {
               @Boas
             </Link>
             , where I worked as a frontend developer working with Liquid on
-            Shopify to build and maintain quick, responsive, accessible and
-            impactful digital experiences.
+            Shopify, and Next.Js to build and maintain quick, responsive,
+            accessible and impactful digital experiences.
           </p>
 
           <p className="text-lg text-gray-300 leading-relaxed">
