@@ -50,13 +50,16 @@ export default function ProjectsSection() {
             href={`/projects/${project.slug}`}
             className="group relative bg-white/5 rounded-xl overflow-hidden shadow hover:shadow-xl transition-transform transform hover:-translate-y-1 hover:scale-[1.01] duration-300"
           >
-            <div className="relative w-full h-48 overflow-hidden">
+            {/* Image with sizing conditions */}
+            <div className="relative w-full h-64 overflow-hidden bg-black">
               <Image
                 src={project.featuredImage}
                 alt={project.name}
-                width={500}
-                height={300}
-                className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className={`w-full h-full ${
+                  project.type === "mobile" ? "object-contain" : "object-fit"
+                } group-hover:scale-105 transition duration-300`}
               />
             </div>
 

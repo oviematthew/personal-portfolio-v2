@@ -60,23 +60,6 @@
     ],
     "live": "https://wpsbedge.com"
   },
-
-  {
-    "name": "Employee Voting System",
-    "slug": "employee-voting-system",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "Best In Uniform is a voting system for employees.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
-    "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
-    ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
-  },
-
   {
     "name": "Business Finder App",
     "slug": "business-finder-app",
@@ -91,5 +74,38 @@
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
     "live": "https://github.com/oviematthew/kotlin-api-project"
+  },
+
+  {
+    "name": "Weather App",
+    "slug": "weather-app",
+    "type": "mobile",
+    "jobType": "Hobby",
+    "techStack": ["Swift", "Swift Storyboard", "MVVM Design", "Core Location", "Weather API"],
+    "description": "A mobile app that helps you find the weather using Open Weather API.",
+    "longDescription": "The Weather App is a mobile application that provides users with real-time weather information using the Open Weather API. The app is designed with a user-friendly interface and follows the MVVM design pattern for efficient data handling.",
+    "featuredImage": "/media/projects/weather-app-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+  {
+    "name": "Employee Voting System",
+    "slug": "employee-voting-system",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
   }
+
+  
 ]
