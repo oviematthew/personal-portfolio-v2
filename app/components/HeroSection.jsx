@@ -14,7 +14,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="h-[100%] w-full mx-auto px-6 py-10 mt-5 flex items-center justify-center">
+    <div className="min-h-screen w-full mx-auto px-6 py-10 mt-5 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen mx-auto w-full max-w-6xl px-6 py-16 mt-10"
+      className="min-h-screen w-1/2 mx-auto px-6 py-10 mt-5 flex items-center justify-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

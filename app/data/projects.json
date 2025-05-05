@@ -5,7 +5,7 @@
     "type": "web",
     "jobType": "Freelance",
     "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "Google Analytics", "Google Tag Manager", "Playwright", "Woocommerce"],
-    "description": "Wedding Photography company.",
+    "description": "Wedding Photography company that specializes in capturing the most beautiful moments of your special day.",
     "longDescription": "Bedge Pictures is a wedding photography company that specializes in capturing the most beautiful moments of your special day. With a keen eye for detail and a passion for storytelling, we create stunning visual narratives that you will cherish for a lifetime.",
     "featuredImage": "/media/projects/bedge-featured.png",
     "images": [

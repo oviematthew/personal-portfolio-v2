@@ -17,7 +17,10 @@ export default function ProjectsSection() {
   const displayedProjects = filteredProjects.slice(0, visible);
 
   return (
-    <section id="projects" className="px-6 py-12 max-w-7xl mx-auto">
+    <section
+      id="projects"
+      className="min-h-screen max-w-3/4 mx-auto px-6 lg:py-40 mt-10  "
+    >
       <div className="flex justify-between gap-4 mb-6">
         <h2 className="text-3xl font-bold text-white">
           My Projects <span className="text-brand">.</span>
@@ -58,7 +61,7 @@ export default function ProjectsSection() {
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className={`w-full h-full ${
-                  project.type === "mobile" ? "object-contain" : "object-fit"
+                  project.type === "mobile" ? "object-contain" : "object-cover"
                 } group-hover:scale-105 transition duration-300`}
               />
             </div>
