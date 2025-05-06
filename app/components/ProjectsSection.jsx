@@ -19,9 +19,9 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="min-h-screen max-w-3/4 mx-auto px-6 lg:py-40 mt-10  "
+      className="min-h-screen max-w-6xl mx-auto px-6 lg:py-40 mt-10  "
     >
-      <div className="flex justify-between gap-4 mb-6">
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
         <h2 className="text-3xl font-bold text-white">
           My Projects <span className="text-brand">.</span>
         </h2>
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
               </p>
 
               <div className="flex items-center flex-wrap gap-2 mt-3">
-                {project.techStack.slice(0, 3).map((tech) => (
+                {project.techStack.slice(0, 2).map((tech) => (
                   <span
                     key={tech}
                     className="inline-flex items-center gap-1 bg-white/10 text-white text-xs font-medium px-2.5 py-1 rounded-full"
@@ -84,7 +84,7 @@ export default function ProjectsSection() {
                   </span>
                 ))}
 
-                {project.techStack.length > 3 && (
+                {project.techStack.length > 2 && (
                   <span className="text-xs text-gray-400">
                     +{project.techStack.length - 3} more
                   </span>

@@ -105,6 +105,51 @@
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
     "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+   {
+    "name": "Employee Voting System",
+    "slug": "employee",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+   {
+    "name": "Employee Voting System",
+    "slug": "employee-voting",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+   {
+    "name": "Employee Voting System",
+    "slug": "employee-system",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
   }
 
   

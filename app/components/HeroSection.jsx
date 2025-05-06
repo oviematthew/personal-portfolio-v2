@@ -14,7 +14,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="min-h-screen w-full mx-auto px-6 py-10 mt-5 flex items-center justify-center">
+    <div className="max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function HeroSection() {
 
         {/* Heading with audio icon */}
         <div className="flex items-center gap-x-3 mb-2">
-          <h1 className="text-xl md:text-3xl font-extrabold text-white font-heading flex">
+          <h1 className="text-xl md:text-4xl font-extrabold text-white font-heading flex">
             Hey, I'm Ovie
           </h1>
           <button
@@ -48,7 +48,7 @@ export default function HeroSection() {
         </div>
 
         {/* Description */}
-        <p className="mt-2 text-base text-gray-400 max-w-md">
+        <p className="mt-5 text-base lg:text-2xl text-gray-400 ">
           I specialize in building fast, responsive, accessible, and
           user-focused frontend & mobile experiences. Clean code, intuitive UX,
           and performance are my top priorities.
@@ -62,7 +62,7 @@ export default function HeroSection() {
             aria-label="GitHub"
             className="text-white hover:text-brand hover:scale-95 transition duration-300"
           >
-            <FaGithub size={20} />
+            <FaGithub size={25} />
           </Link>
 
           <Link
@@ -71,7 +71,7 @@ export default function HeroSection() {
             aria-label="LinkedIn"
             className="text-white hover:text-brand hover:scale-95 transition duration-300"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={25} />
           </Link>
 
           <Link
@@ -79,7 +79,7 @@ export default function HeroSection() {
             aria-label="Email"
             className="text-white hover:text-brand hover:scale-95 transition duration-300"
           >
-            <FaEnvelope size={20} />
+            <FaEnvelope size={25} />
           </Link>
         </div>
 

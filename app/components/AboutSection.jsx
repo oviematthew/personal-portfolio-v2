@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen w-1/2 mx-auto px-6 py-10 mt-5 flex items-center justify-center"
+      className="min-h-screen mx-auto w-full max-w-6xl px-6 flex items-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -21,7 +21,7 @@ export default function AboutSection() {
             About Me <span className="text-brand">.</span>
           </h2>
 
-          <p className="text-lg text-gray-300 leading-relaxed mb-4">
+          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             Hi! I’m <strong>Matthew Ovie Enamuotor</strong>, a Frontend and
             Mobile Developer based in London, Ontario, Canada. I studied{" "}
             <strong>Computer Engineering</strong>{" "}
@@ -43,7 +43,7 @@ export default function AboutSection() {
             with a major in Mobile Application Development.
           </p>
 
-          <p className="text-lg text-gray-300 leading-relaxed mb-4">
+          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             Over the past 5 years, I’ve worked as a freelance web developer,
             building over <strong>200 websites</strong> for more than{" "}
             <strong>130 clients</strong> across <strong>4 continents</strong>. I
@@ -51,7 +51,7 @@ export default function AboutSection() {
             blend form and function.
           </p>
 
-          <p className="text-lg text-gray-300 leading-relaxed mb-4">
+          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             One of my most recent full time position was{" "}
             <Link
               href="https://boas.co"
@@ -65,7 +65,7 @@ export default function AboutSection() {
             accessible and impactful digital experiences.
           </p>
 
-          <p className="text-lg text-gray-300 leading-relaxed">
+          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed">
             I’m a curious problem solver, passionate about beautiful UI and
             intuitive UX. I continuously strive to improve my skills — one
             project at a time.
