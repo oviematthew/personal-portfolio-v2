@@ -35,7 +35,7 @@ export default function HeroSection() {
 
         {/* Heading with audio icon */}
         <div className="flex items-center gap-x-3 mb-2">
-          <h1 className="text-xl md:text-4xl font-extrabold text-white font-heading flex">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-white font-heading flex">
             Hey, I'm Ovie
           </h1>
           <button
