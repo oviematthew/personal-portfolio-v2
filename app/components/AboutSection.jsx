@@ -8,11 +8,11 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen mx-auto w-full max-w-6xl px-6 flex items-center"
+      className="min-h-screen mx-auto w-full max-w-6xl px-6 flex items-center py-30 lg:py-40 mt-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: false, amount: 0.4 }}
     >
       <div className="about-container flex flex-col md:flex-row items-center gap-8">
         {/* Text section */}

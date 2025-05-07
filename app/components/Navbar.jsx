@@ -35,8 +35,8 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div>
-        <Link href="/" className="text-xl font-bold font-text ">
-          Ovie<span className="text-brand">.</span>
+        <Link href="/" className="text-xl font-extrabold italic font-text">
+          ovie<span className="text-brand">.</span>
         </Link>
       </div>
 
@@ -51,7 +51,7 @@ export default function Navbar() {
         <Link href="/#projects" className="hover:text-brand">
           projects
         </Link>
-        <Link href="/blog" className="hover:text-brand">
+        <Link href="/#blog" className="hover:text-brand">
           blog
         </Link>
         <Link href="/#contact" className="hover:text-brand">
@@ -80,7 +80,7 @@ export default function Navbar() {
           >
             projects
           </Link>
-          <Link href="/blog" onClick={closeMenu} className="hover:text-brand">
+          <Link href="/#blog" onClick={closeMenu} className="hover:text-brand">
             blog
           </Link>
           <Link

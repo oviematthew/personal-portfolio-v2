@@ -1,0 +1,42 @@
+[
+  {
+    "coverImage": "/media/projects/lizzdavies-featured.png",
+    "slug": "expo-react-native-setup",
+    "title": "Kickstarting Your Mobile App with Expo & React Native",
+    "excerpt": "A practical guide to setting up your first mobile app using Expo and React Native.",
+    "date": "2025-05-06",
+    "content": "Expo is the fastest way to start building React Native apps without installing Xcode or Android Studio.\n\n## Why Expo?\n- Instant setup\n- Cross-platform development\n- Built-in APIs (camera, location, etc.)\n\n## Setting Up\n1. Install Expo CLI:\n```bash\nnpm install -g expo-cli\n```\n\n2. Create a new project:\n```bash\nexpo init my-app\n```\nChoose a blank or template project.\n\n3. Run the app:\n```bash\nnpm start\n```\nScan the QR code using Expo Go.\n\n## Folder Structure\n- `App.js`: Entry point\n- `components/`: UI components\n- `screens/`: Page-like components\n\n## Deployment\n- Use `eas build` for production builds\n- Submit to App Store / Play Store via EAS Submit\n\n## Wrap-Up\nExpo accelerates mobile development with powerful tools. Focus on building features while Expo handles the complexity."
+  },
+  {
+    "coverImage": "/media/projects/lizzdavies-featured.png",
+    "slug": "kotlin-android-modern-ui",
+    "title": "Building Modern Android UIs with Kotlin",
+    "excerpt": "Take your Android UI skills to the next level using modern Kotlin patterns and Jetpack Compose.",
+    "date": "2025-05-06",
+    "content": "Modern Android development embraces Jetpack Compose for UI, replacing XML with Kotlin DSLs.\n\n## Jetpack Compose Basics\n- **Composable Functions**: UI elements are functions marked with `@Composable`\n- **State Management**: Use `remember` and `mutableStateOf`\n\nExample:\n```kotlin\n@Composable\nfun Greeting(name: String) {\n    Text(text = \"Hello $name!\")\n}\n```\n\n## Layouts\n- `Column`, `Row`, and `Box` are key building blocks.\n- Use `Modifier` to style: `padding`, `background`, `clickable`, etc.\n\n## Theming\nDefine color schemes, typography, and shapes via `MaterialTheme`.\n\n## Navigation\nUse `Navigation Compose` for routing with back stack support.\n\n## Conclusion\nKotlin with Compose empowers you to build modern, responsive Android apps with clean and scalable code."
+  },
+  {
+    "coverImage": "/media/projects/lizzdavies-featured.png",
+    "slug": "swiftui-layout-basics",
+    "title": "Getting Started with Layout in SwiftUI",
+    "excerpt": "Discover how to build beautiful layouts using SwiftUI’s powerful and declarative approach.",
+    "date": "2025-05-05",
+    "content": "SwiftUI is a declarative framework by Apple for building UI across all Apple platforms. Understanding its layout system is crucial.\n\n## Stack Basics\n- `VStack`: Vertical layout\n- `HStack`: Horizontal layout\n- `ZStack`: Overlapping views\n\nExample:\n```swift\nVStack(alignment: .leading, spacing: 16) {\n    Text(\"Hello\")\n    Text(\"World\")\n}\n```\n\n## Modifiers\nModifiers like `.padding()`, `.background()`, and `.frame()` help you style components.\n```swift\nText(\"Hello\")\n    .padding()\n    .background(Color.blue)\n    .cornerRadius(8)\n```\n\n## Responsive Design\nUse `GeometryReader` for responsive layouts. Avoid hardcoded sizes for flexibility.\n\n## Tips\n- Combine stacks for complex UIs\n- Preview regularly with `Canvas`\n- Prefer `Spacer()` for dynamic spacing\n\n## Wrap-Up\nSwiftUI layout is intuitive once you get the hang of stacks and modifiers. Start small and experiment often!"
+  },
+  {
+    "coverImage": "/media/projects/lizzdavies-featured.png",
+    "slug": "accessible-react-components",
+    "title": "Building Accessible React Components That Everyone Can Use",
+    "excerpt": "Learn how to make React components accessible without compromising design or usability.",
+    "date": "2025-05-03",
+    "content": "Accessibility (a11y) is about making your app usable by everyone, including people with disabilities. In React, it’s easy to overlook basic a11y best practices.\n\n## Common Mistakes\n- Missing `aria` attributes\n- Not using semantic HTML\n- Inaccessible modals or dropdowns\n\n## Steps to Improve\n1. **Use Semantic Tags**: Prefer `<button>` over `<div onClick={}>`, use `<label>` with inputs.\n\n2. **Keyboard Navigation**: Support `Tab`, `Enter`, and `Escape`. Example:\n```jsx\nconst handleKeyDown = (e) => {\n  if (e.key === 'Enter') openModal();\n};\n```\n\n3. **Aria Attributes**: Use `aria-expanded`, `aria-label`, `aria-live`, etc. with screen readers in mind.\n\n4. **Color Contrast**: Use tools like WebAIM to ensure contrast ratio > 4.5:1.\n\n## Testing Tools\n- Axe DevTools\n- Lighthouse\n- Screen readers like VoiceOver\n\n## Conclusion\nAccessible design makes your apps better for everyone. Build inclusively from the start and test often!"
+  },
+  {
+    "coverImage": "/media/projects/lizzdavies-featured.png",
+    "slug": "nextjs-app-router-best-practices",
+    "title": "Mastering Next.js App Router: Best Practices for Modern Web Apps",
+    "excerpt": "Explore essential patterns and practical tips for working with the Next.js App Router effectively.",
+    "date": "2025-07-01",
+    "content": "Next.js 13+ introduced the App Router, a powerful replacement for the Pages Router. It brings enhanced routing, layouts, nested routes, and server components.\n\n## Key Concepts\n- **File-based Routing**: Organize routes by folder structure.\n- **Layout Segments**: Use `layout.js` to persist layouts across pages.\n- **Server Components**: Keep components server-rendered by default unless marked with `'use client'`.\n\n## Best Practices\n1. **Folder Structure**: Keep components, layouts, and pages modular. Example:\n```txt\napp/\n  layout.js\n  page.js\n  about/\n    page.js\n  blog/\n    [slug]/\n      page.js\n```\n\n2. **Dynamic Routes**: Use `[slug]` for dynamic paths. Handle 404s with `not-found.js`.\n\n3. **Loading UI**: Use `loading.js` in folders to create route-based skeletons.\n\n4. **SEO**: Leverage the new `metadata` API for per-page SEO.\n\n## Wrap-Up\nThe App Router simplifies complex app structures and enables modern web standards. Start small and build incrementally as you learn."
+  }
+]

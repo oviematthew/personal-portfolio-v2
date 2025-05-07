@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import projectsData from "../data/projects.json";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,24 +9,29 @@ const FILTERS = ["all", "web", "mobile"];
 
 export default function ProjectsSection() {
   const [visible, setVisible] = useState(9);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("all"); // Default filter is "all"
 
+  //   Filter projects based on the selected filter
   const filteredProjects = projectsData.filter((project) =>
     filter === "all" ? true : project.type === filter
   );
 
+  //   Limit the number of projects displayed based on the "visible" state
   const displayedProjects = filteredProjects.slice(0, visible);
 
   return (
+    //   Motion section for animation
+    // animation works when the section is in view on every scroll (once:false)
     <section
       id="projects"
-      className="min-h-screen max-w-6xl mx-auto px-6 lg:py-40 mt-10  "
+      className="min-h-screen max-w-6xl mx-auto px-6 py-30 lg:py-40 mt-10 "
     >
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
-        <h2 className="text-3xl font-bold text-white">
+        <h2 className="text-3xl font-bold text-white font-heading">
           My Projects <span className="text-brand">.</span>
         </h2>
 
+        {/* Filter Button based on project type */}
         <div className="filters flex gap-2 md:gap-4">
           {FILTERS.map((f) => (
             <button
@@ -48,6 +54,9 @@ export default function ProjectsSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedProjects.map((project) => (
+          // Each project card
+          // The key is the project slug to ensure uniqueness
+          // The Link component wraps the entire card for easy navigation to dynamic routes
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
@@ -66,6 +75,7 @@ export default function ProjectsSection() {
               />
             </div>
 
+            {/* Project details */}
             <div className="p-4 space-y-2">
               <h3 className="text-lg font-bold text-white group-hover:text-brand transition">
                 {project.name}
@@ -83,10 +93,10 @@ export default function ProjectsSection() {
                     {tech}
                   </span>
                 ))}
-
+                {/* Show the number of additional tech stacks if more than 2 */}
                 {project.techStack.length > 2 && (
                   <span className="text-xs text-gray-400">
-                    +{project.techStack.length - 3} more
+                    +{project.techStack.length - 2} more
                   </span>
                 )}
               </div>
@@ -96,10 +106,12 @@ export default function ProjectsSection() {
       </div>
 
       {visible < filteredProjects.length && (
+        // Load 3 more projects per click
+        // This button will only show if there are more projects to load
         <div className="mt-8 text-center">
           <button
             onClick={() => setVisible(visible + 3)}
-            className="px-5 py-3 bg-brand text-white rounded hover:bg-brand/80 transition"
+            className="cursor-pointer px-5 py-3 bg-brand text-white rounded hover:bg-brand/80 transition"
           >
             Load More
           </button>
