@@ -40,7 +40,7 @@ export default function ProjectsSection() {
                 setFilter(f);
                 setVisible(9);
               }}
-              className={`px-4 py-2 rounded-full border cursor-pointer ${
+              className={`px-4 py-2  border cursor-pointer ${
                 filter === f
                   ? "bg-brand text-white"
                   : "text-gray-300 border-gray-600 hover:scale-95"
@@ -111,7 +111,7 @@ export default function ProjectsSection() {
         <div className="mt-8 text-center">
           <button
             onClick={() => setVisible(visible + 3)}
-            className="cursor-pointer px-5 py-3 bg-brand text-white rounded hover:bg-brand/80 transition"
+            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             Load More
           </button>

@@ -53,7 +53,7 @@ export default function BlogSection() {
         <div className="mt-8 text-center">
           <button
             onClick={() => setVisible(visible + 3)}
-            className="cursor-pointer px-5 py-3 bg-brand text-white rounded hover:bg-brand/80 transition"
+            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             Load More
           </button>

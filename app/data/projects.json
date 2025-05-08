@@ -34,9 +34,9 @@
     "slug": "wps-bedge",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["Wordpress", "Google Analytics", "Mailchimp" , "Google Tag Manager"],
+    "techStack": ["Wordpress", "Google Analytics", "Mailchimp", "Google Tag Manager"],
     "description": "Photography Studio made for creatives to showcase their creativity.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "longDescription": "Discover the diverse world of WPS (Work & Play Studio), a Multi-Disciplinary Photography Studio that seamlessly blends creativity and expertise allowing creatives to showcase their creativity. With a focus on capturing the essence of each moment, WPS offers a range of services including photography, videography, and creative direction.",
     "featuredImage": "/media/projects/wps-featured.png",
     "images": [
       "/projects/fittrack/1.jpg",
@@ -66,7 +66,7 @@
     "type": "mobile",
     "jobType": "Hobby",
     "techStack": ["Kotlin", "Yelp Fusion", "Retrofit Api", "MVVM Design", "Coroutines", "Room Database"],
-    "description": "A mobile app that helps you find businesses using Yelp API.",
+    "description": "A mobile app that helps you find businesses using Yelp Fusion API.",
     "longDescription": "The Business Finder App is a mobile application that allows users to search for businesses in their area using the Yelp Fusion API. The app provides a user-friendly interface and utilizes the MVVM design pattern for efficient data management.",
     "featuredImage": "/media/projects/yelp-app-featured.png",
     "images": [
@@ -89,7 +89,7 @@
       "/media/projects/page-images/best-in-uniform-1.png",
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://github.com/oviematthew/weather-app-swift"
   },
   {
     "name": "Employee Voting System",
@@ -107,34 +107,34 @@
     "live": "https://bestinuniform980-9w9y.vercel.app/"
   },
    {
-    "name": "Employee Voting System",
-    "slug": "employee",
-    "type": "web",
+    "name": "Addict Wellness App",
+    "slug": "chattee-app",
+    "type": "mobile",
     "jobType": "Hobby",
-    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "Best In Uniform is a voting system for employees.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "techStack": ["React Native", "Firebase", "Expo", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Chattee is a mobile app that helps addicts find wellness.",
+    "longDescription": "Chattee is a mobile application designed to assist individuals struggling with addiction in finding wellness and support. The app provides resources, community connections, and tools for recovery.",
+    "featuredImage": "/media/projects/chatee-featured.png",
     "images": [
       "/media/projects/page-images/best-in-uniform-1.png",
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://github.com/oviematthew/chattee"
   },
    {
-    "name": "Employee Voting System",
-    "slug": "employee-voting",
+    "name": "OCR To Text",
+    "slug": "ocr-to-text",
     "type": "web",
     "jobType": "Hobby",
-    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "Best In Uniform is a voting system for employees.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "techStack": ["React.JS", "REST API", "Bootstrap", "TailwindCSS", "Tesseract.js"],
+    "description": "A web app that converts images to text using OCR.",
+    "longDescription": "The OCR To Text web application allows users to upload images and convert them into editable text using Optical Character Recognition (OCR) technology. The app utilizes Tesseract.js for accurate text extraction.",
+    "featuredImage": "/media/projects/imagetotext-featured.png",
     "images": [
       "/media/projects/page-images/best-in-uniform-1.png",
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://imagetotextapp.vercel.app/"
   },
    {
     "name": "Employee Voting System",
