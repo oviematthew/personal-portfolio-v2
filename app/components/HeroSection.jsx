@@ -48,7 +48,7 @@ export default function HeroSection() {
         </div>
 
         {/* Description */}
-        <p className="mt-5 text-base lg:text-2xl text-gray-400 ">
+        <p className=" text-md lg:text-xl text-gray-400 ">
           I specialize in building fast, responsive, accessible, and
           user-focused frontend & mobile experiences. Clean code, intuitive UX,
           and performance are my top priorities.
@@ -84,7 +84,7 @@ export default function HeroSection() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="mt-6">
+        <div className="mt-2">
           <Link
             href="#projects"
             className="inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"

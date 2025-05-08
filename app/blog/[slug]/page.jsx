@@ -1,12 +1,12 @@
 import blogsData from "../../data/blogs.json";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { content } from "../../../tailwind.config";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 export default async function BlogPost({ params }) {
-  // fix dynamic route issues with newer nextjs dynamic routing by awaiting params first
+// await params first as required in nextjs14+
   const { slug } = await params;
   const post = blogsData.find((b) => b.slug === slug);
 
@@ -14,14 +14,16 @@ export default async function BlogPost({ params }) {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 text-white">
-      <Link href="/#blog" className="flex mb-5 text-gray-300 text-md">
-        <ArrowLeft className="text-gray-300 " />
-        Back
+      <Link href="/#blog" className="flex items-center gap-2 mb-5 text-gray-300 hover:text-white transition">
+        <ArrowLeft size={18} />
+        <span>Back</span>
       </Link>
+
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <div className="text-sm text-gray-500 mb-6">
         {new Date(post.date).toDateString()}
       </div>
+
       <div className="relative w-full h-72 mb-6">
         <Image
           src={post.coverImage}
@@ -30,7 +32,10 @@ export default async function BlogPost({ params }) {
           className="object-cover rounded-lg"
         />
       </div>
-      <p className="text-lg text-gray-300">{post.content}</p>
+
+      <article className="prose prose-invert prose-lg max-w-none">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </article>
     </div>
   );
 }
