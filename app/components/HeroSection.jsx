@@ -48,10 +48,9 @@ export default function HeroSection() {
         </div>
 
         {/* Description */}
-        <p className=" text-md lg:text-xl text-gray-400 ">
+        <p className=" text-md lg:text-lg text-gray-400 ">
           I am a minimalist that specializes in building fast, responsive,
-          accessible, and user-prioritzed frontend & mobile experiences. Clean
-          code, intuitive UX, and performance are my top priorities.
+          accessible, and user-prioritzed frontend & mobile experiences.
         </p>
 
         {/* Social Media Links */}

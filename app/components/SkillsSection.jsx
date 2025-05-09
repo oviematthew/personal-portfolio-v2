@@ -47,7 +47,7 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="px-6 py-12 w-full mx-auto ">
+    <section id="skills" className="px-6 py-12 w-full lg:w-3/4 mx-auto ">
       <h2 className="text-3xl font-bold text-white text-center mb-8 font-heading">
         My Skills <span className="text-brand">.</span>
       </h2>

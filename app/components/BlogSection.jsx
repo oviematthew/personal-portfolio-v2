@@ -3,11 +3,18 @@ import blogsData from "../data/blogs.json";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import readingDuration from "reading-duration";
 
 export default function BlogSection() {
   const latestPost = [...blogsData].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   )[0];
+
+  // Calculate reading time
+  const readingTime = readingDuration(latestPost.content, {
+    wordsPerMinute: 200,
+    emoji: false,
+  });
 
   return (
     <section
@@ -45,12 +52,18 @@ export default function BlogSection() {
         <p className="text-sm text-gray-400 mt-2 line-clamp-2">
           {latestPost.description}
         </p>
-        <div className="mt-3 text-xs text-gray-500">
-          {new Date(latestPost.date + "T12:00:00").toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
+        <div className="flex w-full justify-between items-center mt-4 text-xs text-gray-500">
+          <span>
+            {new Date(latestPost.date + "T12:00:00").toLocaleDateString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              }
+            )}
+          </span>
+          <span className="text-gray-400">🕒 {readingTime}</span>
         </div>
       </Link>
     </section>

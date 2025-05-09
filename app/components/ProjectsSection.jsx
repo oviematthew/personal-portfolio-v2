@@ -22,6 +22,7 @@ export default function ProjectsSection() {
   return (
     //   Motion section for animation
     // animation works when the section is in view on every scroll (once:false)
+
     <section
       id="projects"
       className="min-h-screen max-w-6xl mx-auto px-6 py-30 lg:py-40 mt-10 "
