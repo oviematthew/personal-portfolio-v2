@@ -23,8 +23,8 @@ export default function AboutSection() {
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             Hi! I’m <strong>Matthew Ovie Enamuotor</strong>, a Frontend and
-            Mobile Developer based in London, Ontario, Canada. I studied{" "}
-            <strong>Computer Engineering</strong>{" "}
+            Mobile Developer based in London, Ontario, Canada. I bagged my
+            bachelors' in <strong>Computer Engineering</strong> from{" "}
             <Link
               href="https://covenantuniversity.edu.ng"
               className="text-brand hover:underline"
@@ -40,12 +40,12 @@ export default function AboutSection() {
             >
               @Fanshawe College
             </Link>{" "}
-            with a major in Mobile Application Development.
+            with a Post Grad in <strong>Mobile Application Development</strong>.
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            Over the past 5 years, I’ve worked as a freelance web developer,
-            building over <strong>200 websites</strong> for more than{" "}
+            Over the past 5 years, I’ve worked as a web developer, building over{" "}
+            <strong>200 websites</strong> for more than{" "}
             <strong>130 clients</strong> across <strong>4 continents</strong>. I
             love crafting clean, high performing, and accessible interfaces that
             blend form and function.
@@ -61,8 +61,8 @@ export default function AboutSection() {
               @Boas
             </Link>
             , where I worked as a frontend developer working with Liquid on
-            Shopify, and Next.Js to build and maintain quick, responsive,
-            accessible and impactful digital experiences.
+            Shopify, and Strapi CMS with Next.Js to build and maintain quick,
+            responsive, accessible and impactful digital experiences.
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed">

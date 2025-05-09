@@ -8,7 +8,7 @@ import Image from "next/image";
 const FILTERS = ["all", "web", "mobile"];
 
 export default function ProjectsSection() {
-  const [visible, setVisible] = useState(9);
+  const [visible, setVisible] = useState(6);
   const [filter, setFilter] = useState("all"); // Default filter is "all"
 
   //   Filter projects based on the selected filter
@@ -38,7 +38,7 @@ export default function ProjectsSection() {
               key={f}
               onClick={() => {
                 setFilter(f);
-                setVisible(9);
+                setVisible(6);
               }}
               className={`px-4 py-2  border cursor-pointer ${
                 filter === f
