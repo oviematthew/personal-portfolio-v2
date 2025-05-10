@@ -85,8 +85,8 @@ export default function ProjectsSection() {
                 {project.description}
               </p>
 
-              <div className="flex items-center flex-wrap gap-2 mt-3">
-                {project.techStack.slice(0, 2).map((tech) => (
+              <div className="flex items-center flex-wrap gap-2 mt-5">
+                {project.techStack.slice(0, 3).map((tech) => (
                   <span
                     key={tech}
                     className="inline-flex items-center gap-1 bg-white/10 text-white text-xs font-medium px-2.5 py-1 rounded-full"
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                   </span>
                 ))}
                 {/* Show the number of additional tech stacks if more than 2 */}
-                {project.techStack.length > 2 && (
+                {project.techStack.length > 3 && (
                   <span className="text-xs text-gray-400">
                     +{project.techStack.length - 2} more
                   </span>

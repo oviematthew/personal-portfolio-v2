@@ -72,10 +72,11 @@ export default async function ProjectPage({ params }) {
         />
       </div>
 
-      <div className="flex flex-col gap-4 items-center">
-        <h2 className="text-lg font-bold text-gray-300 mb-5 mt-5">
-          More Screenshots
-        </h2>
+      <h2 className="text-lg font-bold text-gray-300 mb-5 mt-5">
+        More Screenshots
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {project.images.map((img, index) => (
           <Image
             key={index}
