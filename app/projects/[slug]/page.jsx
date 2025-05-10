@@ -20,36 +20,38 @@ export default async function ProjectPage({ params }) {
         <div className="back-link hover:scale-95">
           <Link
             href="/#projects"
-            className="flex items-center gap-2 text-gray-300 text-md hover:scale-95"
+            className="flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95"
           >
-            <ArrowLeft className="text-gray-300 " />
+            <ArrowLeft className="text-gray-300" />
             Back
           </Link>
         </div>
 
         <div className="title">
-          <h1 className="text-xl md:text-3xl font-bold font-heading">
+          <h1 className="text-md md:text-3xl font-bold font-heading">
             {project.name}
           </h1>
         </div>
 
-        <div className="forward-link">
+        <div className="forward-link hover:scale-95">
           <Link
             href={project.live}
             target="_blank"
-            className="ml-auto flex items-center gap-2 text-gray-300 hover:text-brand text-md "
+            className="ml-auto flex items-center gap-2 text-gray-300 text-sm md:text-md "
           >
-            Visit Project
-            <ArrowUpRight className="" />
+            Visit
+            <ArrowUpRight className="text-gray-300" />
           </Link>
         </div>
       </div>
-      <p className="text-sm italic text-gray-400 mb-5">
+      <p className="text-sm text-center italic text-gray-400 mb-5">
         Job Type: {project.jobType}
       </p>
 
-      <p className="text-gray-300 mb-6 font-text">{project.longDescription}</p>
-      <div className="flex flex-wrap gap-4 mb-6">
+      <p className="text-gray-300 mb-10 font-text text-center md:text-start">
+        {project.longDescription}
+      </p>
+      <div className="flex justify-center flex-wrap gap-4 mb-10">
         {project.techStack.map((tech) => (
           <span
             key={tech}
@@ -67,6 +69,7 @@ export default async function ProjectPage({ params }) {
           width={1200}
           height={800}
           className="rounded-lg mb-6"
+          unoptimized={project.featuredImage.endsWith(".gif")} // Important: disables Next.js optimization for GIFs
         />
       </div>
 

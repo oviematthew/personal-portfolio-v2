@@ -21,11 +21,11 @@
     "jobType": "Full Time",
     "techStack": ["Shopify", "Next.js", "GraphQL", "Typescript", "Strapi", "Liquid"],
     "description": "Vintage Jeans Ecommerce Brand that supports giving back majority of the proceeds to charity.",
-    "longDescription": "BOAS is a jeans wholesale company that specializes in providing high-quality denim products to retailers and businesses. With a focus on sustainability and ethical production, they focus on donating larger chunk of the proceeds to charity.",
+    "longDescription": "BOAS is a jeans wholesale company that specializes in providing high-quality denim products to retailers and businesses. With a focus on sustainability and ethical production, they focus on donating larger chunk of the proceeds to charity. One of my contributions was building a custom shopify app to discount products twice daily and also a countdown timer to show the time left till  the discount. I also contributed to building a custom Next.js app that fetches data from the shopify store and displays it in a more user friendly way. The app is built with Typescript and GraphQL, and uses Strapi as a headless CMS to manage the content.",
     "featuredImage": "/media/projects/boas-featured.png",
     "images": [
-      "/projects/fittrack/1.jpg",
-      "/projects/fittrack/2.jpg"
+      "/media/projects/page-images/boas-1.png",
+      "/media/projects/page-images/boas-2.png"
     ],
     "live": "https://boas.co"
   },
@@ -34,7 +34,7 @@
     "slug": "wps-bedge",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["Wordpress", "Google Analytics", "Mailchimp", "Google Tag Manager"],
+    "techStack": ["Wordpress", "Google Analytics", "Mailchimp", "Google Tag Manager", "MySQL", "Recaptcha"],
     "description": "Photography Studio made for creatives to showcase their creativity.",
     "longDescription": "Discover the diverse world of WPS (Work & Play Studio), a Multi-Disciplinary Photography Studio that seamlessly blends creativity and expertise allowing creatives to showcase their creativity. With a focus on capturing the essence of each moment, WPS offers a range of services including photography, videography, and creative direction.",
     "featuredImage": "/media/projects/wps-featured.png",
@@ -50,15 +50,15 @@
     "slug": "lizz-davies",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["Wordpress", "Google Analytics", "Google Tag Manager"],
+    "techStack": ["Wordpress", "Google Analytics", "Google Tag Manager", "MySQL", "Recaptcha"],
     "description": "Photography Studio tmade for creatives to showcase their creativity.",
     "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
     "featuredImage": "/media/projects/lizzdavies-featured.png",
     "images": [
-      "/projects/fittrack/1.jpg",
-      "/projects/fittrack/2.jpg"
+      "/media/projects/page-images/lizzdavies-1.png",
+      "/media/projects/page-images/lizzdavies-2.png"
     ],
-    "live": "https://wpsbedge.com"
+    "live": "https://lizzdavies.com"
   },
   {
     "name": "Business Finder App",
@@ -92,19 +92,19 @@
     "live": "https://github.com/oviematthew/ting"
   },
   {
-    "name": "Employee Voting System",
-    "slug": "employee-voting-system",
+    "name": "F10 Photography",
+    "slug": "f10-photography",
     "type": "web",
     "jobType": "Hobby",
-    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "Best In Uniform is a voting system for employees.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "techStack": ["Wordpress", "Google Analytics", "Google Tag Manager", "GSAP", "Yoast SEO", "MySQL", "Recaptcha"],
+    "description": "F10 Photography is a website designed to showcase the work of a wedding photographer.",
+    "longDescription": "F10 Photography is a web application designed to showcase the work of a wedding photographer. The website features a clean and modern design, allowing users to easily navigate through the portfolio and view high-quality images.",
+    "featuredImage": "/media/projects/f10-featured.png",
     "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/page-images/f10-1.png",
+      "/media/projects/page-images/f10-2.png"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://f10studio.ca/"
   },
    {
     "name": "Addict Wellness App",
@@ -137,19 +137,19 @@
     "live": "https://imagetotextapp.vercel.app/"
   },
    {
-    "name": "Employee Voting System",
-    "slug": "employee-system",
-    "type": "web",
+    "name": "Hangman Game",
+    "slug": "hangman-game",
+    "type": "mobile",
     "jobType": "Hobby",
-    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "Best In Uniform is a voting system for employees.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "techStack": ["Swift", "Swift Storyboard"],
+    "description": "Explore Hangman where users take the reins in guessing while enjoying prompts and clues for an enhanced gameplay experience.",
+    "longDescription": "Hangman is a classic word-guessing game where players try to guess a hidden word by suggesting letters within a certain number of guesses. The game features a user-friendly interface and engaging gameplay mechanics.",
+    "featuredImage": "/media/projects/hangman-featured.png",
     "images": [
       "/media/projects/page-images/best-in-uniform-1.png",
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://github.com/oviematthew/hangman-app"
   },{
     "name": "Weather App",
     "slug": "weather-app",
@@ -164,6 +164,21 @@
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
     "live": "https://github.com/oviematthew/weather-app-swift"
+  },
+  {
+    "name": "Employee Voting System",
+    "slug": "employee-voting-system",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["React.JS", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
+    "description": "Best In Uniform is a voting system for employees.",
+    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
+    "featuredImage": "/media/projects/best-in-uniform-featured.png",
+    "images": [
+      "/media/projects/page-images/best-in-uniform-1.png",
+      "/media/projects/page-images/best-in-uniform-2.JPEG"
+    ],
+    "live": "https://bestinuniform980-9w9y.vercel.app/"
   }
 
   
