@@ -131,8 +131,8 @@
     "longDescription": "The OCR To Text web application allows users to upload images and convert them into editable text using Optical Character Recognition (OCR) technology. The app utilizes Tesseract.js for accurate text extraction.",
     "featuredImage": "/media/projects/imagetotext-featured.png",
     "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/page-images/ocr-1.png",
+      "/media/projects/page-images/ocr-2.png"
     ],
     "live": "https://imagetotextapp.vercel.app/"
   },
