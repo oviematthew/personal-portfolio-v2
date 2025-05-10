@@ -69,11 +69,13 @@ export default async function ProjectPage({ params }) {
           width={1200}
           height={800}
           className="rounded-lg mb-6"
-          unoptimized={project.featuredImage.endsWith(".gif")} // Important: disables Next.js optimization for GIFs
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="flex flex-col gap-4 items-center">
+        <h2 className="text-lg font-bold text-gray-300 mb-5 mt-5">
+          More Screenshots
+        </h2>
         {project.images.map((img, index) => (
           <Image
             key={index}
@@ -82,6 +84,7 @@ export default async function ProjectPage({ params }) {
             width={600}
             height={400}
             className="rounded"
+            unoptimized={project.featuredImage.endsWith(".gif")} // Important: disables Next.js optimization for GIFs
           />
         ))}
       </div>

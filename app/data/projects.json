@@ -39,8 +39,8 @@
     "longDescription": "Discover the diverse world of WPS (Work & Play Studio), a Multi-Disciplinary Photography Studio that seamlessly blends creativity and expertise allowing creatives to showcase their creativity. With a focus on capturing the essence of each moment, WPS offers a range of services including photography, videography, and creative direction.",
     "featuredImage": "/media/projects/wps-featured.png",
     "images": [
-      "/projects/fittrack/1.jpg",
-      "/projects/fittrack/2.jpg"
+      "/media/projects/page-images/wpsbedge-1.png",
+      "/media/projects/page-images/wpsbedge-2.png"
     ],
     "live": "https://wpsbedge.com"
   },
@@ -146,8 +146,13 @@
     "longDescription": "Hangman is a classic word-guessing game where players try to guess a hidden word by suggesting letters within a certain number of guesses. The game features a user-friendly interface and engaging gameplay mechanics.",
     "featuredImage": "/media/projects/hangman-featured.png",
     "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/page-images/hangman-1.png",
+      "/media/projects/page-images/hangman-2.png",
+      "/media/projects/page-images/hangman-3.png",
+      "/media/projects/page-images/hangman-4.png",
+      "/media/projects/page-images/hangman-5.png",
+      "/media/projects/page-images/hangman-6.png",
+      "/media/projects/page-images/hangman-7.png"
     ],
     "live": "https://github.com/oviematthew/hangman-app"
   },{
@@ -157,11 +162,12 @@
     "jobType": "Hobby",
     "techStack": ["Swift", "Swift Storyboard", "MVVM Design", "Core Location", "Weather API"],
     "description": "A mobile app that helps you find the weather using Open Weather API.",
-    "longDescription": "The Weather App is a mobile application that provides users with real-time weather information using the Open Weather API. The app is designed with a user-friendly interface and follows the MVVM design pattern for efficient data handling.",
+    "longDescription": "The Weather App is a mobile application that provides users with real-time weather information using the Open Weather API. The app is designed with a user-friendly interface and follows the MVVM design pattern for efficient data handling. It also utilizes Core Location to provide location-based weather updates.",
     "featuredImage": "/media/projects/weather-app-featured.png",
     "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/page-images/weather-2.png",
+      "/media/projects/page-images/weather-1.png",
+      "/media/projects/page-images/weather-3.png"
     ],
     "live": "https://github.com/oviematthew/weather-app-swift"
   },
