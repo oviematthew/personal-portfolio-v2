@@ -17,10 +17,7 @@ export default function BlogSection() {
   });
 
   return (
-    <section
-      id="blog"
-      className="px-6 py-30 lg:py-40 mt-10 w-full lg:w-1/2 mx-auto"
-    >
+    <section id="blog" className="px-6 py-30 w-full lg:w-1/2 mx-auto">
       <div className="flex justify-between items-center mb-10">
         <h2 className="text-3xl font-bold text-white font-heading">
           Latest Blog Post <span className="text-brand">.</span>

@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div>
-        <Link href="/" className="text-xl font-semibold italic font-text">
+        <Link href="/" className="text-xl font-semibold font-text">
           ovie<span className="text-brand">.</span>
         </Link>
       </div>

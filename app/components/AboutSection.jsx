@@ -14,9 +14,9 @@ export default function AboutSection() {
       transition={{ duration: 0.6 }}
       viewport={{ once: false, amount: 0.4 }}
     >
-      <div className="about-container flex flex-col md:flex-row items-center gap-8">
+      <div className="about-container flex flex-col lg:flex-row items-center gap-8">
         {/* Text section */}
-        <div className="left-about w-full md:w-1/2">
+        <div className="left-about w-full lg:w-1/2">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 border-brand inline-block font-heading text-white">
             About Me <span className="text-brand">.</span>
           </h2>
@@ -73,7 +73,7 @@ export default function AboutSection() {
         </div>
 
         {/* Image section */}
-        <div className="right-about w-full md:w-1/2 p-6 rounded-lg flex justify-center items-center">
+        <div className="right-about w-full lg:w-1/2 p-6 rounded-lg flex justify-center items-center">
           <Image
             src="/media/matthew-ovie.jpg"
             alt="Matthew Ovie Enamuotor"
