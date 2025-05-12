@@ -78,7 +78,7 @@ export default function ContactForm() {
         type="submit"
         disabled={isSubmitting}
         aria-label="Submit"
-        className="mt-4 cursor-pointer inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 transition transform hover:scale-95 duration-300 ease-in-out"
+        className="mt-4 cursor-pointer inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 transition transform hover:scale-95 duration-300 ease-in-out italic"
       >
         {isSubmitting ? "Sending..." : "Submit"}
       </button>
