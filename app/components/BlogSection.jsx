@@ -33,7 +33,7 @@ export default function BlogSection() {
 
       <Link
         href={`/blog/${latestPost.slug}`}
-        className="group bg-white/5 p-4 rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300"
+        className="group  p-4 rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300"
       >
         <div className="relative w-full h-60 mb-4 overflow-hidden rounded-lg">
           <Image
@@ -49,7 +49,7 @@ export default function BlogSection() {
         <p className="text-sm text-gray-400 mt-2 line-clamp-2">
           {latestPost.excerpt}
         </p>
-        <div className="flex w-full justify-between items-center mt-4 text-xs text-gray-500">
+        <div className="flex w-full justify-between items-center mt-4 text-xs text-gray-400">
           <span>
             {new Date(latestPost.date + "T12:00:00").toLocaleDateString(
               "en-US",
