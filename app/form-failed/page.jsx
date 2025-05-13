@@ -1,5 +1,10 @@
 import React from "react";
 import Link from "next/link";
+export const metadata = {
+  title: "Form Submission Failed",
+  description: "Message failed to send.",
+  robots: "noindex, nofollow",
+};
 
 export default function FormFailed() {
   return (
@@ -19,7 +24,7 @@ export default function FormFailed() {
         .
       </p>
 
-      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+      <div className="mt-8 flex gap-4">
         <Link href="/#contact">
           <button className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic">
             Try Again

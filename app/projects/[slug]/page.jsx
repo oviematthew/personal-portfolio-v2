@@ -23,12 +23,12 @@ export default async function ProjectPage({ params }) {
             className="flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95"
           >
             <ArrowLeft className="text-gray-300" />
-            Back
+            <span className="hidden md:flex">Back</span>
           </Link>
         </div>
 
         <div className="title">
-          <h1 className="text-md md:text-3xl font-bold font-heading">
+          <h1 className="text-lg md:text-3xl font-bold font-heading">
             {project.name}
           </h1>
         </div>
