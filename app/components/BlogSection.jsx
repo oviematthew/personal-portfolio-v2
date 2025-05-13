@@ -24,7 +24,7 @@ export default function BlogSection() {
         </h2>
         <Link
           href="/blog"
-          className="flex items-center gap-2 text-gray-300 text-md hover:scale-95"
+          className="flex items-center hover:underline gap-2 text-gray-300 text-md hover:scale-95"
         >
           Blog
           <ArrowUpRight />
