@@ -6,23 +6,12 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [captchaToken, setCaptchaToken] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [formCompleted, setFormCompleted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
-  function handleCheckValue() {
-    if (fullName && email && message) {
-      setFormCompleted(true);
-    }
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    handleCheckValue();
 
     if (!captchaToken) {
       alert("Please complete the reCAPTCHA.");
@@ -57,7 +46,6 @@ export default function ContactForm() {
         name="fullName"
         type="text"
         required
-        onChange={setFullName}
         placeholder="Full Name"
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
       />
@@ -67,7 +55,6 @@ export default function ContactForm() {
         name="email"
         type="email"
         required
-        onChange={setEmail}
         placeholder="Email Address"
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
       />
@@ -76,7 +63,6 @@ export default function ContactForm() {
         id="message"
         name="message"
         required
-        onChange={setMessage}
         placeholder="Your Message"
         rows={6}
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
