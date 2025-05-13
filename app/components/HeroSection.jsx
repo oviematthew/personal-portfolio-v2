@@ -43,12 +43,12 @@ export default function HeroSection() {
             className="p-2 cursor-pointer rounded-full bg-white/10 hover:bg-white/20 transition"
             aria-label="Hear how to pronounce Ovie"
           >
-            <Volume2 className="w-6 h-6 text-white" />
+            <Volume2 className="w-5 h-5 text-white" />
           </button>
         </div>
 
         {/* Description */}
-        <p className=" text-md lg:text-lg text-gray-400 mt-2">
+        <p className=" text-md lg:text-xl text-gray-400 mt-2">
           I am a minimalist that specializes in building fast, responsive,
           accessible, and user-prioritzed frontend & mobile experiences.
         </p>

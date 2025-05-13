@@ -6,17 +6,29 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [captchaToken, setCaptchaToken] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [formCompleted, setFormCompleted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
+  function handleCheckValue() {
+    if (fullName && email && message) {
+      setFormCompleted(true);
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    handleCheckValue();
+
     if (!captchaToken) {
       alert("Please complete the reCAPTCHA.");
       return;
     }
 
-    setIsSubmitting(true);
     const form = new FormData(e.target);
     form.append("captcha", captchaToken);
 
@@ -45,6 +57,7 @@ export default function ContactForm() {
         name="fullName"
         type="text"
         required
+        onChange={setFullName}
         placeholder="Full Name"
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
       />
@@ -54,6 +67,7 @@ export default function ContactForm() {
         name="email"
         type="email"
         required
+        onChange={setEmail}
         placeholder="Email Address"
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
       />
@@ -62,6 +76,7 @@ export default function ContactForm() {
         id="message"
         name="message"
         required
+        onChange={setMessage}
         placeholder="Your Message"
         rows={6}
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
@@ -71,12 +86,13 @@ export default function ContactForm() {
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           onChange={(token) => setCaptchaToken(token || "")}
+          className="flex justify-center"
         />
       </div>
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !formCompleted}
         aria-label="Submit"
         className="mt-4 cursor-pointer inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 transition transform hover:scale-95 duration-300 ease-in-out italic"
       >

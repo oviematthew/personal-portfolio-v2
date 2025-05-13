@@ -13,7 +13,7 @@ export default function ContactSection() {
         </h2>
 
         <p className="text-lg mb-8">
-          Get in touch or shoot me an email directly at{" "}
+          Fill the form below or shoot me an email directly at{" "}
           <a
             href="mailto:hello@oviematthew.com"
             className="text-brand hover:text-brand/90 transition hover:underline"

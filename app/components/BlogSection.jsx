@@ -47,7 +47,7 @@ export default function BlogSection() {
           {latestPost.title}
         </h3>
         <p className="text-sm text-gray-400 mt-2 line-clamp-2">
-          {latestPost.description}
+          {latestPost.excerpt}
         </p>
         <div className="flex w-full justify-between items-center mt-4 text-xs text-gray-500">
           <span>
