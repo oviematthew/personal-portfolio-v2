@@ -7,12 +7,12 @@ export default function FormFailed() {
       <h1 className="text-2xl lg:text-4xl font-cormorant text-red-600 font-semibold">
         Oops! Something went wrong!
       </h1>
-      <p className="mt-4 text-md font-montserrat max-w-xl text-brand">
+      <p className="mt-4 text-md font-montserrat max-w-xl text-white">
         I'm sorry, but your message could not be sent. Please try again in a few
         minutes or contact me directly via{" "}
         <a
           href="mailto:info@oviematthew.com"
-          className="underline hover:text-gray-600 transition"
+          className="underline text-brand hover:underline transition"
         >
           email
         </a>

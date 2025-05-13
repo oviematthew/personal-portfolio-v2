@@ -30,7 +30,7 @@ export default function ContactForm() {
       setCaptchaToken("");
 
       const fullName = form.get("fullName") || "";
-      router.push(`/form-success?name=${encodeURIComponent(fullName)}`);
+      router.push(`/form-success?fullName=${encodeURIComponent(fullName)}`);
     } else {
       router.push("/form-failed");
     }
