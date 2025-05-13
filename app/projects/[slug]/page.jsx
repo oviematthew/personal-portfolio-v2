@@ -72,11 +72,11 @@ export default async function ProjectPage({ params }) {
         />
       </div>
 
-      <h2 className="text-lg font-bold text-gray-300 mb-5 mt-5">
-        More Screenshots
+      <h2 className="text-lg text-center font-bold text-gray-300 mb-5 mt-10">
+        More Screenshot(s)
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 place-items-center gap-4">
         {project.images.map((img, index) => (
           <Image
             key={index}

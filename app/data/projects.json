@@ -70,8 +70,8 @@
     "longDescription": "The Business Finder App is a mobile application that allows users to search for businesses in their area using the Yelp Fusion API. The app provides a user-friendly interface and utilizes the MVVM design pattern for efficient data management.",
     "featuredImage": "/media/projects/yelp-app-featured.png",
     "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/page-images/kotlin-api-app-1.webp",
+      "/media/projects/page-images/kotlin-api-app-2.gif"
     ],
     "live": "https://github.com/oviematthew/kotlin-api-project"
   },
@@ -191,6 +191,35 @@
       "/media/projects/page-images/best-in-uniform-2.JPEG"
     ],
     "live": "https://bestinuniform980-9w9y.vercel.app/"
+  },
+
+  {
+    "name": "Jeopardy Game",
+    "slug": "jeopardy-game",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["HTML5", "CSS3", "JS", "REST API"],
+    "description": "A web app that helps you play Jeopardy. using Jservice.io API.",
+    "longDescription": "The Jeopardy Game is a web application that allows users to play the classic game of Jeopardy. The app fetches questions from the Jservice.io API and provides an interactive interface for users to answer questions and keep track of their scores.",
+    "featuredImage": "/media/projects/jeopardy-game-featured.png",
+    "images": [
+      "/media/projects/jeopardy-game-featured.png"
+    ],
+    "live": "https://github.com/oviematthew/jeopardy-game-clone"
+  },
+  {
+    "name": "Meet The Arunas",
+    "slug": "meet-the-arunas",
+    "type": "web",
+    "jobType": "Freelance",
+    "techStack": ["HTML5", "CSS3", "JS", "PHP"],
+    "description": "Wedding website for a couple to showcase their love story, gallery and RSVP",
+    "longDescription": "Meet The Arunas is a wedding website designed for a couple to showcase their love story, gallery, and RSVP. The website features a clean and modern design, allowing users to easily navigate through the couple's journey and view high-quality images.",
+    "featuredImage": "/media/projects/meetthearunas-featured.png",
+    "images": [
+      "/media/projects/page-images/meetthearunas-1.png"
+    ],
+    "live": "https://meet-the-arunas.vercel.app/"
   }
 
   
