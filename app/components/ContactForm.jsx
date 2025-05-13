@@ -16,6 +16,8 @@ export default function ContactForm() {
     if (!captchaToken) {
       alert("Please complete the reCAPTCHA.");
       return;
+    } else {
+      setIsSubmitting(true);
     }
 
     const form = new FormData(e.target);
@@ -80,7 +82,11 @@ export default function ContactForm() {
         type="submit"
         disabled={isSubmitting}
         aria-label="Submit"
-        className="mt-4 cursor-pointer inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 transition transform hover:scale-95 duration-300 ease-in-out italic"
+        className={`mt-4 inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold italic transition transform duration-300 ease-in-out ${
+          isSubmitting
+            ? "bg-gray-500 cursor-not-allowed"
+            : "bg-brand hover:bg-brand/90 cursor-pointer hover:scale-95"
+        } text-white`}
       >
         {isSubmitting ? "Sending..." : "Submit"}
       </button>
