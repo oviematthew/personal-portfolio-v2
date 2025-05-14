@@ -25,7 +25,7 @@ export default function ContactSection() {
             href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
             className="text-brand hover:text-brand/90 transition hover:underline"
           >
-            linkedin
+            LinkedIn
           </a>
         </p>
 
