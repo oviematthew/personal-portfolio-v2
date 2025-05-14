@@ -5,7 +5,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="px-6 py-12 w-full lg:w-1/2 mx-auto text-white rounded-lg shadow-lg flex items-center justify-center h-[100%]"
+      className="px-6 py-30 w-full lg:w-1/2 mx-auto text-white rounded-lg shadow-lg flex items-center justify-center h-[100%]"
     >
       <div className="w-full max-w-xl text-center">
         <h2 className="text-3xl font-bold font-heading mb-4">
