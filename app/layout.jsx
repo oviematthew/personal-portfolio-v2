@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Matthew Ovie Enamuotor",
+  title: "Matthew Ovie Enamuotor - Frontend and Mobile App Developer",
   description:
     "Matthew Ovie Enamuotor is a Frontend and Mobile App Developer, pursuing his passion in software engineering. Check out his portfolio to see his work and projects.",
   keywords:
