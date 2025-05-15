@@ -97,7 +97,7 @@ export default function ProjectsSection() {
                 {/* Show the number of additional tech stacks if more than 2 */}
                 {project.techStack.length > 3 && (
                   <span className="text-xs text-gray-400">
-                    +{project.techStack.length - 2} more
+                    +{project.techStack.length - 3} more
                   </span>
                 )}
               </div>
