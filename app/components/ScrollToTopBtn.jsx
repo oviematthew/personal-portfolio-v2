@@ -22,6 +22,7 @@ export default function ScrollToTopBtn() {
       className={`fixed z-10 bottom-5 right-5 bg-brand p-2 border-amber-50 border-2 rounded-lg shadow-lg hover:bg-brand-dark hover:cursor-pointer transition-all duration-300 ${
         visible ? "opacity-100" : "opacity-0"
       } pointer-events-auto`}
+      aria-label="Scroll to Top"
     >
       <ArrowUp
         size={24}
