@@ -11,6 +11,7 @@ export async function POST(request) {
   // Only notify for specific refs
   const allowedRefs = ["github", "resume", "linkedin", "immigration"];
   if (!allowedRefs.includes(ref)) {
+    console.log("Ref not tracked visit:", ref);
     return new Response("Ref not tracked", { status: 204 });
   }
 
@@ -26,12 +27,13 @@ export async function POST(request) {
   const mailOptions = {
     from: `"Website Ref Tracker" <${process.env.SMTP_USER}>`,
     to: process.env.GMAIL_EMAIL,
-    subject: `New ${ref.toUpperCase()} referral`,
+    subject: `New ${ref.toUpperCase()} referral visit`,
     text: `Someone visited your site from ${ref} at ${new Date().toLocaleString()}`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
+    console.log("Ref Tracker email sent:", ref);
     return new Response("Email sent", { status: 200 });
   } catch (error) {
     console.error("Email error:", error);
