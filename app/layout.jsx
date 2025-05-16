@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
+import CookiePolicy from "./components/CookiePolicy";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
         <ScrollToTopBtn />
+        <CookiePolicy />
         <Footer />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
