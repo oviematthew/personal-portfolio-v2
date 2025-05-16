@@ -55,13 +55,8 @@ export async function POST(req) {
       html: htmlMessage,
     });
 
-    console.log("✅ Email sent");
-    return NextResponse.json({ success: true });
+    return new Response("Email sent", { status: 200 });
   } catch (err) {
-    console.error("❌ Error:", err);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
+    return new Response("Email failed to send", { status: 500 });
   }
 }

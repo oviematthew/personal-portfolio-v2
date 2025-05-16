@@ -9,6 +9,9 @@ import SkillsSection from "./components/SkillsSection";
 import ContactSection from "./components/ContactSection";
 
 export default function Home() {
+  // Log referral information if present in the URL
+  // This is useful for tracking where visitors are coming from
+  // and can help in understanding the where the traffic is coming from
   useEffect(() => {
     const ref = new URLSearchParams(window.location.search).get("ref");
     if (ref) {
