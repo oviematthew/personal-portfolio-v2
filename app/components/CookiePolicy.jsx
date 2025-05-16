@@ -22,7 +22,7 @@ export default function CookiePolicy() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-3 left-3 z-50 max-w-sm rounded-sm bg-black/90 px-10 py-6 shadow-lg backdrop-blur-md transition-all sm:max-w-md">
+    <div className="fixed bottom-3 md:left-3 z-50 max-w-sm rounded-sm bg-black/90 px-10 py-6 shadow-lg backdrop-blur-md transition-all sm:max-w-md">
       <div className="relative flex items-start gap-x-4">
         <div className="text-sm text-white leading-6">
           <p>
