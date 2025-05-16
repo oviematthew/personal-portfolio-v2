@@ -17,7 +17,7 @@ export default async function BlogPost({ params }) {
   const backUrl = await GoBackUrl();
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 text-white">
+    <div className="max-w-[90%] md:max-w-[50%] mx-auto px-4 py-12 text-white">
       <Link
         href={backUrl}
         className="flex items-center gap-2 mb-5 text-gray-300 hover:text-white transition"
@@ -44,7 +44,7 @@ export default async function BlogPost({ params }) {
         />
       </div>
 
-      <article className="prose prose-invert prose-lg max-w-none">
+      <article className="prose prose-invert prose-lg w-full break-words overflow-hidden">
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </article>
     </div>

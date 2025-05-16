@@ -74,5 +74,9 @@ body {
   background-color: var(--brand-dark);
 }
 
-
-
+/* fix for broken blog/[slug] page */
+.prose pre,
+.prose code {
+  white-space: pre-wrap !important;
+  word-break: break-word;
+}
