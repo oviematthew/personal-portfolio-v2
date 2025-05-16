@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
       </p>
       <ul className="list-disc list-inside mb-4">
         <li>
-          <strong>Google Analytics</strong>: Helps us analyze Ibsite traffic and
+          <strong>Google Analytics</strong>: Helps me analyze Ibsite traffic and
           usage. This tool may use cookies and collect anonymized IP addresses
           and usage behavior.
         </li>
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Contact</h2>
       <p>
-        If you have questions about this privacy policy, please email us at{" "}
+        If you have questions about this privacy policy, please email me at{" "}
         <a href="mailto:info@oviematthew.com" className="underline text-brand">
           info@oviematthew.com
         </a>
