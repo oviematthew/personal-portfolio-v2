@@ -22,7 +22,7 @@ export default function CookiePolicy() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-3 md:left-3 z-50 max-w-sm rounded-sm bg-black/90 px-10 py-6 shadow-lg backdrop-blur-md transition-all sm:max-w-md">
+    <div className="fixed bottom-3 left-3 right-3 z-50 mx-auto w-auto max-w-lg rounded-md bg-black/90 px-6 py-4 shadow-lg backdrop-blur-md sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:transform sm:px-10 sm:py-6">
       <div className="relative flex items-start gap-x-4">
         <div className="text-sm text-white leading-6">
           <p>
@@ -44,3 +44,4 @@ export default function CookiePolicy() {
     </div>
   );
 }
+// This code defines a CookiePolicy component that displays a cookie consent message at the bottom of the screen.
