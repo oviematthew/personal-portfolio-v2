@@ -33,7 +33,7 @@ export default function CookiePolicy() {
         </p>
         <button
           onClick={handleDismiss}
-          className="rounded-full p-1.5 hover:bg-white/10 focus:outline-none ring-2 ring-white/40"
+          className="rounded-full cursor-pointer p-1.5 hover:bg-white/10 focus:outline-none ring-2 ring-white/40"
           aria-label="Dismiss"
         >
           <X className="h-4 w-4 text-white" />

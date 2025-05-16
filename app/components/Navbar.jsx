@@ -60,7 +60,11 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Icon */}
-      <div className="md:hidden z-20 cursor-pointer" onClick={toggleMenu}>
+      <div
+        className="md:hidden z-20 cursor-pointer"
+        onClick={toggleMenu}
+        aria-label="Menu Toggle"
+      >
         {menuOpen ? <X size={30} /> : <Menu size={30} />}
       </div>
 
