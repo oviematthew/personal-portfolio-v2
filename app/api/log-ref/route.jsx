@@ -49,7 +49,9 @@ export async function POST(request) {
 
   // Log non allowed refs
   if (!sendEmail) {
-    console.log(`Ref logged without sending email: ${ref} from ${location}`);
+    console.log(
+      `Ref logged without sending email: ref origin is ${ref} from ${location}`
+    );
     return new Response("Ref logged", { status: 200 });
   }
 
