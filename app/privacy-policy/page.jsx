@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
       <p className="italic mb-5 text-gray-400">Updated: May 1 2025</p>
 
       <p className="mb-4">
-        On my portfolio website, I respect your privacy and are committed to
+        On my portfolio website, I respect your privacy and i am committed to
         protecting your personal data. This policy outlines how I handle your
         information.
       </p>
