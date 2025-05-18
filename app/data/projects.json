@@ -188,7 +188,7 @@
     "featuredImage": "/media/projects/best-in-uniform-featured.png",
     "images": [
       "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/page-images/best-in-uniform-2.JPEG"
+      "/media/projects/best-in-uniform-featured.png"
     ],
     "live": "https://bestinuniform980-9w9y.vercel.app/"
   },
