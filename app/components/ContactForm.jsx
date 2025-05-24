@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Loader } from "lucide-react";
 
 export default function ContactForm() {
   const [captchaToken, setCaptchaToken] = useState("");
@@ -88,7 +89,7 @@ export default function ContactForm() {
             : "bg-brand hover:bg-brand/90 cursor-pointer hover:scale-95"
         } text-white`}
       >
-        {isSubmitting ? "Sending..." : "Submit"}
+        {isSubmitting ? <Loader className="animate-spin" /> : "Submit"}
       </button>
     </form>
   );
