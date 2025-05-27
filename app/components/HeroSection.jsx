@@ -50,7 +50,7 @@ export default function HeroSection() {
         {/* Description */}
         <p className=" text-md lg:text-xl text-gray-400 mt-2">
           I am a minimalist that specializes in building fast, responsive,
-          accessible, and user-prioritzed frontend & mobile experiences.
+          accessible, and user-prioritzed frontend web & mobile app experiences.
         </p>
 
         {/* Social Media Links */}
