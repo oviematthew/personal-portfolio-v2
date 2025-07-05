@@ -61,6 +61,21 @@
     "live": "https://lizzdavies.com"
   },
   {
+    "name": "Joke API Project",
+    "slug": "joke-api-project",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": ["Express.js", "Node.js", "JSON", "REST API", "File System (FS)", "Marked.js", "Render"],
+    "description": "A RESTful API for managing jokes, with full CRUD support and third-party API integration.",
+    "longDescription": "The Joke API is a backend RESTful API built using Express.js and Node.js. It allows users to perform full CRUD operations on a collection of jokes stored in a local JSON file. It also integrates with jokeapi.dev to fetch programming jokes dynamically. The project features structured routing, middleware for joke validation, and Markdown-based documentation rendered on a /docs route using Marked.js. The API is deployed on Render for free hosting and demonstrates strong backend concepts like routing, data persistence with fs, and external API consumption.",
+    "featuredImage": "/media/projects/joke-api-featured.webp",
+    "images": [
+      "/media/projects/page-images/joke-api-1.png",
+      "/media/projects/page-images/joke-api-2.png"
+    ],
+    "live": "https://jokes-api-gbee.onrender.com/"
+  },  
+  {
     "name": "Business Finder App",
     "slug": "business-finder-app",
     "type": "mobile",
