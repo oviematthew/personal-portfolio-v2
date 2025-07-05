@@ -4,6 +4,25 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
+// ✅ 1. Add dynamic metadata
+export async function generateMetadata({ params }) {
+  // await params first as required in nextjs14+
+  const { slug } = await params;
+
+  const project = projectsData.find((p) => p.slug === params.slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: `Project: ${project.name}`,
+    description: project.description,
+  };
+}
+
 export async function generateStaticParams() {
   return projectsData.map((project) => ({ slug: project.slug }));
 }
