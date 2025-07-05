@@ -61,8 +61,8 @@
     "live": "https://lizzdavies.com"
   },
   {
-    "name": "Joke API Project",
-    "slug": "joke-api-project",
+    "name": "Joke API",
+    "slug": "joke-api",
     "type": "web",
     "jobType": "Hobby",
     "techStack": ["Express.js", "Node.js", "JSON", "REST API", "File System (FS)", "Marked.js", "Render"],
