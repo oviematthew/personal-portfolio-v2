@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   // await params first as required in nextjs14+
   const { slug } = await params;
 
-  const project = projectsData.find((p) => p.slug === params.slug);
+  const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
     return {
