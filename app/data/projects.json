@@ -182,7 +182,7 @@
     "slug": "hidden-letter-game",
     "type": "web",
     "jobType": "Hobby",
-    "techStack": ["React", "Storyboard"],
+    "techStack": ["React", "LocalStorage"],
     "description": "Hidden Letter game is a light-hearted game where users guess the hidden letter on a board of similar letters.",
     "longDescription": "Hidden Letter game is a fun 2d engaging game where users guess the hidden letter on a board of similar letters. The game features a user-friendly interface, and engaging gameplay mechanics.",
     "featuredImage": "/media/projects/hidden-letter-game-featured.png",
