@@ -24,8 +24,8 @@ export default function HeroSection() {
       >
         {/* Profile Image */}
         <div className="hero-top flex space-between items-center flex-col lg:flex-row w-[100%] gap-5 ">
-          <div className="left-hero-top md:w-[50%] flex justify-center">
-            <div className="rounded-full w-52 h-52 mb-6 bg-brand overflow-hidden ">
+          <div className="left-hero-top md:w-[50%] flex justify-center items-center">
+            <div className="rounded-full w-52 h-52 mb-6 bg-brand">
               <Image
                 src="/media/welcome.png"
                 alt="Matthew Ovie Enamuotor"
@@ -62,7 +62,7 @@ export default function HeroSection() {
         </div>
 
         {/* GitHub Calendar */}
-        <div className="mt-5 md:mt-10 hidden lg:block">
+        <div className="mt-5 hidden lg:block">
           <GitHubCalendar
             username="oviematthew"
             theme={{
