@@ -6,6 +6,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Volume2, ChevronDown } from "lucide-react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
+import GitHubCalendar from "react-github-calendar";
 
 export default function HeroSection() {
   const handleClick = () => {
@@ -91,6 +92,17 @@ export default function HeroSection() {
             View Projects
             <ChevronDown className="w-5 h-5 animate-pulse" />
           </Link>
+
+          {/* GitHub Calendar */}
+          <div className="mt-5 md:mt-10 transform max-w-md mx-auto">
+            <GitHubCalendar
+              username="oviematthew"
+              theme={{
+                light: ["#ebedf0", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
+                dark: ["#1c1c1c", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
+              }}
+            />
+          </div>
         </div>
       </motion.div>
     </div>
