@@ -40,7 +40,7 @@ export default function HeroSection() {
           {/* Heading with audio icon */}
           <div className="right-hero-top md:w-[50%]">
             <div className="flex justify-center md:justify-start gap-x-3 mb-2">
-              <h1 className="text-2xl md:text-4xl font-extrabold text-white font-heading flex">
+              <h1 className="text-xl md:text-3xl font-extrabold text-white font-heading flex">
                 Hey, I'm Ovie
               </h1>
               <button
@@ -53,7 +53,7 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center md:text-left">
+            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center md:text-left ">
               I am a minimalist that specializes in building fast, responsive,
               accessible, and user-prioritzed frontend web & mobile app
               experiences.
