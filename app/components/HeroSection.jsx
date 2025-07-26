@@ -15,7 +15,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="lg:max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center mt-10 ">
+    <div className="xl:max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center mt-10 ">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

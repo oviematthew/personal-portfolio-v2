@@ -4,12 +4,23 @@ import projectsData from "../data/projects.json";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { Loader } from "lucide-react";
 
 const FILTERS = ["all", "web", "mobile"];
 
 export default function ProjectsSection() {
   const [visible, setVisible] = useState(6);
-  const [filter, setFilter] = useState("all"); // Default filter is "all"
+  const [filter, setFilter] = useState("all");
+  const [projectsLoading, setProjectsLoading] = useState(false);
+
+  //   Function to handle loading more projects
+  const loadMoreProjects = () => {
+    setProjectsLoading(true);
+    setTimeout(() => {
+      setVisible((prev) => prev + 3);
+      setProjectsLoading(false);
+    }, 200);
+  };
 
   //   Filter projects based on the selected filter
   const filteredProjects = projectsData.filter((project) =>
@@ -111,10 +122,17 @@ export default function ProjectsSection() {
         // This button will only show if there are more projects to load
         <div className="mt-8 text-center">
           <button
-            onClick={() => setVisible(visible + 3)}
+            onClick={loadMoreProjects}
             className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
-            Load More
+            {projectsLoading ? (
+              <>
+                <Loader className="w-5 h-5 animate-spin" />
+                Loading...
+              </>
+            ) : (
+              "Load More"
+            )}
           </button>
         </div>
       )}
