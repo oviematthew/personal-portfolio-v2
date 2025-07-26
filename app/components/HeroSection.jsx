@@ -15,7 +15,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="xl:max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center mt-10 ">
+    <div className="xl:max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center mt-10">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function HeroSection() {
         className="flex flex-col items-center text-center"
       >
         {/* Profile Image */}
-        <div className="hero-top flex space-between items-center flex-col md:flex-row w-[100%] gap-5 ">
+        <div className="hero-top flex space-between items-center flex-col lg:flex-row w-[100%] gap-5 ">
           <div className="left-hero-top md:w-[50%] flex justify-center">
             <div className="rounded-full w-52 h-52 mb-6 bg-brand overflow-hidden ">
               <Image
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
           {/* Heading with audio icon */}
           <div className="right-hero-top md:w-[50%]">
-            <div className="flex justify-center md:justify-start gap-x-3 mb-2">
+            <div className="flex justify-center lg:justify-start gap-x-3 mb-2">
               <h1 className="text-xl md:text-3xl font-extrabold text-white font-heading flex">
                 Hey, I'm Ovie
               </h1>
@@ -53,7 +53,7 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center md:text-left ">
+            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center lg:text-left ">
               I am a minimalist that specializes in building fast, responsive,
               accessible, and user-prioritzed frontend web & mobile app
               experiences.
@@ -62,7 +62,7 @@ export default function HeroSection() {
         </div>
 
         {/* GitHub Calendar */}
-        <div className="mt-5 md:mt-10 hidden md:block">
+        <div className="mt-5 md:mt-10 hidden lg:block">
           <GitHubCalendar
             username="oviematthew"
             theme={{
