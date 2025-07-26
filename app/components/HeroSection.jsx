@@ -23,36 +23,54 @@ export default function HeroSection() {
         className="flex flex-col items-center text-center"
       >
         {/* Profile Image */}
-        <div className="rounded-full w-52 h-52 mb-6 bg-brand overflow-hidden">
-          <Image
-            src="/media/welcome.png"
-            alt="Matthew Ovie Enamuotor"
-            width={208}
-            height={208}
-            className="w-52 h-52 object-cover"
-            priority
+        <div className="hero-top flex space-between items-center flex-col md:flex-row w-[100%] gap-5 ">
+          <div className="left-hero-top md:w-[50%] flex justify-center">
+            <div className="rounded-full w-52 h-52 mb-6 bg-brand overflow-hidden ">
+              <Image
+                src="/media/welcome.png"
+                alt="Matthew Ovie Enamuotor"
+                width={208}
+                height={208}
+                className="w-52 h-52 object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Heading with audio icon */}
+          <div className="right-hero-top md:w-[50%]">
+            <div className="flex justify-center md:justify-start gap-x-3 mb-2">
+              <h1 className="text-2xl md:text-4xl font-extrabold text-white font-heading flex">
+                Hey, I'm Ovie
+              </h1>
+              <button
+                onClick={handleClick}
+                className="p-2 cursor-pointer rounded-full bg-white/10 hover:bg-white/20 transition"
+                aria-label="Hear how to pronounce Ovie"
+              >
+                <Volume2 className="w-5 h-5 text-white" />
+              </button>
+            </div>
+
+            {/* Description */}
+            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center md:text-left">
+              I am a minimalist that specializes in building fast, responsive,
+              accessible, and user-prioritzed frontend web & mobile app
+              experiences.
+            </p>
+          </div>
+        </div>
+
+        {/* GitHub Calendar */}
+        <div className="mt-5 md:mt-10 hidden md:block">
+          <GitHubCalendar
+            username="oviematthew"
+            theme={{
+              light: ["#ebedf0", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
+              dark: ["#1c1c1c", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
+            }}
           />
         </div>
-
-        {/* Heading with audio icon */}
-        <div className="flex items-center gap-x-3 mb-2">
-          <h1 className="text-2xl md:text-4xl font-extrabold text-white font-heading flex">
-            Hey, I'm Ovie
-          </h1>
-          <button
-            onClick={handleClick}
-            className="p-2 cursor-pointer rounded-full bg-white/10 hover:bg-white/20 transition"
-            aria-label="Hear how to pronounce Ovie"
-          >
-            <Volume2 className="w-5 h-5 text-white" />
-          </button>
-        </div>
-
-        {/* Description */}
-        <p className=" text-md lg:text-xl text-gray-400 mt-2">
-          I am a minimalist that specializes in building fast, responsive,
-          accessible, and user-prioritzed frontend web & mobile app experiences.
-        </p>
 
         {/* Social Media Links */}
         <div className="social-links mt-5 mb-5 flex gap-6">
@@ -92,17 +110,6 @@ export default function HeroSection() {
             View Projects
             <ChevronDown className="w-5 h-5 animate-pulse" />
           </Link>
-
-          {/* GitHub Calendar */}
-          <div className="mt-5 md:mt-10 hidden md:block">
-            <GitHubCalendar
-              username="oviematthew"
-              theme={{
-                light: ["#ebedf0", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
-                dark: ["#1c1c1c", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
-              }}
-            />
-          </div>
         </div>
       </motion.div>
     </div>
