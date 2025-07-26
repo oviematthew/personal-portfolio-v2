@@ -94,7 +94,7 @@ export default function HeroSection() {
           </Link>
 
           {/* GitHub Calendar */}
-          <div className="mt-5 md:mt-10 transform max-w-md mx-auto">
+          <div className="mt-5 md:mt-10 hidden md:block">
             <GitHubCalendar
               username="oviematthew"
               theme={{
