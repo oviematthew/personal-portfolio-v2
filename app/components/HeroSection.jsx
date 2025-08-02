@@ -15,7 +15,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="xl:max-h-screen w-full lg:w-1/2 mx-auto px-6 flex items-center justify-center mt-10">
+    <div className="xl:max-h-screen w-full lg:w-4xl mx-auto px-6 grid-cols2 mt-10">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function HeroSection() {
         className="flex flex-col items-center text-center"
       >
         {/* Profile Image */}
-        <div className="hero-top flex space-between items-center flex-col lg:flex-row w-[100%] gap-5 ">
+        <div className="hero-top flex space-between items-center flex-col lg:flex-row w-[100%] gap5 ">
           <div className="left-hero-top md:w-[50%] flex justify-center items-center">
             <div className="rounded-full w-52 h-52 mb-6 bg-brand">
               <Image
