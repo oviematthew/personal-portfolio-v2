@@ -2,6 +2,7 @@
 import React from "react";
 
 const skills = [
+  // Languages & Fundamentals
   "HTML5",
   "CSS3",
   "JavaScript (ES6+)",
@@ -9,6 +10,11 @@ const skills = [
   "Swift",
   "Kotlin",
   "Java",
+  "Object Oriented Programming (OOP)",
+  "MVC",
+  "MVVM",
+
+  // Frameworks & Libraries
   "React",
   "Next.js",
   "React Native",
@@ -17,37 +23,66 @@ const skills = [
   "Express.js",
   "Tailwind CSS",
   "Bootstrap",
+  "Sass",
   "Material UI",
   "Shadcn",
   "Headless UI",
   "Framer Motion",
   "GSAP",
+  "Onsen UI",
   "Responsive Design",
   "Accessibility",
+
+  // State Management
+  "Redux",
+  "Context API",
+  "Zustand",
+
+  // Databases
   "Firebase",
+  "Supabase",
   "PostgreSQL",
   "MySQL",
   "MongoDB",
-  "Wordpress",
+  "SQLite",
+
+  // CMS & Platforms
+  "WordPress",
   "Shopify",
-  "Liuqid",
+  "Liquid",
+  "Strapi",
+  "Wix",
+
+  // APIs & Data
   "GraphQL",
   "REST APIs",
-  "Redux",
-  "Git",
-  "GitHub",
-  "Figma",
+
+  // Testing & QA
   "Jest",
   "Playwright",
+  "A/B Testing",
+  "User Testing",
+
+  // Tools & Platforms
+  "Git",
+  "GitHub",
   "Docker",
   "Vercel",
   "Netlify",
+  "Postman",
+  "Figma",
+  "Adobe XD",
+  "Microsoft 365",
+  "Slack",
+  "Jira",
+  "Asana",
   "Agile Methodologies",
+  "CI/CD",
 ];
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="px-6 py-12 w-full lg:w-3/4 mx-auto ">
+    <section id="skills" className="px-6 py-12 w-full lg:w-3/4 mx-auto">
       <h2 className="text-3xl font-bold text-white text-center mb-8 font-heading">
         My Skills <span className="text-brand">.</span>
       </h2>
