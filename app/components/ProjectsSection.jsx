@@ -69,6 +69,7 @@ export default function ProjectsSection() {
           // Each project card
           // The key is the project slug to ensure uniqueness
           // The Link component wraps the entire card for easy navigation to dynamic routes
+          
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
@@ -76,6 +77,12 @@ export default function ProjectsSection() {
           >
             {/* Image with sizing conditions */}
             <div className="relative w-full h-64 overflow-hidden bg-black">
+              {project.featured && (
+                <span className="absolute top-3 left-3 z-20 px-3 py-1 text-xs font-semibold rounded-full bg-brand text-white shadow">
+                  Featured
+                </span>
+              )}
+
               <Image
                 src={project.featuredImage}
                 alt={project.name}

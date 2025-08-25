@@ -1,20 +1,55 @@
-import blogsData from "../../data/blogs.json";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import MarkdownIt from "markdown-it";
+import { getAllPosts } from "../../utils/Posts";
 import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { headers } from "next/headers";
+import readingDuration from "reading-duration";
+import Image from "next/image";
+import mdhljs from "markdown-it-highlightjs";
 import ReactMarkdown from "react-markdown";
 import GoBackUrl from "../../utils/GoBackUrl";
 
-export default async function BlogPost({ params }) {
-  // await params first as required in nextjs14+
-  const { slug } = await params;
-  const post = blogsData.find((b) => b.slug === slug);
+export const metadata = {
+  title: "Blog Post - Ovie Mattheww",
+};
 
-  if (!post) return notFound();
+
+const md = new MarkdownIt({
+  html: true,          // allow HTML tags
+  linkify: true,       // autolink URLs
+  typographer: true,   // smart quotes
+}).use(mdhljs);
+
+async function fetchPosts(slug) {
+  const posts = getAllPosts();
+  return posts.find((post) => post.slug === slug);
+}
+
+export default async function Post({ params }) {
+  // fix dynamic route issues with newer nextjs dynamic routing by awaiting params first
+  const { slug } = await params;
+
+  // Redirect to 404 if no slug or post not found
+  if (!slug) notFound();
+
+  const post = await fetchPosts(slug);
 
   // Go to previous link
   const backUrl = await GoBackUrl();
+
+  if (!post) notFound();
+
+  const htmlConverter = md.render(post.content);
+
+  // Use next/headers to get the current URL and ensure it's a full URL
+  const currentUrl = `https://${(await headers()).get("host")}/posts/${slug}`;
+
+  // Calculate reading time
+  const readingTime = readingDuration(post.content, {
+    wordsPerMinute: 200,
+    emoji: false,
+  });
 
   return (
     <div className="max-w-[90%] md:max-w-[50%] mx-auto px-4 py-12 text-white">

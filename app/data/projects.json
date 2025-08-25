@@ -1,4 +1,42 @@
-[
+[{
+    "name": "Realtor Block",
+    "slug": "realtor-block",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": [
+      "Next.js",
+      "Supabase",
+      "ShadCn",
+      "Tailwind CSS",
+      "Lucide React",
+      "Formik",
+      "Google Maps API",
+      "Clerk",
+      "Supabase PostgreSQL",
+      "Supabase Storage"
+    ],
+    "description": "A modern, full-stack real estate platform built with Next.js that allows users to browse, search, and manage property listings with interactive maps and comprehensive filtering options.",
+ "longDescription": "Realtor Block is a comprehensive, full-stack real estate platform designed to provide a seamless and modern property browsing experience. Built with Next.js and styled with Tailwind CSS, the platform delivers a mobile-first, responsive design that ensures accessibility across all devices. It features secure user authentication and profile management through Clerk, enabling account creation, login via email and social providers, and session handling for persistent logins.The application empowers real estate agents to manage their listings with robust property management tools, including the ability to add, edit, and remove property details, assign agents, and toggle listing availability. Listings are enriched with high-quality image uploads, handled via Supabase Storage with public access policies, unique filenames, and automatic optimization to ensure fast delivery and scalability. Each property can be described with details such as number of bedrooms, bathrooms, parking spaces, property type, utilities, and contact agent section, all stored in a relational Supabase PostgreSQL database designed with normalized schema, relationships, and Row Level Security policies for secure data handling. To enhance discovery, Realtor Block integrates with the Google Maps API and Google Places API to deliver a powerful geolocation experience. Users can browse properties directly on an interactive map, with location markers, custom styling, zoom controls, and responsive map containers. The advanced search system allows address-based lookups, autocomplete suggestions, and geocoding support, while property filters enable narrowing results by features such as bedrooms, bathrooms, parking, and type. This ensures a highly personalized and efficient property search journey. From a technical perspective, the project embraces a modular architecture with Next.js App Router, organized route groups for listings, agents, authentication, and shared UI components. Core features such as real-time updates, and form management with Formik make interactions seamless and responsive. Supabase PostgreSQL powers structured data storage, with dedicated tables for listings and listing images, while Supabase Storage ensures scalable and secure media management. Developers can easily set up the project by configuring environment variables for Clerk, Supabase, and Google Cloud APIs. The platform is built to scale, optimized for performance and maintainability, with linting via ESLint and TypeScript support. Overall, Realtor Block is not only a practical tool for property seekers and agents but also a showcase of a modern, production-ready full-stack application that integrates authentication, database management, file storage, and third-party APIs into a polished, user-centric solution.",
+
+    "featuredImage": "/media/projects/realtor-block-featured.png",
+    "images": [
+      "/media/projects/page-images/realtor-block-1.png",
+      "/media/projects/page-images/realtor-block-2.png",
+      "/media/projects/page-images/realtor-block-3.png",
+      "/media/projects/page-images/realtor-block-4.png",
+      "/media/projects/page-images/realtor-block-5.png",
+      "/media/projects/page-images/realtor-block-6.png",
+      "/media/projects/page-images/realtor-block-7.png",
+      "/media/projects/page-images/realtor-block-8.png",
+      "/media/projects/page-images/realtor-block-9.png",
+      "/media/projects/page-images/realtor-block-10.png",
+      "/media/projects/page-images/realtor-block-11.png",
+      "/media/projects/page-images/realtor-block-12.png",
+      "/media/projects/page-images/realtor-block-13.png"
+    ],
+    "live": "https://realtor-block.vercel.app",
+    "featured": true
+  },
   {
     "name": "Bedge Pictures",
     "slug": "bedge-pictures",
@@ -12,7 +50,9 @@
       "/media/projects/page-images/bedge-pictures-1.png",
       "/media/projects/page-images/bedge-pictures-2.png"
     ],
-    "live": "https://bedgepictures.com"
+    "live": "https://bedgepictures.com",
+     "featured": false
+    
   },
   {
     "name": "BOAS",
@@ -27,7 +67,8 @@
       "/media/projects/page-images/boas-1.png",
       "/media/projects/page-images/boas-2.png"
     ],
-    "live": "https://boas.co"
+    "live": "https://boas.co",
+    "featured": false
   },
   {
     "name": "WPS Bedge",
@@ -42,7 +83,8 @@
       "/media/projects/page-images/wpsbedge-1.png",
       "/media/projects/page-images/wpsbedge-2.png"
     ],
-    "live": "https://wpsbedge.com"
+    "live": "https://wpsbedge.com",
+    "featured": false
   },
 
    {
@@ -58,7 +100,8 @@
       "/media/projects/page-images/lizzdavies-1.png",
       "/media/projects/page-images/lizzdavies-2.png"
     ],
-    "live": "https://lizzdavies.com"
+    "live": "https://lizzdavies.com",
+    "featured": false
   },
   {
     "name": "Joke API",
@@ -73,8 +116,9 @@
       "/media/projects/page-images/joke-api-1.png",
       "/media/projects/page-images/joke-api-2.png"
     ],
-    "live": "https://jokes-api-gbee.onrender.com/"
-  },  
+    "live": "https://jokes-api-gbee.onrender.com/",
+    "featured": false
+  },
   {
     "name": "Business Finder App",
     "slug": "business-finder-app",
@@ -88,7 +132,8 @@
       "/media/projects/page-images/kotlin-api-app-1.webp",
       "/media/projects/page-images/kotlin-api-app-2.gif"
     ],
-    "live": "https://github.com/oviematthew/kotlin-api-project"
+    "live": "https://github.com/oviematthew/kotlin-api-project",
+    "featured": false
   },
 
   {
@@ -104,7 +149,8 @@
       "/media/projects/page-images/ting-1.png",
       "/media/projects/page-images/ting-2.png"
     ],
-    "live": "https://github.com/oviematthew/ting"
+    "live": "https://github.com/oviematthew/ting",
+    "featured": false
   },
   {
     "name": "F10 Photography",
@@ -119,7 +165,8 @@
       "/media/projects/page-images/f10-1.png",
       "/media/projects/page-images/f10-2.png"
     ],
-    "live": "https://f10studio.ca/"
+    "live": "https://f10studio.ca/",
+    "featured": false
   },
    {
     "name": "Addict Wellness App",
@@ -140,7 +187,8 @@
       "/media/projects/page-images/chattee-6.gif"
 
     ],
-    "live": "https://github.com/oviematthew/chattee"
+    "live": "https://github.com/oviematthew/chattee",
+    "featured": false
   },
    {
     "name": "OCR To Text",
@@ -155,7 +203,8 @@
       "/media/projects/page-images/ocr-1.png",
       "/media/projects/page-images/ocr-2.png"
     ],
-    "live": "https://imagetotextapp.vercel.app/"
+    "live": "https://imagetotextapp.vercel.app/",
+    "featured": false
   },
    {
     "name": "Hangman Game",
@@ -175,7 +224,8 @@
       "/media/projects/page-images/hangman-6.png",
       "/media/projects/page-images/hangman-7.png"
     ],
-    "live": "https://github.com/oviematthew/hangman-app"
+    "live": "https://github.com/oviematthew/hangman-app",
+    "featured": false
   },
   {
     "name": "Hidden Letter Game",
@@ -189,7 +239,8 @@
     "images": [
       "/media/projects/page-images/hidden-letter-game-1.png"
     ],
-    "live": "https://hidden-letter-game.vercel.app/"
+    "live": "https://hidden-letter-game.vercel.app/",
+    "featured": false
   },
   {
     "name": "Weather App",
@@ -205,7 +256,8 @@
       "/media/projects/page-images/weather-1.png",
       "/media/projects/page-images/weather-3.png"
     ],
-    "live": "https://github.com/oviematthew/weather-app-swift"
+    "live": "https://github.com/oviematthew/weather-app-swift",
+    "featured": false
   },
   {
     "name": "Employee Voting System",
@@ -220,7 +272,8 @@
       "/media/projects/page-images/best-in-uniform-1.png",
       "/media/projects/best-in-uniform-featured.png"
     ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/"
+    "live": "https://bestinuniform980-9w9y.vercel.app/",
+    "featured": false
   },
 
   {
@@ -235,7 +288,8 @@
     "images": [
       "/media/projects/jeopardy-game-featured.png"
     ],
-    "live": "https://github.com/oviematthew/jeopardy-game-clone"
+    "live": "https://github.com/oviematthew/jeopardy-game-clone",
+    "featured": false
   },
   {
     "name": "Meet The Arunas",
@@ -249,7 +303,8 @@
     "images": [
       "/media/projects/page-images/meetthearunas-1.png"
     ],
-    "live": "https://meet-the-arunas.vercel.app/"
+    "live": "https://meet-the-arunas.vercel.app/",
+    "featured": false
   }
 
   
