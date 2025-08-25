@@ -77,11 +77,11 @@ export default function ProjectsSection() {
           >
             {/* Image with sizing conditions */}
             <div className="relative w-full h-64 overflow-hidden bg-black">
-              {project.featured && (
+              {/* {project.featured && (
                 <span className="absolute top-3 left-3 z-20 px-3 py-1 text-xs font-semibold rounded-full bg-brand text-white shadow">
                   Featured
                 </span>
-              )}
+              )} */}
 
               <Image
                 src={project.featuredImage}
