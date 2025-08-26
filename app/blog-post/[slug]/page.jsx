@@ -1,29 +1,36 @@
 import { notFound } from "next/navigation";
-import MarkdownIt from "markdown-it";
 import { getAllPosts } from "../../utils/Posts";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { headers } from "next/headers";
 import readingDuration from "reading-duration";
 import Image from "next/image";
-import mdhljs from "markdown-it-highlightjs";
 import ReactMarkdown from "react-markdown";
 import GoBackUrl from "../../utils/GoBackUrl";
 
-export const metadata = {
-  title: "Blog Post - Ovie Mattheww",
-};
-
-
-const md = new MarkdownIt({
-  html: true,          // allow HTML tags
-  linkify: true,       // autolink URLs
-  typographer: true,   // smart quotes
-}).use(mdhljs);
 
 async function fetchPosts(slug) {
   const posts = getAllPosts();
   return posts.find((post) => post.slug === slug);
+}
+
+export async function generateMetadata({ params }) {
+  // await params first as required in nextjs14+
+  const { slug } = await params;
+
+  const posts = getAllPosts();
+
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Blog Post - Ovie Matthew",
+    };
+  }
+
+  return {
+    title: `Blog Post: ${post.title}`,
+    description: post.excerpt,
+  };
 }
 
 export default async function Post({ params }) {
@@ -40,10 +47,6 @@ export default async function Post({ params }) {
 
   if (!post) notFound();
 
-  const htmlConverter = md.render(post.content);
-
-  // Use next/headers to get the current URL and ensure it's a full URL
-  const currentUrl = `https://${(await headers()).get("host")}/posts/${slug}`;
 
   // Calculate reading time
   const readingTime = readingDuration(post.content, {
@@ -53,13 +56,21 @@ export default async function Post({ params }) {
 
   return (
     <div className="max-w-[90%] md:max-w-[50%] mx-auto px-4 py-12 text-white">
-      <Link
-        href={backUrl}
-        className="flex items-center gap-2 mb-5 text-gray-300 hover:text-white transition"
-      >
-        <ArrowLeft size={18} />
-        <span>Back</span>
-      </Link>
+      <div className=" flex justify-between items-center mb-5">
+        <Link
+          href={backUrl}
+          className="flex items-center gap-2 mb-5 text-gray-300 hover:text-white transition"
+        >
+          <ArrowLeft size={18} />
+          <span>Back</span>
+        </Link>
+
+        <div className="reading-time">
+          <span className="whitespace-nowrap text-gray-300">
+            🕒 {readingTime}
+          </span>
+        </div>
+      </div>
 
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <div className="text-sm text-gray-500 mb-6">

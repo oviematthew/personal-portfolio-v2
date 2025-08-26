@@ -5,9 +5,9 @@ import Image from "next/image";
 import readingDuration from "reading-duration";
 
 export const metadata = {
-  title: "Blog",
+  title: "Blog - Ovie Matthew",
   description:
-    "Discover the stories behind the lens. The Bedge Pictures blog shares real wedding experiences, creative insights, behind-the-scenes moments, and tips for couples preparing for their big day. It’s where inspiration meets intention — curated to spark ideas, evoke emotion, and celebrate love in all its forms.",
+    "I chose to start writing about technical stuff I come across on my software journey. Hope you find them useful.",
 };
 
 export default function Blog() {

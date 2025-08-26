@@ -20,11 +20,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Matthew Ovie Enamuotor - Frontend and Mobile App Developer",
+  title: "Matthew Ovie Enamuotor - Frontend Web and Mobile App Developer",
   description:
-    "Matthew Ovie Enamuotor is a Frontend and Mobile App Developer, pursuing his passion in software engineering. Check out his portfolio to see his work and projects.",
+    "Matthew Ovie Enamuotor is a Frontend Web and Mobile App Developer, pursuing his passion in software engineering. Check out his portfolio to see his work and projects.",
   keywords:
-    "Matthew Ovie Enamuotor, Frontend Developer, Mobile App Developer, Software Engineer, Portfolio, Web and Mobile Developer In Canada",
+    "Matthew Ovie Enamuotor, Frontend Web Developer, Mobile App Developer, Software Engineer, Portfolio, Web and Mobile Developer In Canada, Next.Js Developer, React Developer, React Native Developer, JavaScript Developer, TypeScript Developer, UI/UX Developer, Matthew Ovie Enamuotor's Portfolio, Ovie Enamuotor, Ovie Enamuotor Portfolio",
 };
 
 export default function RootLayout({ children }) {
