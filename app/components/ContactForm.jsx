@@ -57,6 +57,7 @@ export default function ContactForm() {
         id="email"
         name="email"
         type="email"
+        autoComplete="email"
         required
         placeholder="Email Address"
         className="w-full px-4 py-3 border border-gray-300 focus:border-brand focus:ring-brand focus:outline-none text-white placeholder-gray-500 transition"
