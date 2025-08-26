@@ -23,7 +23,7 @@ export default function HeroSection() {
         className="flex flex-col items-center text-center"
       >
         {/* Profile Image */}
-        <div className="hero-top flex space-between items-center flex-col lg:flex-row w-[100%] gap5 ">
+        <div className="hero-top flex space-between items-center flex-col w-[100%] gap5 ">
           <div className="left-hero-top md:w-[50%] flex justify-center items-center">
             <div className="rounded-full w-52 h-52 mb-6 bg-brand">
               <Image
@@ -38,8 +38,8 @@ export default function HeroSection() {
           </div>
 
           {/* Heading with audio icon */}
-          <div className="right-hero-top md:w-[50%]">
-            <div className="flex justify-center lg:justify-start gap-x-3 mb-2">
+          <div className="right-hero-top ">
+            <div className="flex justify-center gap-x-3 mb-2">
               <h1 className="text-xl md:text-3xl font-extrabold text-white font-heading flex">
                 Hey, I'm Ovie
               </h1>
@@ -53,7 +53,7 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center lg:text-left ">
+            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center  ">
               I am a minimalist that specializes in building fast, responsive,
               accessible, and user-prioritzed frontend web & mobile app
               experiences.
@@ -62,7 +62,7 @@ export default function HeroSection() {
         </div>
 
         {/* GitHub Calendar */}
-        <div className="mt-5 hidden lg:block">
+        {/* <div className="mt-5 hidden lg:block">
           <GitHubCalendar
             username="oviematthew"
             theme={{
@@ -70,7 +70,7 @@ export default function HeroSection() {
               dark: ["#1c1c1c", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
             }}
           />
-        </div>
+        </div> */}
 
         {/* Social Media Links */}
         <div className="social-links mt-5 mb-5 flex gap-6">

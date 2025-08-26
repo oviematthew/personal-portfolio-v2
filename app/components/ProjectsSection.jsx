@@ -72,7 +72,7 @@ export default function ProjectsSection() {
           
           <Link
             key={project.slug}
-            href={`/projects/${project.slug}`}
+            href={`/project/${project.slug}`}
             className="group relative bg-white/5 rounded-xl overflow-hidden shadow hover:shadow-xl transition-transform transform hover:-translate-y-1 hover:scale-[1.01] duration-300"
           >
             {/* Image with sizing conditions */}

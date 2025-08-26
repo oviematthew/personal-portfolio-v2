@@ -67,7 +67,7 @@ export default async function ProjectPage({ params }) {
         Job Type: {project.jobType}
       </p>
 
-      <p className="text-gray-300 mb-10 font-text text-center md:text-start">
+      <p className="text-gray-300 mb-10 font-text text-center leading-relaxed">
         {project.longDescription}
       </p>
       <div className="flex justify-center flex-wrap gap-4 mb-10">
