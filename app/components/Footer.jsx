@@ -51,7 +51,7 @@ export default function Footer() {
         </Link>
 
         <Link
-          href="https://www.linkedin.com/in/oviematthew/"
+          href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
           target="_blank"
           aria-label="LinkedIn"
           className="text-white hover:text-brand hover:scale-95 transition duration-300"
