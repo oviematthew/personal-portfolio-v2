@@ -14,7 +14,7 @@ export async function POST(request) {
 
   // Define allowed referrers
   // These are the referrers that will trigger an email to be sent
-  const allowedRefs = ["github", "resume", "linkedin", "immigration", "instagram"];
+  const allowedRefs = ["github", "resume", "linkedin", "immigration", "instagram", "coverLetter"];
   const sendEmail = allowedRefs.includes(ref);
 
   // Check if the request is coming from a known referrer
