@@ -30,6 +30,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="96705xhckmNKyzoCMWmXJzku5MR3tOZpiq7rthh22QI"
+        />
+      </head>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <Navbar />
