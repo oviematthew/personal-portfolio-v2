@@ -156,7 +156,7 @@
     "name": "F10 Photography",
     "slug": "f10-photography",
     "type": "web",
-    "jobType": "Hobby",
+    "jobType": "Freelance",
     "techStack": ["Wordpress", "GA4", "GTM", "GSAP", "Yoast SEO", "MySQL", "Recaptcha"],
     "description": "F10 Photography is a website designed to showcase the work of a wedding photographer.",
     "longDescription": "F10 Photography is a web application designed to showcase the work of a wedding photographer. The website features a clean and modern design, allowing users to easily navigate through the portfolio and view high-quality images.",
