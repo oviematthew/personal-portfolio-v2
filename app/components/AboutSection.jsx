@@ -46,9 +46,7 @@ export default function AboutSection() {
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             Over the past 5 years, I’ve worked as a web developer, building over{" "}
             <strong>200 websites</strong> for more than{" "}
-            <strong>130 clients</strong> across <strong>4 continents</strong>. I
-            love crafting clean, high performing, and accessible interfaces that
-            blend form and function.
+            <strong>130 clients</strong> across <strong>4 continents</strong>.
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
