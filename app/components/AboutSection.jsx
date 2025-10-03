@@ -27,7 +27,7 @@ export default function AboutSection() {
             bachelors' in <strong>Computer Engineering</strong> from{" "}
             <Link
               href="https://covenantuniversity.edu.ng"
-              className="text-brand hover:underline"
+              className="text-brand underline"
               target="_blank"
             >
               @Covenant University
@@ -35,7 +35,7 @@ export default function AboutSection() {
             and recently graduated from{" "}
             <Link
               href="https://www.fanshawec.ca"
-              className="text-brand hover:underline"
+              className="text-brand underline"
               target="_blank"
             >
               @Fanshawe College
@@ -52,10 +52,23 @@ export default function AboutSection() {
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
+            I'm Currently working{" "}
+            <Link
+              href="https://rentysnc.com"
+              className="text-brand underline"
+              target="_blank"
+            >
+              @Rentsync
+            </Link>
+            , as a Frontend Developer, where I help build and maintain
+            high-quality, scalable web applications using Vue.
+          </p>
+
+          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             One of my most recent full time position was{" "}
             <Link
               href="https://boas.co"
-              className="text-brand hover:underline"
+              className="text-brand underline"
               target="_blank"
             >
               @Boas
