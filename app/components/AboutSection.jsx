@@ -52,7 +52,7 @@ export default function AboutSection() {
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             I'm Currently working{" "}
             <Link
-              href="https://rentysnc.com"
+              href="https://rentsync.com"
               className="text-brand underline"
               target="_blank"
             >
