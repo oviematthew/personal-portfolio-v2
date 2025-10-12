@@ -50,7 +50,7 @@ export default function AboutSection() {
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            I'm Currently working{" "}
+            I currently work{" "}
             <Link
               href="https://rentsync.com"
               className="text-brand underline"
