@@ -63,7 +63,7 @@ export default function AboutSection() {
           </p>
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            One of my most recent full time position was{" "}
+            One of my most past full time positions was{" "}
             <Link
               href="https://boas.co"
               className="text-brand underline"
