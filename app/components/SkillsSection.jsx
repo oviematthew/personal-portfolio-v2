@@ -15,8 +15,9 @@ const skills = [
   "MVVM",
 
   // Frameworks & Libraries
-  "React",
+  "React.js",
   "Next.js",
+  "Vue.js",
   "React Native",
   "Expo",
   "Node.js",
