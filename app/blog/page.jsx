@@ -57,7 +57,7 @@ export default function Blog() {
               {/* Content wrapper that grows */}
               <div className="flex-1">
                 
-                <h3 className="text-lg font-bold text-white group-hover:text-brand transition min-h-[4rem]">
+                <h3 className="text-lg font-bold text-white group-hover:text-brand transition min-h-[4rem] line-clamp-3">
                   {post.title}
                 </h3>
                 <p className="text-sm text-gray-400 mt-2 line-clamp-2">
