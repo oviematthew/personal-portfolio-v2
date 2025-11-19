@@ -55,11 +55,11 @@ export default async function Post({ params }) {
   });
 
   return (
-    <div className="max-w-[90%] md:max-w-[50%] mx-auto px-4 py-12 text-white">
-      <div className=" flex justify-between items-center mb-5">
+    <div className="max-w-[90%] lg:max-w-[50%] mx-auto px-4 py-12 text-white">
+      <div className=" flex justify-between items-center mb-15">
         <Link
           href={backUrl}
-          className="flex items-center gap-2 mb-5 text-gray-300 hover:text-white transition"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition"
         >
           <ArrowLeft size={18} />
           <span>Back</span>
@@ -72,7 +72,21 @@ export default async function Post({ params }) {
         </div>
       </div>
 
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      {/* author */}
+      <div className="mb-6 flex flex-col md:flex-row gap-5 items-center">
+        <div className="rounded-full w-10 flex items-center h-[100%] bg-brand">
+          <Image
+            src="/media/welcome.png"
+            alt="Blog Post Author"
+            width={60}
+            height={60}
+            className="inline-block rounded-full mr-3"
+          />
+        </div>
+
+        <h1 className="text-xl md:text-3xl font-bold text-center md:text-left">{post.title}</h1>
+      </div>
+
       <div className="text-sm text-gray-500 mb-6">
         {new Date(post.date + "T12:00:00").toLocaleDateString("en-US", {
           year: "numeric",
