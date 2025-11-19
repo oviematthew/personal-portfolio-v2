@@ -1,22 +1,18 @@
 ---
-title: "Strategic Framework Migration: Technical Insights from React to Vue Transition"
-slug: "react-to-vue-transition"
+title: "From React to Vue: Lessons, Wins, and Culture Shocks as a Frontend Developer (Vue 2 & 3)"
+slug: "react-to-vue-transition-vue"
 coverImage: "/media/blog/reacttovue.png"
-excerpt: "A comprehensive analysis of migrating from React to Vue in enterprise environments, examining architectural decisions, development workflows, and performance implications."
+excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 3—exploring the similarities, surprises, and best practices learned along the way."
 date: "2025-11-19"
 ---
 
-## Strategic Framework Migration: Technical Insights from React to Vue Transition
+## From React to Vue 2 & 3: Lessons, Wins, and Culture Shocks as a Frontend Developer
 
-### Executive Summary
+### Transitioning from React to Vue has been one of the most rewarding learning experiences of my career. After working extensively with React and Next.js, I joined  [Rentsync](https://rentsync.com/), which maintains high-volume production Vue apps. Experiencing both Vue 2 and Vue 3 has given me a broad perspective on framework evolution, developer ergonomics, and project architecture
 
-### Transitioning from React to Vue in a production environment provides valuable insights into framework architecture and developer productivity. After extensive experience with React and Next.js, my role at Rentsync required adapting to Vue-based applications at enterprise scale. This experience offers concrete learnings about how framework choice impacts development velocity, code maintainability, and team collaboration.
+## React vs Vue: First Impressions
 
-## Architectural Comparison: React vs Vue
-
-### Template-Based Architecture Analysis
-
-The most significant architectural difference is Vue's template-based syntax versus React's JSX approach. Vue employs declarative templating that closely resembles standard HTML, enhanced with framework-specific directives (`v-if`, `v-for`, `v-bind`, `v-model`). This design choice prioritizes readability and reduces the learning curve for developers with traditional web development backgrounds.
+### Coming from React, the first thing I noticed was Vue’s *template-based* syntax. Instead of writing JSX, Vue uses a declarative template style that feels closer to HTML. At first, it felt restrictive, but Vue directives (`v-if`, `v-for`, `v-bind`, `v-model`) make templates highly readable
 
 ```vue
 <template>
@@ -28,9 +24,7 @@ The most significant architectural difference is Vue's template-based syntax ver
 </template>
 ```
 
-### Composition API: Reactive State Management
-
-Vue's Composition API represents a fundamental paradigm shift from function-based thinking (React Hooks) to reactivity-driven architecture. The `ref()` and `reactive()` primitives provide enhanced state management capabilities with automatic dependency tracking, offering superior scalability for complex application logic.
+### Vue 3's Composition API was a big shift. If React Hooks taught me to think in functions, the Composition API made me think in *reactivity*. `ref()` and `reactive()` feel like `useState` on steroids — powerful, flexible, and easier to organize when your logic scales
 
 ```js
 import { ref, computed } from "vue";
@@ -45,26 +39,104 @@ const filteredListings = computed(() =>
 );
 ```
 
-## Development Workflow Analysis
+### Vue 2 uses the Options API. State is declared in `data`, computed properties in `computed`, and side effects in `watch` or lifecycle hooks like `mounted`. It is more declarative but less flexible than the Composition API
+
+```js
+export default {
+  data() {
+    return {
+      listings: [],
+      search: ""
+    };
+  },
+  computed: {
+    filteredListings() {
+      return this.listings.filter(l =>
+        l.name.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
+  }
+};
+```
+
+## Culture Shocks and Paradigm Shifts
 
 ### Single File Components (SFCs)
 
-Vue's Single File Component architecture consolidates template, script, and styling within individual `.vue` files, contrasting with React's separation of concerns approach. This architectural decision reduces cognitive overhead during development by maintaining component context in a single location, improving developer velocity for component-focused workflows.
+### In React, I split components, CSS, and tests into separate files. In Vue 2 and 3, everything lives inside one `.vue` file — template, script, and style. It felt odd at first, but it reduces context-switching
 
-### Performance Optimization Through Reactivity
+### Reactivity Without Re-Renders
 
-Vue's reactivity system implements granular updates, modifying only changed elements rather than triggering full component re-renders. This approach delivers measurable performance improvements, particularly in applications with complex component hierarchies or frequent state updates.
+### In React, state updates trigger component re-renders. Vue’s reactivity system updates only what changes, without redrawing the entire component tree. This is subtle but highly efficient
 
-### Component Communication Patterns
+## DOM Updates and the Next Tick Shocker
+
+### One of the most surprising things in Vue 2 was how DOM updates are applied asynchronously. Vue batches updates and applies them on the next "tick" of its internal queue. React re-renders are synchronous in the same render cycle, but in Vue, the DOM reflects changes only after the next tick
 
 ```js
-const props = defineProps(["listing"]);
-const emit = defineEmits(["favorite"]);
+// Vue 2 example
+export default {
+  data() {
+    return { count: 0 };
+  },
+  methods: {
+    increment() {
+      this.count++;
+      console.log(this.$refs.count.textContent); // Still old value
+      this.$nextTick(() => {
+        console.log(this.$refs.count.textContent); // Updated value
+      });
+    }
+  }
+};
 ```
 
-### Scoped Styling Architecture
+```vue
+<template>
+  <div>
+    <span ref="count">{{ count }}</span>
+    <button @click="increment">Increment</button>
+  </div>
+</template>
+```
 
-Vue's scoped styling system eliminates CSS namespace conflicts through automatic class name generation, enabling safe use of generic selectors while maintaining SCSS preprocessing capabilities. This approach reduces technical debt associated with global CSS management in large applications.
+### Vue 3 has `nextTick()` imported from the framework, but the concept is the same — the DOM update happens after the next tick
+
+```js
+import { ref, nextTick } from "vue";
+
+const count = ref(0);
+
+function increment() {
+  count.value++;
+  console.log(document.querySelector("#count").textContent); // Old value
+  nextTick(() => {
+    console.log(document.querySelector("#count").textContent); // Updated
+  });
+}
+```
+
+## Props and Emits Over Prop Drilling
+
+### Vue 2 and 3 support props and custom events. The pattern reduces deep prop drilling and clarifies data flow
+
+```js
+// Vue 3
+const props = defineProps(["listing"]);
+const emit = defineEmits(["favorite"]);
+
+// Vue 2
+props: ["listing"],
+methods: {
+  favorite() {
+    this.$emit("favorite");
+  }
+}
+```
+
+### SCSS and Scoped Styles
+
+### Vue’s scoped styles help avoid collisions while keeping SCSS maintainable
 
 ```vue
 <style scoped lang="scss">
@@ -80,11 +152,9 @@ Vue's scoped styling system eliminates CSS namespace conflicts through automatic
 </style>
 ```
 
-## TypeScript Integration
+## TypeScript in Vue
 
-### Enterprise-Grade Type Safety
-
-Vue's TypeScript integration provides comprehensive type safety across component interfaces and data structures. Implementing strongly-typed interfaces for business objects ensures maintainability and reduces runtime errors in production environments.
+### TypeScript is optional in Vue 2 (with class-style components) but native in Vue 3. Typing ensures maintainability across components
 
 ```ts
 interface Listing {
@@ -96,9 +166,7 @@ interface Listing {
 }
 ```
 
-### Type-Safe Reactive Programming
-
-The Composition API enables comprehensive TypeScript integration across reactive references, computed properties, and component props, eliminating the complexity traditionally associated with class-based component typing patterns.
+### Vue 3 Composition API makes typing refs, computed values, and props straightforward
 
 ```ts
 import { ref, computed } from "vue";
@@ -111,11 +179,7 @@ const averagePrice = computed(() => {
 });
 ```
 
-## Framework Pattern Mapping
-
-### React to Vue Migration Guide
-
-The following comparison illustrates how established React patterns translate to Vue's reactive architecture:
+## React Hooks vs Vue Reactivity
 
 ```jsx
 // React
@@ -124,59 +188,25 @@ useEffect(() => console.log(count), [count]);
 ```
 
 ```ts
-// Vue
+// Vue 3
 const count = ref(0);
 watch(count, (value) => console.log(value));
 ```
 
-### Framework Concept Mapping
+```js
+// Vue 2
+data() {
+  return { count: 0 };
+},
+watch: {
+  count(newVal) {
+    console.log(newVal);
+  }
+}
+```
 
-| Concept | React | Vue |
-|----------|--------|------|
-| State | `useState` | `ref`, `reactive` |
-| Derived Data | Custom logic or `useMemo` | `computed()` |
-| Side Effects | `useEffect` | `watch`, `onMounted` |
-| Context | Context API / props drilling | `provide` / `inject` |
-| Styling | CSS Modules, Styled Components | Scoped styles with `lang="scss"` |
+### Concept comparison
 
-## Technical Advantages
-
-### Predictable Reactivity Model
-
-Vue's data-driven reactivity system provides intuitive dependency tracking, enabling developers to reason about state changes more effectively than traditional re-render cycles.
-
-### Framework Conventions
-
-Strong out-of-the-box conventions reduce boilerplate code and accelerate development velocity while maintaining code consistency across team members.
-
-### Integrated Styling Solutions
-
-Scoped SCSS support and built-in transition systems streamline UI development workflows, reducing dependencies on external styling libraries.
-
-### Documentation Quality
-
-Vue's comprehensive and accessible documentation reduces onboarding time and supports rapid knowledge transfer within development teams.
-
-## Implementation Considerations
-
-### Ecosystem Maturity
-
-While growing rapidly, Vue's ecosystem offers fewer third-party solutions compared to React, though tools like Vite and Pinia address most core requirements effectively.
-
-### Learning Curve for Mixed APIs
-
-Teams transitioning between Composition and Options API patterns may experience initial syntax confusion, requiring structured onboarding approaches.
-
-### Template Constraints
-
-Vue's template system, while readable, provides less JavaScript flexibility than JSX for complex conditional rendering scenarios.
-
-## Strategic Insights and Recommendations
-
-### Framework Adaptability as Core Competency
-
-Transitioning from React to Vue demonstrates that frameworks serve as tools for expressing UI logic rather than rigid paradigms. The critical factors for successful framework adoption include team collaboration patterns, performance requirements, and long-term maintainability objectives. Vue's reactivity model, Single File Components, and Composition API fundamentally alter development approaches, prioritizing developer experience and application performance.
-
-### Migration Recommendations
-
-For teams considering React to Vue migration, success depends on understanding architectural differences rather than surface-level syntax changes. Vue's approach rewards developers who embrace reactive programming principles and component-centric development workflows.
+| Concept | React | Vue 2 | Vue 3 |
+|---------|-------|-------|-------|
+| State | `useState` | `data()` | `ref`, `reactive` |
