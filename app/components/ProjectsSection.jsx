@@ -36,7 +36,7 @@ export default function ProjectsSection() {
 
     <section
       id="projects"
-      className="min-h-screen max-w-6xl mx-auto px-6 py-30 lg:py-40 mt-10 "
+      className="min-h-screen max-w-[60%] mx-auto px-6 py-30 lg:py-40 mt-10 "
     >
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
         <h2 className="text-3xl font-bold text-white font-heading">
