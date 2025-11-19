@@ -117,3 +117,13 @@ article > h2 {
   margin-top: 20px;
   font: bold 1.5em;
 }
+
+article > h3 {
+  margin-top: 15px;
+  font: bold 1.2em;
+}
+
+article > h3 > a{
+  text-decoration: underline;
+  color: var(--brand);
+}
