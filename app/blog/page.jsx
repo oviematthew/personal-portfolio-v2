@@ -21,7 +21,7 @@ export default function Blog() {
     <>
       <div className="sm:py-0 md:py-24 fade-up">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="w-full hidden md:block">
+          <div className="w-full">
             <h1 className="text-4xl font-bold font-heading text-white mb-10">
               All Blog Posts
             </h1>
