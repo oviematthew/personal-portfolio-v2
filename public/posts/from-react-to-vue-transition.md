@@ -207,6 +207,34 @@ watch: {
 
 ### Concept comparison
 
-| Concept | React | Vue 2 | Vue 3 |
-|---------|-------|-------|-------|
-| State | `useState` | `data()` | `ref`, `reactive` |
+| Concept | React | Vue |
+|----------|--------|------|
+| State | `useState` | `ref`, `reactive` |
+| Derived Data | Custom logic or `useMemo` | `computed()` |
+| Side Effects | `useEffect` | `watch`, `onMounted` |
+| Context | Context API / props drilling | `provide` / `inject` |
+| Styling | CSS Modules, Styled Components | Scoped styles with `lang="scss"` |
+
+## Wins
+
+### Predictable reactivity — The data-driven model is more intuitive once you understand how Vue tracks dependencies
+
+### Simplicity — The framework has strong conventions out of the box, reducing boilerplate
+
+### Styling — Scoped SCSS and built-in transitions make design work smoother
+
+### Community — Vue’s documentation is crystal clear and beginner-friendly
+
+## Cons
+
+### Fewer ecosystem tools compared to React (though Vite + Pinia make up for a lot)
+
+### Less familiar syntax at first, especially when mixing Composition and Options APIs
+
+### Template limitations when you are used to full JavaScript flexibility in JSX
+
+## Wrap-up
+
+### Transitioning from React to Vue has made me a more adaptable developer. I’ve learned that frameworks are simply tools for expressing UI logic — what matters most is how they shape collaboration, performance, and developer happiness. Vue’s reactivity model, single-file components, and elegant Composition API have completely changed how I think about building for the web
+
+### For anyone coming from React, Vue is not just a change — it’s a mindset shift. And once it clicks, it’s incredibly fun
