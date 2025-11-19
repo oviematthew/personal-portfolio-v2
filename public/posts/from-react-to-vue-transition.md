@@ -1,5 +1,5 @@
 ---
-title: "From React to Vue: Lessons, Wins, and Culture Shocks as a Frontend Developer (Vue 2 & 3)"
+title: "From React to Vue: Culture Shocks as a Frontend Developer (Vue 2 & 3)"
 slug: "react-to-vue-transition-vue"
 coverImage: "/media/blog/reacttovue.png"
 excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 3—exploring the similarities, surprises, and best practices learned along the way."
