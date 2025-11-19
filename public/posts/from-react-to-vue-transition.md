@@ -205,16 +205,6 @@ watch: {
 }
 ```
 
-### Concept comparison
-
-| Concept | React | Vue |
-|----------|--------|------|
-| State | `useState` | `ref`, `reactive` |
-| Derived Data | Custom logic or `useMemo` | `computed()` |
-| Side Effects | `useEffect` | `watch`, `onMounted` |
-| Context | Context API / props drilling | `provide` / `inject` |
-| Styling | CSS Modules, Styled Components | Scoped styles with `lang="scss"` |
-
 ## Wins
 
 ### Predictable reactivity — The data-driven model is more intuitive once you understand how Vue tracks dependencies
