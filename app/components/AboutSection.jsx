@@ -62,7 +62,7 @@ export default function AboutSection() {
             high-quality, scalable web applications using Vue.
           </p>
 
-          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
+          {/* <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
             One of my most past full time positions was{" "}
             <Link
               href="https://boas.co"
@@ -74,7 +74,7 @@ export default function AboutSection() {
             , where I worked as a frontend developer working with Liquid on
             Shopify, and Strapi CMS with Next.Js to build and maintain quick,
             responsive, accessible and impactful digital experiences.
-          </p>
+          </p> */}
 
           <p className="text-lg xl:text-xl text-gray-300 leading-relaxed">
             I’m a curious problem solver, passionate about beautiful UI and
