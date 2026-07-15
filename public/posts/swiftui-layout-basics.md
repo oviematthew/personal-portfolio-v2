@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Layout in SwiftUI"
 slug: "swiftui-layout-basics"
-coverImage: "/media/blog/swiftui.png"
+coverImage: "/media/blog/swiftui-layout.png"
 excerpt: "Discover how to build beautiful layouts using SwiftUI’s powerful and declarative approach."
 date: "2025-04-05"
 ---

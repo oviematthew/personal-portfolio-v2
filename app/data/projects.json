@@ -1,4 +1,25 @@
 [{
+    "name": "Footy Teams",
+    "slug": "footy-teams",
+    "type": "web",
+    "jobType": "Hobby",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "description": "A web app that turns a pasted player list into randomized, position-balanced teams in one click, built for anyone organizing a pickup match.",
+    "longDescription": "Footy Teams is a web app that takes the guesswork and arguing out of picking sides for a pickup match. You paste in a loose player list (name, position, or two positions separated by a slash), set a team size or team count, and it generates randomized, position-balanced teams instantly. The balancing logic is opinionated on purpose: every team is dealt a baseline of up to 2 strikers, 2 mids, and 2 defenders before anything else, leftover players in a position are dealt from that same position next so a team ends up with 3 defenders rather than a random unrelated position, and at every step the next player goes to whichever team currently has the fewest players so the split stays even even with uneven position counts. Results can be copied as a flat list, copied as a shareable link, exported as an image, or reshuffled instantly if the group wants a different mix. There's no backend or database. Parsing and balancing run entirely client-side in the browser, which keeps the tool fast, free to host, and free of any signup or setup. It's built with Next.js 14 App Router, TypeScript, and Tailwind CSS, and deployed zero-config on Vercel's free tier.",
+    "featuredImage": "/media/projects/footy-teams-featured.png",
+    "images": [
+      "/media/projects/page-images/footy-teams-1.png",
+      "/media/projects/page-images/footy-teams-2.png"
+    ],
+    "live": "https://footyteams.vercel.app/",
+    "github": "https://github.com/oviematthew/footyteams",
+    "featured": true
+  },
+  {
     "name": "Realtor Block",
     "slug": "realtor-block",
     "type": "web",
@@ -71,6 +92,24 @@
     "featured": false
   },
   {
+    "name": "Lizz Davies",
+    "slug": "lizz-davies",
+    "type": "web",
+    "jobType": "Freelance",
+    "techStack": ["Next.js", "Tailwind CSS", "Vercel"],
+    "description": "A bridal and occasion hairstylist's site rebuilt from WordPress into a fast, custom Next.js build with a full booking flow and photo portfolio.",
+    "longDescription": "Lizz Davies is a London-based bridal and occasion hairstylist with over a decade of experience styling weddings, editorial shoots, and TV and film productions. I rebuilt her site from WordPress into a custom Next.js application, trading a slow page-builder theme for a fast, fully bespoke experience built around how she actually works with clients. The homepage leads with a hero booking CTA, a portfolio preview split into Bridal and Session categories, press mentions including a 2023 feature on Brides, and a rotating carousel of Google review testimonials. The booking flow is the core of the site: a multi-field form that captures service type, date, location, time, guest count, and a written description of the client's vision, with support for uploading up to five inspiration photos directly in the form. Styled with Tailwind CSS and deployed on Vercel, the site is built for a business where the booking form and portfolio genuinely need to convert visitors into consultations, not just look good.",
+    "featuredImage": "/media/projects/lizzdavies-featured.png",
+    "images": [
+      "/media/projects/page-images/lizzdavies-1.png",
+      "/media/projects/page-images/lizzdavies-2.png",
+      "/media/projects/page-images/lizzdavies-3.png",
+      "/media/projects/page-images/lizzdavies-4.png"
+    ],
+    "live": "https://lizzdavies.com",
+    "featured": false
+  },
+  {
     "name": "WPS Bedge",
     "slug": "wps-bedge",
     "type": "web",
@@ -84,23 +123,6 @@
       "/media/projects/page-images/wpsbedge-2.png"
     ],
     "live": "https://wpsbedge.com",
-    "featured": false
-  },
-
-   {
-    "name": "Lizz Davies",
-    "slug": "lizz-davies",
-    "type": "web",
-    "jobType": "Freelance",
-    "techStack": ["Wordpress", "GA4", "MySQL","GTM", "Recaptcha"],
-    "description": "Photography Studio tmade for creatives to showcase their creativity.",
-    "longDescription": "The Employee Voting System is a web application designed to facilitate voting among employees in an organization. It allows employees to cast their votes on various topics, ensuring transparency and engagement in decision-making processes.",
-    "featuredImage": "/media/projects/lizzdavies-featured.png",
-    "images": [
-      "/media/projects/page-images/lizzdavies-1.png",
-      "/media/projects/page-images/lizzdavies-2.png"
-    ],
-    "live": "https://lizzdavies.com",
     "featured": false
   },
   {

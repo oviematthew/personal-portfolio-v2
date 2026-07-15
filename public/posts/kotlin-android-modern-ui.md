@@ -1,7 +1,7 @@
 ---
 title: "Building Modern Android UIs with Kotlin"
 slug: "kotlin-android-modern-ui"
-coverImage: "/media/blog/kotlin.avif"
+coverImage: "/media/blog/kotlin-android-ui.png"
 excerpt: "Take your Android UI skills to the next level using modern Kotlin patterns and Jetpack Compose."
 date: "2025-03-06"
 ---

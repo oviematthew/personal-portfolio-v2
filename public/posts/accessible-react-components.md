@@ -2,7 +2,7 @@
 title: "Building Accessible React Components That Everyone Can Use"
 date: "2025-04-03"
 excerpt: "Learn how to make React components accessible without compromising design or usability."
-coverImage: "/media/blog/react.png"
+coverImage: "/media/blog/accessible-react.png"
 ---
 
 ### Accessibility ensures apps are usable for everyone, including people with disabilities. Accessible React components improve usability, compliance, and overall UX

@@ -1,12 +1,10 @@
 ---
 title: "From React to Vue: Culture Shocks as a Frontend Developer (Vue 2 & 3)"
 slug: "react-to-vue-transition"
-coverImage: "/media/blog/reacttovue.png"
-excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 3—exploring the similarities, surprises, and best practices learned along the way."
+coverImage: "/media/blog/react-to-vue.png"
+excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 3: exploring the similarities, surprises, and best practices learned along the way."
 date: "2025-11-19"
 ---
-
-## From React to Vue 2 & 3: Lessons, Wins, and Culture Shocks as a Frontend Developer
 
 ### Transitioning from React to Vue has been one of the most rewarding learning experiences of my career. After working extensively with React and Next.js, I joined  [Rentsync](https://rentsync.com/), which maintains high-volume production Vue apps. Experiencing both Vue 2 and Vue 3 has given me a broad perspective on framework evolution, developer ergonomics, and project architecture
 
@@ -24,7 +22,7 @@ date: "2025-11-19"
 </template>
 ```
 
-### Vue 3's Composition API was a big shift. If React Hooks taught me to think in functions, the Composition API made me think in *reactivity*. `ref()` and `reactive()` feel like `useState` on steroids — powerful, flexible, and easier to organize when your logic scales
+### Vue 3's Composition API was a big shift. If React Hooks taught me to think in functions, the Composition API made me think in *reactivity*. `ref()` and `reactive()` feel like `useState` on steroids: powerful, flexible, and easier to organize when your logic scales
 
 ```js
 import { ref, computed } from "vue";
@@ -63,7 +61,7 @@ export default {
 
 ### Single File Components (SFCs)
 
-### In React, I split components, CSS, and tests into separate files. In Vue 2 and 3, everything lives inside one `.vue` file — template, script, and style. It felt odd at first, but it reduces context-switching
+### In React, I split components, CSS, and tests into separate files. In Vue 2 and 3, everything lives inside one `.vue` file: template, script, and style. It felt odd at first, but it reduces context-switching
 
 ### Reactivity Without Re-Renders
 
@@ -100,7 +98,7 @@ export default {
 </template>
 ```
 
-### Vue 3 has `nextTick()` imported from the framework, but the concept is the same — the DOM update happens after the next tick
+### Vue 3 has `nextTick()` imported from the framework, but the concept is the same: the DOM update happens after the next tick
 
 ```js
 import { ref, nextTick } from "vue";
@@ -207,13 +205,13 @@ watch: {
 
 ## Wins
 
-### Predictable reactivity — The data-driven model is more intuitive once you understand how Vue tracks dependencies
+### Predictable reactivity: the data-driven model is more intuitive once you understand how Vue tracks dependencies
 
-### Simplicity — The framework has strong conventions out of the box, reducing boilerplate
+### Simplicity: the framework has strong conventions out of the box, reducing boilerplate
 
-### Styling — Scoped SCSS and built-in transitions make design work smoother
+### Styling: scoped SCSS and built-in transitions make design work smoother
 
-### Community — Vue’s documentation is crystal clear and beginner-friendly
+### Community: Vue’s documentation is crystal clear and beginner-friendly
 
 ## Cons
 
@@ -225,6 +223,6 @@ watch: {
 
 ## Wrap-up
 
-### Transitioning from React to Vue has made me a more adaptable developer. I’ve learned that frameworks are simply tools for expressing UI logic — what matters most is how they shape collaboration, performance, and developer happiness. Vue’s reactivity model, single-file components, and elegant Composition API have completely changed how I think about building for the web
+### Transitioning from React to Vue has made me a more adaptable developer. I’ve learned that frameworks are simply tools for expressing UI logic. What matters most is how they shape collaboration, performance, and developer happiness. Vue’s reactivity model, single-file components, and elegant Composition API have completely changed how I think about building for the web
 
-### For anyone coming from React, Vue is not just a change — it’s a mindset shift. And once it clicks, it’s incredibly fun
+### For anyone coming from React, Vue is not just a change. It’s a mindset shift. And once it clicks, it’s incredibly fun

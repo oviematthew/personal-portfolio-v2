@@ -1,7 +1,7 @@
 ---
 title: "Kickstarting Your Mobile App with Expo & React Native"
 slug: "expo-react-native-setup"
-coverImage: "/media/blog/expo.png"
+coverImage: "/media/blog/expo-react-native.png"
 excerpt: "A practical guide to setting up your first mobile app using Expo and React Native."
 date: "2025-03-06"
 ---

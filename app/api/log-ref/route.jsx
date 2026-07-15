@@ -1,5 +1,40 @@
 import nodemailer from "nodemailer";
 
+// Vercel's edge network attaches these to every request before it reaches
+// the function, so this is instant and never rate-limited, unlike a
+// third-party IP lookup API.
+function getLocationFromVercelHeaders(headers) {
+  const city = headers.get("x-vercel-ip-city");
+  const country = headers.get("x-vercel-ip-country");
+  const region = headers.get("x-vercel-ip-country-region");
+
+  if (!city && !country) return null;
+
+  const parts = [city && decodeURIComponent(city), region, country].filter(Boolean);
+  return parts.join(", ");
+}
+
+// Fallback for local dev or hosts that don't set Vercel's geo headers.
+async function getLocationFromIp(ip) {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 3000);
+
+    const res = await fetch(`https://ipapi.co/${ip}/json/`, {
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    const data = await res.json();
+    if (data && data.country_name && data.city) {
+      return `${data.city}, ${data.country_name}`;
+    }
+  } catch (err) {
+    console.error("Failed to fetch IP location:", err);
+  }
+  return null;
+}
+
 export async function POST(request) {
   const { ref } = await request.json();
 
@@ -17,27 +52,22 @@ export async function POST(request) {
   const allowedRefs = ["github", "resume", "linkedin", "immigration", "instagram", "coverLetter", "twitch", "youtube", "tiktok"];
   const sendEmail = allowedRefs.includes(ref);
 
-  // Check if the request is coming from a known referrer
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0] ??
-    request.headers.get("x-real-ip") ??
-    null;
+  let location = getLocationFromVercelHeaders(request.headers);
 
-  let location = "Unknown";
+  // Vercel's edge network only attaches geo headers in production, so
+  // local dev (and any non-Vercel host) falls back to an IP lookup.
+  if (!location) {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      request.headers.get("x-real-ip") ??
+      null;
 
-  // Fetch location based on IP address
-  // This is a simple example using ipapi.co, but you can use any IP geolocation service
-  try {
     if (ip) {
-      const res = await fetch(`https://ipapi.co/${ip}/json/`);
-      const data = await res.json();
-      if (data && data.country_name && data.city) {
-        location = `${data.country_name}, ${data.city}`;
-      }
+      location = await getLocationFromIp(ip);
     }
-  } catch (err) {
-    console.error("Failed to fetch IP location:", err);
   }
+
+  location = location ?? "Unknown";
 
   //convert to eastern time
   const now = new Date();

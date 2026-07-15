@@ -1,12 +1,10 @@
 ---
 title: "Optimizing Frontend Performance with Supabase and Edge Functions"
 slug: "frontend-performance-supabase-edge"
-coverImage: "/media/blog/supabase.webp"
+coverImage: "/media/blog/supabase-edge-performance.png"
 excerpt: "Learn how to leverage Supabase and edge functions to build lightning-fast, scalable frontend applications with real-time capabilities."
 date: "2025-08-20"
 ---
-
-## Optimizing Frontend Performance with Supabase and Edge Functions
 
 In modern frontend development, performance is king. Users expect apps to load instantly, react smoothly, and handle data seamlessly. One way to achieve this is by integrating **Supabase**, a serverless Postgres database with real-time capabilities, alongside **Edge Functions** to offload computations closer to the user.
 
@@ -15,7 +13,7 @@ This post dives into practical strategies to optimize your frontend apps while u
 
 ## Why Supabase + Edge Functions?
 
-Supabase is more than just a backend — it’s a **real-time database**, authentication provider, and file storage service. Combining it with edge functions gives you:
+Supabase is more than just a backend. It's a **real-time database**, authentication provider, and file storage service. Combining it with edge functions gives you:
 
 - **Ultra-low latency** by running code closer to the client.
 - **Scalable serverless architecture** without managing infrastructure.

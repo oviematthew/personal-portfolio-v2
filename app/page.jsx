@@ -4,7 +4,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import BlogSection from "./components/BlogSection";
 import SkillsSection from "./components/SkillsSection";
 import ContactSection from "./components/ContactSection";
-import RefLogger from "./components/RefLogger"; 
+import RefWelcomeModal from "./components/RefWelcomeModal";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <ProjectsSection />
       <BlogSection />
       <ContactSection />
-      <RefLogger /> 
+      <RefWelcomeModal />
     </>
   );
 }

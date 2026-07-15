@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getAllPosts } from "../../utils/Posts";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import Link from "next/link";
 import readingDuration from "reading-duration";
 import Image from "next/image";
@@ -54,59 +54,60 @@ export default async function Post({ params }) {
     emoji: false,
   });
 
+  const formattedDate = new Date(post.date + "T12:00:00").toLocaleDateString(
+    "en-US",
+    { year: "numeric", month: "short", day: "numeric" }
+  );
+
   return (
-    <div className="max-w-[90%] lg:max-w-[50%] mx-auto px-4 py-12 text-white">
-      <div className=" flex justify-between items-center mb-15">
+    <div className="text-white pb-16">
+      <div className="max-w-3xl mx-auto px-4 md:px-6 pt-10">
         <Link
           href={backUrl}
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition"
+          className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition mb-8"
         >
           <ArrowLeft size={18} />
           <span>Back</span>
         </Link>
 
-        <div className="reading-time">
-          <span className="whitespace-nowrap text-gray-300">
-            🕒 {readingTime}
-          </span>
-        </div>
-      </div>
-
-      {/* author */}
-      <div className="mb-6 flex flex-col md:flex-row gap-5 items-center">
-        <div className="rounded-full w-10 flex items-center h-[100%] bg-brand">
+        {/* Hero image, no CSS text overlay on top of it */}
+        <div className="relative w-full h-48 md:h-80 rounded-2xl overflow-hidden mb-10">
           <Image
-            src="/media/welcome.png"
-            alt="Blog Post Author"
-            width={60}
-            height={60}
-            className="inline-block rounded-full mr-3"
+            src={post.coverImage}
+            alt=""
+            fill
+            priority
+            className="object-cover"
           />
         </div>
 
-        <h1 className="text-xl md:text-3xl font-bold text-center md:text-left">{post.title}</h1>
-      </div>
+        <h1 className="text-3xl md:text-5xl font-bold font-heading text-white leading-tight mb-6">
+          {post.title}
+        </h1>
 
-      <div className="text-sm text-gray-500 mb-6">
-        {new Date(post.date + "T12:00:00").toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}
-      </div>
+        {/* Meta row */}
+        <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400 pb-8 mb-10 border-b border-white/10">
+          <Image
+            src="/media/welcome.png"
+            alt="Ovie Matthew"
+            width={36}
+            height={36}
+            className="rounded-full"
+          />
+          <span className="text-gray-200 font-medium">Ovie Matthew</span>
+          <span className="text-gray-600">·</span>
+          <span>{formattedDate}</span>
+          <span className="text-gray-600">·</span>
+          <span className="inline-flex items-center gap-1">
+            <Clock size={14} />
+            {readingTime}
+          </span>
+        </div>
 
-      <div className="relative w-full h-72 mb-6">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
-          className="object-cover rounded-lg"
-        />
+        <article className="post-content w-full break-words overflow-hidden">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+        </article>
       </div>
-
-      <article className="prose prose-invert prose-lg w-full break-words overflow-hidden">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
-      </article>
     </div>
   );
 }

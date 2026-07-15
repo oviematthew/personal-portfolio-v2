@@ -1,12 +1,10 @@
 ---
 title: "Mastering Next.js App Router: Best Practices for Modern Web Apps"
 slug: "nextjs-app-router-best-practices"
-coverImage: "/media/blog/nextjs.webp"
+coverImage: "/media/blog/nextjs-app-router.png"
 excerpt: "Explore essential patterns and practical tips for working with the Next.js App Router effectively."
 date: "2025-05-01"
 ---
-
-## Mastering Next.js App Router: Best Practices for Modern Web Apps
 
 ### Next.js 13+ introduced the App Router, a file-system based routing system that encourages server components, nested layouts, and a clearer separation between server and client code. The App Router helps build scalable, high-performance React apps when used with Next.js server and edge features
 
@@ -101,7 +99,7 @@ export default function ToggleButton() {
 
 ## Best practices
 
-### Keep layouts modular and focused — compose small layouts rather than one large global layout
+### Keep layouts modular and focused: compose small layouts rather than one large global layout
 
 ### Separate server and client responsibilities. Fetch data in server components and keep UI logic in client components
 

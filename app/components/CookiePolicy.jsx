@@ -22,7 +22,7 @@ export default function CookiePolicy() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-3 left-3 right-3 z-50 mx-auto w-auto max-w-3xl rounded-md bg-black/90 px-6 py-4 shadow-lg backdrop-blur-md sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:transform">
+    <div className="fixed bottom-3 left-3 right-3 z-50 mx-auto w-auto max-w-3xl rounded-md bg-neutral-800/95 border border-white/10 px-6 py-4 shadow-lg backdrop-blur-md sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:transform">
       <div className="flex items-center justify-between gap-4">
         <p className="text-sm text-white leading-snug">
           This site uses cookies for traffic and usage analysis. See my{" "}

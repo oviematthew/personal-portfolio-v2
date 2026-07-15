@@ -26,9 +26,33 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(241, 90, 36, 0.10), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(241, 90, 36, 0.06), transparent 30%),
+    var(--background);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-inter);
+}
+
+/* nav link underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--brand);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 
@@ -76,8 +100,8 @@ body {
 }
 
 /* fix for broken blog/[slug] page */
-.prose pre,
-.prose code {
+.post-content pre,
+.post-content code {
   white-space: pre-wrap !important;
   word-break: break-word;
 }
@@ -113,17 +137,85 @@ pre:hover .copy-button {
   opacity: 1;
 }
 
-article > h2 {
-  margin-top: 20px;
-  font: bold 1.5em;
+/* Blog post body: real paragraph and heading rhythm since the content is
+   plain markdown-to-HTML with no typography plugin applied. */
+.post-content {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-article > h3 {
-  margin-top: 15px;
-  font: bold 1.2em;
+.post-content > p {
+  margin-bottom: 1.75rem;
 }
 
-article > h3 > a{
+.post-content > h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.post-content > h2:first-child {
+  margin-top: 0;
+}
+
+.post-content > h3 {
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+.post-content > h3 > a {
   text-decoration: underline;
   color: var(--brand);
+}
+
+.post-content > ul,
+.post-content > ol {
+  margin-bottom: 1.75rem;
+  padding-left: 1.5rem;
+}
+
+.post-content > ul {
+  list-style: disc;
+}
+
+.post-content > ol {
+  list-style: decimal;
+}
+
+.post-content li {
+  margin-bottom: 0.6rem;
+  line-height: 1.75;
+}
+
+.post-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.post-content a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content blockquote {
+  margin: 1.75rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--brand);
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
+}
+
+.post-content > pre,
+.post-content > .code-block-wrapper {
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
 }

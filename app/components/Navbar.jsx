@@ -42,19 +42,19 @@ export default function Navbar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-8 text-lg italic">
-        <Link href="/" className="hover:text-brand">
+        <Link href="/" className="nav-link hover:text-brand">
           home
         </Link>
-        <Link href="/#about" className="hover:text-brand">
+        <Link href="/#about" className="nav-link hover:text-brand">
           about
         </Link>
-        <Link href="/#projects" className="hover:text-brand">
+        <Link href="/#projects" className="nav-link hover:text-brand">
           projects
         </Link>
-        <Link href="/blog" className="hover:text-brand">
+        <Link href="/blog" className="nav-link hover:text-brand">
           blog
         </Link>
-        <Link href="/#contact" className="hover:text-brand">
+        <Link href="/#contact" className="nav-link hover:text-brand">
           contact
         </Link>
       </div>

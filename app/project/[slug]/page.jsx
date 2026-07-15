@@ -1,7 +1,7 @@
 import projectsData from "../../data/projects.json";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 
 // ✅ 1. Add dynamic metadata
@@ -52,11 +52,21 @@ export default async function ProjectPage({ params }) {
           </h1>
         </div>
 
-        <div className="forward-link hover:scale-95">
+        <div className="forward-link flex items-center gap-4">
+          {project.github && (
+            <Link
+              href={project.github}
+              target="_blank"
+              className="flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95 transition"
+            >
+              <Github size={18} className="text-gray-300" />
+              <span className="hidden md:inline">Code</span>
+            </Link>
+          )}
           <Link
             href={project.live}
             target="_blank"
-            className="ml-auto flex items-center gap-2 text-gray-300 text-sm md:text-md "
+            className="ml-auto flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95 transition"
           >
             Visit
             <ArrowUpRight className="text-gray-300" />
