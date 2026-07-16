@@ -39,7 +39,7 @@ export default function SingleBlog() {
               src={latestPost.coverImage}
               alt={latestPost.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover object-left group-hover:scale-105 transition-transform duration-300"
             />
           </div>
 

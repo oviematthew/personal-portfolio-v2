@@ -50,7 +50,7 @@ export default function Blog() {
                   src={post.coverImage}
                   alt={post.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover object-left group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
