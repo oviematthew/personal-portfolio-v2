@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Analytics />
         <ScrollToTopBtn />
         <CookiePolicy />

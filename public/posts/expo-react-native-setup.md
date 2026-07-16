@@ -6,7 +6,7 @@ excerpt: "A practical guide to setting up your first mobile app using Expo and R
 date: "2025-03-06"
 ---
 
-### Expo is the fastest way to start building React Native apps without installing Xcode or Android Studio. It is ideal for rapid prototyping, testing, and even launching full-scale production apps. With Expo, developers can focus on creating features while the platform handles the native complexity under the hood. Its ecosystem includes built-in APIs such as Camera, push notifications, geolocation, and sensors, providing a robust starting point for any app
+Expo is the fastest way to start building React Native apps without installing Xcode or Android Studio. It is ideal for rapid prototyping, testing, and even launching full-scale production apps. With Expo, developers can focus on creating features while the platform handles the native complexity under the hood. Its ecosystem includes built-in APIs such as Camera, push notifications, geolocation, and sensors, providing a robust starting point for any app.
 
 ## Why Expo?
 

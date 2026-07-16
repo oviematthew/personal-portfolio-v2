@@ -54,7 +54,7 @@ export default function ProjectsSection() {
               }}
               className={`px-4 py-2  border cursor-pointer ${
                 filter === f
-                  ? "bg-brand text-white"
+                  ? "bg-brand-cta text-white"
                   : "text-gray-300 border-gray-600 hover:scale-95"
               }`}
             >
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
         <div className="mt-8 text-center">
           <button
             onClick={loadMoreProjects}
-            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
+            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             {projectsLoading ? (
               <>

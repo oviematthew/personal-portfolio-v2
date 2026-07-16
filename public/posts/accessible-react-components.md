@@ -5,7 +5,7 @@ excerpt: "Learn how to make React components accessible without compromising des
 coverImage: "/media/blog/accessible-react.png"
 ---
 
-### Accessibility ensures apps are usable for everyone, including people with disabilities. Accessible React components improve usability, compliance, and overall UX
+Accessibility ensures apps are usable for everyone, including people with disabilities. Accessible React components improve usability, compliance, and overall UX.
 
 ## Semantic HTML
 

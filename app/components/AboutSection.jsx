@@ -77,7 +77,6 @@ export default function AboutSection() {
             width={800}
             height={600}
             className="w-full h-[80%] object-cover rounded-sm shadow-lg"
-            priority
           />
         </div>
       </div>

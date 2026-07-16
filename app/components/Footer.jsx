@@ -15,11 +15,10 @@ export default function Footer() {
     <footer className="footer flex flex-col justify-center items-center p-10">
       <Image
         src="/media/footer-icon.png"
-        alt="Bedge Pictures logo"
+        alt="Ovie"
         width={200}
         height={200}
         className="w-25 h-25 object-cover"
-        priority
       />
 
       <div className="footer-links mt-10 flex gap-6">

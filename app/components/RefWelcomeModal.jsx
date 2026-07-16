@@ -141,7 +141,7 @@ export default function RefWelcomeModal() {
 
             <button
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic cursor-pointer"
+              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic cursor-pointer"
             >
               Take a look around
             </button>

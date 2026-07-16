@@ -6,7 +6,7 @@ excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 
 date: "2025-11-19"
 ---
 
-### Transitioning from React to Vue has been one of the most rewarding learning experiences of my career. After working extensively with React and Next.js, I joined  [Rentsync](https://rentsync.com/), which maintains high-volume production Vue apps. Experiencing both Vue 2 and Vue 3 has given me a broad perspective on framework evolution, developer ergonomics, and project architecture
+Transitioning from React to Vue has been one of the most rewarding learning experiences of my career. After working extensively with React and Next.js, I joined [Rentsync](https://rentsync.com/), which maintains high-volume production Vue apps. Experiencing both Vue 2 and Vue 3 has given me a broad perspective on framework evolution, developer ergonomics, and project architecture.
 
 ## React vs Vue: First Impressions
 

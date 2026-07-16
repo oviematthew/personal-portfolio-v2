@@ -33,6 +33,7 @@ export default function HeroSection() {
                 height={208}
                 className="w-52 h-52 object-cover"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -105,7 +106,7 @@ export default function HeroSection() {
         <div className="mt-2">
           <Link
             href="#projects"
-            className="inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
+            className="inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             View Projects
             <ChevronDown className="w-5 h-5 animate-pulse" />

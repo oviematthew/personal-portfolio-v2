@@ -6,7 +6,7 @@ excerpt: "Explore essential patterns and practical tips for working with the Nex
 date: "2025-05-01"
 ---
 
-### Next.js 13+ introduced the App Router, a file-system based routing system that encourages server components, nested layouts, and a clearer separation between server and client code. The App Router helps build scalable, high-performance React apps when used with Next.js server and edge features
+Next.js 13+ introduced the App Router, a file-system based routing system that encourages server components, nested layouts, and a clearer separation between server and client code. The App Router helps build scalable, high-performance React apps when used with Next.js server and edge features.
 
 ## File-based routing
 

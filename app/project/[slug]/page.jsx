@@ -77,9 +77,11 @@ export default async function ProjectPage({ params }) {
         Job Type: {project.jobType}
       </p>
 
-      <p className="text-gray-300 mb-10 font-text text-center leading-relaxed">
-        {project.longDescription}
-      </p>
+      <div className="text-gray-300 mb-10 font-text text-center leading-relaxed space-y-4">
+        {project.longDescription.split("\n\n").map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
       <div className="flex justify-center flex-wrap gap-4 mb-10">
         {project.techStack.map((tech) => (
           <span

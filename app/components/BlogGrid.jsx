@@ -80,7 +80,7 @@ export default function BlogGrid({ posts }) {
         <div className="mt-8 text-center">
           <button
             onClick={loadMorePosts}
-            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand hover:bg-brand/90 hover:scale-95 transition duration-300 ease-in-out italic"
+            className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic"
           >
             {postsLoading ? (
               <>

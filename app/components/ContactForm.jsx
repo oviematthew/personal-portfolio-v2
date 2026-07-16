@@ -115,6 +115,9 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6 max-w-xl w-full mt-5">
       <div>
+        <label htmlFor="fullName" className="sr-only">
+          Full Name
+        </label>
         <input
           id="fullName"
           name="fullName"
@@ -137,6 +140,9 @@ export default function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="email" className="sr-only">
+          Email Address
+        </label>
         <input
           id="email"
           name="email"
@@ -160,6 +166,9 @@ export default function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="message" className="sr-only">
+          Your Message
+        </label>
         <textarea
           id="message"
           name="message"
@@ -196,7 +205,7 @@ export default function ContactForm() {
         className={`mt-4 inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold italic transition transform duration-300 ease-in-out ${
           !canSubmit
             ? "bg-gray-500 opacity-60 cursor-not-allowed"
-            : "bg-brand hover:bg-brand/90 cursor-pointer hover:scale-95"
+            : "bg-brand-cta hover:bg-brand-cta/90 cursor-pointer hover:scale-95"
         } text-white`}
       >
         {isSubmitting ? <Loader className="animate-spin" /> : "Submit"}

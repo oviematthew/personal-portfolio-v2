@@ -7,6 +7,9 @@
   --brand: #F15A24;
   --brand-light: #FFEFE7;
   --brand-dark: #7A341C;
+  /* Same hue as --brand, darkened enough that white text on top of it
+     clears the 4.5:1 contrast ratio (~4.9:1), for solid CTA buttons/badges. */
+  --brand-cta: #C9431A;
 
   --font-inter: "Inter", sans-serif;
   --font-playfair: "Playfair Display", serif;
@@ -97,6 +100,14 @@ body {
 
 .bg-brand-dark {
   background-color: var(--brand-dark);
+}
+
+.bg-brand-cta {
+  background-color: var(--brand-cta);
+}
+
+.hover\:bg-brand-cta\/90:hover {
+  background-color: color-mix(in srgb, var(--brand-cta) 90%, transparent);
 }
 
 /* fix for broken blog/[slug] page */
