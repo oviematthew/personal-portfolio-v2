@@ -47,9 +47,11 @@ Column(modifier = Modifier.padding(16.dp)) {
 
 ### Themes are centralized using MaterialTheme
 
+Material 3 replaced `lightColors`/`darkColors` with color schemes, so theming now goes through `lightColorScheme` (or `darkColorScheme`) instead of the old Material 2 palette API:
+
 ```kotlin
 MaterialTheme(
-    colors = lightColors(primary = Color.Blue),
+    colorScheme = lightColorScheme(primary = Color(0xFF1E88E5)),
     typography = Typography(),
     shapes = Shapes()
 ) {
@@ -73,13 +75,10 @@ NavHost(navController, startDestination = "home") {
 
 ## Best Practices
 
-- [x] Break down UI into small, reusable composable functions.
-
-- [x] Use remember and state for efficient re-rendering.
-
-- [x] Keep business logic separate from UI code.
-
-- [x] Follow Material Design guidelines for consistent experiences.
+- Break down UI into small, reusable composable functions.
+- Use `remember` and state for efficient re-rendering.
+- Keep business logic separate from UI code.
+- Follow Material Design guidelines for consistent experiences.
 
 ## Conclusion
 

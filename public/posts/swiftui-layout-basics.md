@@ -65,10 +65,7 @@ struct CustomCard: View {
 
 ## Additional Tips
 
-- [x]Combine stacks to create complex layouts.
-
-- [x]Use Spacer() for flexible spacing.
-
-- [x]Leverage .frame, .padding, .background for styling.
-
-- [x]Preview views in Xcode for instant feedback.
+- Combine stacks to create complex layouts.
+- Use `Spacer()` for flexible spacing.
+- Leverage `.frame`, `.padding`, `.background` for styling.
+- Preview views in Xcode for instant feedback.

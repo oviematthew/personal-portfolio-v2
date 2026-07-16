@@ -72,12 +72,16 @@ export default function RealtimePosts() {
     };
     fetchPosts();
 
-    const subscription = supabase
-      .from('posts')
-      .on('INSERT', payload => setPosts(prev => [payload.new, ...prev]))
+    const channel = supabase
+      .channel('posts-inserts')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'posts' },
+        (payload) => setPosts((prev) => [payload.new, ...prev])
+      )
       .subscribe();
 
-    return () => supabase.removeSubscription(subscription);
+    return () => supabase.removeChannel(channel);
   }, []);
 
   return (
@@ -98,9 +102,9 @@ export default function RealtimePosts() {
 
 ### Perform server-side logic close to the user using Supabase Edge Functions. This is ideal for
 
-- [x]  Calculating aggregates.
-- [x]  Filtering data.
-- [x]  Handling authentication and authorization before sending data to the client.
+- Calculating aggregates.
+- Filtering data.
+- Handling authentication and authorization before sending data to the client.
 
 ```javascript
 // edge/functions/get-posts.ts
@@ -141,11 +145,11 @@ export const revalidate = 60; // regenerate every 60 seconds
 
 ## 5. Optimizing Images and Assets
 
-- [x] Even with fast data, slow assets kill perceived performance:
+- Even with fast data, slow assets kill perceived performance:
 
-- [x] Use Supabase Storage with URL transformations for resizing.
+- Use Supabase Storage with URL transformations for resizing.
 
-- [x] Lazy-load images using next/image.
+- Lazy-load images using next/image.
 
 ```jsx
 import Image from 'next/image';
@@ -165,11 +169,11 @@ import Image from 'next/image';
 
 ## 6. Frontend Caching Strategies
 
-- [x] Client-side caching: Store frequent queries in React Query or SWR.
+- Client-side caching: Store frequent queries in React Query or SWR.
 
-- [x] Edge caching: Use CDN + Edge Functions to cache API responses.
+- Edge caching: Use CDN + Edge Functions to cache API responses.
 
-- [x] Stale-while-revalidate: Serve cached data immediately and refresh in the background.
+- Stale-while-revalidate: Serve cached data immediately and refresh in the background.
 
 ```javascript
 import useSWR from 'swr';
@@ -186,24 +190,24 @@ function PostsList() {
 
 ### By combining Supabase, Edge Functions, and modern frontend techniques
 
-- [x] You minimize latency.
+- You minimize latency.
 
-- [x] You reduce unnecessary network requests.
+- You reduce unnecessary network requests.
 
-- [x] You provide real-time updates.
+- You provide real-time updates.
 
-- [x] You optimize perceived performance for users.
+- You optimize perceived performance for users.
 
-- [x] This architecture is modern, scalable, and shows recruiters that you understand both frontend and serverless backend ecosystems.
+- This architecture is modern, scalable, and shows recruiters that you understand both frontend and serverless backend ecosystems.
 
 ## TL;DR
 
-- [x] Use paginated queries to limit data.
+- Use paginated queries to limit data.
 
-- [x] Subscribe to real-time updates for interactive apps.
+- Subscribe to real-time updates for interactive apps.
 
-- [x] Offload heavy computation to Edge Functions.
+- Offload heavy computation to Edge Functions.
 
-- [x] Cache strategically on client and edge.
+- Cache strategically on client and edge.
 
-- [x] Optimize assets with lazy-loading and transformations.
+- Optimize assets with lazy-loading and transformations.

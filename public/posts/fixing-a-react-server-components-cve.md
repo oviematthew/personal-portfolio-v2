@@ -18,7 +18,42 @@ With a traditional client-rendered app, the line between "server data" and "clie
 
 ## Auditing what data crosses the boundary in this project
 
-Since the framework-level bug wasn't fully in my control, the part that was: going through every Server Component in the app and checking exactly what data it was passing to Client Components, and why. It's easy to pass a whole object down because it's convenient, and end up shipping fields to the client that were never meant to leave the server, regardless of whether the framework itself has a bug. Tightening that, only passing the specific fields a client component actually needs, turned out to be worth doing independent of the CVE, since it's the kind of thing that's easy to get sloppy about over time.
+Since the framework-level bug wasn't fully in my control, the part that was: going through every Server Component in the app and checking exactly what data it was passing to Client Components, and why. It's easy to pass a whole object down because it's convenient, and end up shipping fields to the client that were never meant to leave the server, regardless of whether the framework itself has a bug.
+
+```jsx
+// Server Component: fetches the full record
+async function PostPage({ slug }) {
+  const post = await db.posts.findBySlug(slug);
+  // post also carries internal fields: authorId, draftNotes, moderationFlags
+
+  return <PostView post={post} />;
+}
+
+// Sloppy: the whole object crosses the server/client boundary,
+// including fields ClientView never uses
+"use client";
+function PostView({ post }) {
+  return <article>{post.title}</article>;
+}
+```
+
+```jsx
+// Tightened: only the fields the client component actually needs
+// are serialized across the boundary
+async function PostPage({ slug }) {
+  const post = await db.posts.findBySlug(slug);
+
+  return (
+    <PostView
+      title={post.title}
+      excerpt={post.excerpt}
+      publishedAt={post.publishedAt}
+    />
+  );
+}
+```
+
+Tightening that, only passing the specific fields a client component actually needs instead of the whole record, turned out to be worth doing independent of the CVE, since it's the kind of thing that's easy to get sloppy about over time.
 
 ## Re-testing after a security patch isn't optional
 

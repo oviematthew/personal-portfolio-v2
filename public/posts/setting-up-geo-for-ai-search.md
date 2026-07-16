@@ -31,11 +31,107 @@ Sitemap: https://example.com/sitemap.xml
 
 ## Structured data gives the model something unambiguous to extract
 
-JSON-LD and Open Graph metadata were always good practice for SEO, but they matter more here because an LLM extracting facts from a page benefits from structure it doesn't have to infer. Article schema with a clear headline, author, and date; explicit `<title>` and meta description tags that state what the page actually is, not just marketing copy. The less inference the model has to do to understand what a page is about, the more likely it is to represent it accurately.
+JSON-LD and Open Graph metadata were always good practice for SEO, but they matter more here because an LLM extracting facts from a page benefits from structure it doesn't have to infer. The less inference the model has to do to understand what a page is about, the more likely it is to represent it accurately.
+
+Say you run a neighborhood coffee shop with a small site: a menu page, hours, and a blog where you write about your beans and brew methods. If someone asks an AI assistant "where can I get a good pour-over near me" or "how do I brew pour-over at home," structured data is what lets your page answer both kinds of questions correctly instead of getting misread.
+
+For the shop itself, that's `LocalBusiness` schema on the homepage, with the facts an answer engine actually needs to recommend a real place: name, address, hours, and price range.
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Fernwood Coffee Roasters",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "412 Fernwood Ave",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "postalCode": "97214"
+  },
+  "openingHours": "Mo-Fr 07:00-17:00, Sa-Su 08:00-15:00",
+  "priceRange": "$$",
+  "servesCuisine": "Coffee, Pastries",
+  "url": "https://fernwoodcoffee.com"
+}
+</script>
+```
+
+For a blog post, like a brewing guide, that's `Article` schema with a real headline, author, and date:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A Beginner's Guide to Pour-Over Coffee at Home",
+  "description": "The equipment, ratios, and pour technique we use behind the counter, adapted for a home kitchen.",
+  "author": {
+    "@type": "Organization",
+    "name": "Fernwood Coffee Roasters",
+    "url": "https://fernwoodcoffee.com"
+  },
+  "datePublished": "2026-02-02",
+  "dateModified": "2026-02-02",
+  "mainEntityOfPage": "https://fernwoodcoffee.com/blog/pour-over-at-home",
+  "image": "https://fernwoodcoffee.com/media/pour-over-guide.jpg"
+}
+</script>
+```
+
+In a Next.js App Router project, neither of these needs a hand-written script tag, `generateMetadata` (or a plain object export) can render the `Article` block per route so every post gets correct values automatically instead of copy-pasted ones:
+
+```jsx
+// app/blog-post/[slug]/page.jsx
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    other: {
+      "script:ld+json": JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: post.title,
+        description: post.excerpt,
+        author: { "@type": "Organization", name: "Fernwood Coffee Roasters" },
+        datePublished: post.date,
+      }),
+    },
+  };
+}
+```
+
+The `LocalBusiness` block on the homepage is the highest-leverage piece for a business like this, it's what turns "a good pour-over place" into a specific, citable answer. `Article` per blog post is what gets the how-to content itself surfaced and quoted. `BreadcrumbList` on nested pages is worth adding once those two are in, but it's a refinement, not the thing that gets you cited in the first place.
 
 ## An llms.txt file, if you have the surface area for one
 
 The `llms.txt` convention (a plain markdown file at the site root) is an emerging, unofficial standard for giving AI systems a condensed, structured summary of a site: what it is, its key pages, and short descriptions in plain language instead of marketing copy. It's not yet universally honored the way `robots.txt` is, but for a project with enough pages that a model would otherwise have to piece it together from scratch, it's a low-cost way to hand over the summary directly.
+
+The format itself is deliberately plain: an H1 with the site name, a one-line blockquote summary, then H2 sections grouping links with a short description each.
+
+```markdown
+# Fernwood Coffee Roasters
+
+> A neighborhood coffee shop and roaster in Portland, OR. Serves
+> single-origin pour-over, espresso, and pastries, and roasts its
+> own beans on-site.
+
+## Docs
+
+- [Menu](https://fernwoodcoffee.com/menu): Current drink and pastry menu with prices.
+- [Hours & Location](https://fernwoodcoffee.com/visit): Address, hours, and parking.
+- [Blog](https://fernwoodcoffee.com/blog): Brewing guides and notes on where the beans come from.
+
+## Optional
+
+- [Wholesale](https://fernwoodcoffee.com/wholesale): Bulk bean orders for other cafes.
+```
+
+Serve it as a static file at `/llms.txt` (in Next.js, drop it straight into the `public/` directory, no route needed) and keep it short. The point is a compact summary a model can load in one request, not a mirror of the whole sitemap.
 
 ## Write the direct answer before the explanation
 

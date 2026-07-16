@@ -24,22 +24,24 @@ date: "2025-03-06"
 
 ## Setting Up
 
-## Install Expo CLI globally
+### Create a new project
+
+Expo dropped the old global `expo-cli` in favor of `create-expo-app`, so there's nothing to install upfront, `npx` pulls the latest version each time:
 
 ```bash
-npm install -g expo-cli
-Create a new project:
-
-expo init my-app
-Choose a template: blank, tabs (with navigation), or others. Once created, navigate into the project and start the local server:
+npx create-expo-app my-app
 ```
 
-```bash
+You'll be prompted to pick a template: a blank TypeScript app, or one with tab navigation already wired up.
 
+### Run the local dev server
+
+```bash
 cd my-app
-npm start
-Scan the QR code with Expo Go on iOS or Android to instantly preview your app.
+npx expo start
 ```
+
+Scan the QR code with the Expo Go app on iOS or Android to preview it on a physical device, or press `i` / `a` in the terminal to launch an iOS Simulator or Android Emulator directly.
 
 ## Folder Structure
 
@@ -82,13 +84,13 @@ export default function Button({ label, onPress }) {
 
 ## Deployment
 
-### Build your app for production using Expo Application Services:
+### Build your app for production using Expo Application Services
 
 ```bash
 eas build --platform all
 ```
 
-## Submit apps to stores with
+### Submit the built app to the App Store or Play Store
 
 ```bash
 eas submit --platform ios

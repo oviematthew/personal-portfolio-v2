@@ -14,31 +14,38 @@ coverImage: "/media/blog/accessible-react.png"
 - `<button>` instead of `<div>` for clicks
 - `<label>` + `<input>` for forms
 
-==Example:==
+**Example:**
 
 ```jsx
 <label htmlFor="email">Email</label>
 <input type="email" id="email" />
-Keyboard Navigation
-Support key events:
+```
 
+## Keyboard Navigation
 
+### Support key events
+
+Anything clickable needs to also be reachable and operable with a keyboard alone, since not every user can use a mouse or touchscreen.
+
+```jsx
 const handleKeyDown = (e) => {
-  if (e.key === 'Enter') openModal();
+  if (e.key === "Enter") openModal();
 };
+
+<div role="button" tabIndex={0} onClick={openModal} onKeyDown={handleKeyDown}>
+  Open
+</div>
 ```
 
 ## ARIA Roles
 
-- [x] Use when semantic HTML is insufficient:
+### Use when semantic HTML is insufficient
 
-- [x]aria-label
+- `aria-label`: names an element for assistive tech when there's no visible text label
+- `aria-expanded`: tells a screen reader whether a collapsible element (accordion, menu) is currently open
+- `aria-live`: announces content that updates dynamically, like a form error or a toast, without the user needing to refocus it
 
-- [x] aria-expanded
-
-aria-live
-
-==Example:==
+**Example:**
 
 ```jsx
 <button aria-label="Close modal">×</button>

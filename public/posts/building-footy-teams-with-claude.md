@@ -16,6 +16,25 @@ From there I worked in small pieces instead of asking for the whole app at once.
 
 About an hour in, an early version of the balancing logic assigned leftover players in the wrong order under certain conditions. Nothing crashed. Nothing looked obviously wrong. It would have just quietly produced uneven teams sometimes. I only caught it because I asked Claude to walk me through why it wrote the logic that way, and the explanation didn't quite match what the code actually did. That mismatch was the tell.
 
+The actual bug was small. When the player count didn't divide evenly, leftover players were pushed onto whichever team the loop happened to land on last, not the team that actually had fewer players:
+
+```js
+// Wrong: leftovers go to the last team touched by the loop,
+// not necessarily the team that needs them
+for (const player of leftovers) {
+  teams[currentTeamIndex].push(player);
+  currentTeamIndex = (currentTeamIndex + 1) % teams.length;
+}
+
+// Fixed: leftovers go to whichever team is currently smallest
+for (const player of leftovers) {
+  const smallestTeam = teams.reduce((a, b) => (a.length <= b.length ? a : b));
+  smallestTeam.push(player);
+}
+```
+
+Nothing about the first version throws an error or even looks wrong in a quick read. It only shows up as teams that are off by one player in a way that depends on the exact input order, which is exactly the kind of bug that's easy to sign off on if you're just glancing at the output.
+
 That's become my go-to move now. When something looks slightly off, I ask for the reasoning behind it instead of just asking for another attempt. Nine times out of ten the explanation either confirms the code is fine, or it surfaces exactly where the disconnect is.
 
 ## Keeping the important part isolated

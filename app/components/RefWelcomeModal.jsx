@@ -39,7 +39,7 @@ const REF_CONTENT = {
     icon: FaPassport,
     title: "Welcome",
     message:
-      "If you're reviewing this as supporting material for an application, thanks for taking the time. Everything below is real, shipped work.",
+      "If you're reviewing this as supporting material for my immigration application, thanks for taking the time. Everything below is real, actual work.",
   },
   instagram: {
     icon: FaInstagram,
