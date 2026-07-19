@@ -9,7 +9,7 @@
       "Tailwind CSS"
     ],
     "description": "A web app that turns a pasted player list into randomized, position-balanced teams in one click, built for anyone organizing a pickup match.",
-    "longDescription": "Footy Teams is a web app that takes the guesswork and arguing out of picking sides for a pickup match. You paste in a loose player list (name, position, or two positions separated by a slash), set a team size or team count, and it generates randomized, position-balanced teams instantly. The balancing logic is opinionated on purpose: every team is dealt a baseline of up to 2 strikers, 2 mids, and 2 defenders before anything else, leftover players in a position are dealt from that same position next so a team ends up with 3 defenders rather than a random unrelated position, and at every step the next player goes to whichever team currently has the fewest players so the split stays even even with uneven position counts. Results can be copied as a flat list, copied as a shareable link, exported as an image, or reshuffled instantly if the group wants a different mix. There's no backend or database. Parsing and balancing run entirely client-side in the browser, which keeps the tool fast, free to host, and free of any signup or setup. It's built with Next.js 14 App Router, TypeScript, and Tailwind CSS, and deployed zero-config on Vercel's free tier.",
+    "longDescription": "Paste in a player list with names and positions, set a team size or team count, and it generates randomized, position-balanced teams. Each team gets a baseline mix of strikers, mids, and defenders, with the rest split evenly by position and team size. Results can be copied, shared as a link, exported as an image, or reshuffled. Runs entirely client-side, no backend. Built with Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
     "featuredImage": "/media/projects/footy-teams-featured.png",
     "images": [
       "/media/projects/page-images/footy-teams-1.png",
@@ -37,7 +37,7 @@
       "Supabase Storage"
     ],
     "description": "A full-stack real estate listings platform with map-based search, agent accounts, and image uploads, built with Next.js, Supabase, and the Google Maps API.",
-    "longDescription": "Realtor Block is a real estate listings platform I built to get a full-stack setup right end to end, authentication, a relational database with row-level security, file storage, and a third-party mapping API, rather than another CRUD app with a map bolted on.\n\nAgents sign in through Clerk (email or social login) and manage their own listings: photos, price, bed/bath/parking counts, and availability. Listing data lives in Supabase Postgres with a normalized schema and Row Level Security policies, so an agent can only edit their own listings at the database level, not just behind a UI check that a direct API call could route around. Photos go through Supabase Storage with unique filenames and public access policies.\n\nSearch runs on the Google Maps and Places APIs: address autocomplete, geocoding, and an interactive map with listing markers, combined with filters for bed/bath/parking/type so results actually narrow down instead of staying a flat list.\n\nIt's built on the Next.js App Router with route groups for listings, agents, and auth, TypeScript throughout, and ESLint for consistency. Running an accessibility audit against the live listings turned up a couple of real issues, a missing accessible name on one icon control and a contrast problem, that are next on the list, which is the kind of thing worth being upfront about rather than claiming a project is more finished than it is.",
+    "longDescription": "Agents sign in through Clerk and manage their own listings: photos, price, bed/bath/parking, and availability. Listing data is stored in Supabase Postgres with Row Level Security, so agents can only edit their own listings at the database level. Photos are stored in Supabase Storage. Search uses the Google Maps and Places APIs for address autocomplete, geocoding, and an interactive map, with filters for bed/bath/parking/type. Built on the Next.js App Router with TypeScript.",
 
     "featuredImage": "/media/projects/realtor-block-featured.png",
     "images": [
@@ -65,7 +65,7 @@
     "jobType": "Freelance",
     "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "GA4", "GTM", "Playwright", "Woocommerce"],
     "description": "A wedding and engagement photography site rebuilt in Next.js, with a markdown-driven blog and a spam-protected contact form.",
-    "longDescription": "Bedge Pictures needed somewhere to hold a wedding photographer's actual catalog, hundreds of high-resolution images, without the load times a typical page-builder site drags in. I built it in Next.js on the App Router, with blog posts and wedding stories written as Markdown files instead of pulled from a CMS, so publishing a new story is a commit, not a trip through an admin dashboard.\n\nThe contact form runs on Nodemailer over SMTP with Google reCAPTCHA in front of it, confirmed live on the contact page, so it isn't a plain mailto form waiting to get scraped. The live site currently loads everything, including images, in about half a second, with images served as WebP.\n\nSmaller details that add up: dark/light theme support, GSAP for the motion on scroll, and a separate WooCommerce store on a subdomain for the digital shop, kept isolated from the main app so a WooCommerce update can't take the marketing site down with it. GA4 and Vercel Analytics are both wired in so the client can see actual traffic and engagement instead of guessing.",
+    "longDescription": "Built in Next.js on the App Router, with blog posts and wedding stories written as Markdown files instead of pulled from a CMS. The contact form runs on Nodemailer with Google reCAPTCHA in front of it. The site loads in about half a second, with images served as WebP. Also includes dark/light theme support, GSAP scroll animations, and a separate WooCommerce store on a subdomain for the digital shop. GA4 and Vercel Analytics track traffic.",
     "featuredImage": "/media/projects/bedge-featured.png",
     "images": [
       "/media/projects/page-images/bedge-pictures-1.png",
@@ -82,7 +82,7 @@
     "jobType": "Full Time",
     "techStack": ["Shopify", "Next.js", "GraphQL", "Typescript", "Strapi", "Liquid"],
     "description": "Started on Shopify Liquid, then helped migrate the storefront to a headless setup with Next.js, Strapi, and the Shopify Storefront API.",
-    "longDescription": "BOAS is a denim wholesale company. I started here as a Shopify developer writing Liquid templates and maintaining custom store features, including a private Shopify app for some operational needs the default admin couldn't handle.\n\nLater, as part of the wider dev team, I worked on migrating the storefront off Shopify's theme layer: Next.js for the frontend, Strapi for content, and the Shopify Storefront API for product data and checkout. My part of that was the dynamic product pages, category listings, and a set of reusable UI components the rest of the team could build on.\n\nThe actual win wasn't just speed, though a headless setup on Next.js is faster by default. It was giving the marketing team direct control over page content through Strapi without needing a developer to ship every copy change, which matters more day to day than a benchmark number.",
+    "longDescription": "BOAS is a denim wholesale company. Started as a Shopify developer writing Liquid templates and maintaining custom store features, including a private Shopify app for operational needs the default admin couldn't handle. Later worked with the dev team to migrate the storefront off Shopify's theme layer to Next.js for the frontend, Strapi for content, and the Shopify Storefront API for product data and checkout. Built the dynamic product pages, category listings, and reusable UI components.",
     "featuredImage": "/media/projects/boas-featured.png",
     "images": [
       "/media/projects/page-images/boas-1.png",
@@ -97,8 +97,8 @@
     "type": "web",
     "jobType": "Freelance",
     "techStack": ["Next.js", "Tailwind CSS", "Vercel"],
-    "description": "A bridal and occasion hairstylist's site rebuilt from WordPress into Next.js, built around a fast, spam-protected multi-step booking flow.",
-    "longDescription": "Lizz Davies is a London-based bridal and occasion hairstylist. Her old site was WordPress on a page-builder theme, the usual result: bloated pages and a contact process that didn't match how she actually books clients. I rebuilt it from scratch in Next.js.\n\nThe rebuild loads in under half a second on a normal connection, around 22 requests total, images served as WebP through next/image instead of whatever the old theme was shipping. I checked this against the live site directly rather than quoting a number from memory.\n\nThe booking form is the actual product: service type, date, location, time, guest count, a free-text description of what the client wants, and up to five inspiration photos uploaded right in the form. It sits behind Google reCAPTCHA, confirmed live on the booking page, so the inbox isn't getting filled with bot submissions from a form that's specifically built to be found by strangers online.\n\nI ran an automated accessibility audit against the live site instead of assuming Tailwind and semantic markup would cover it on their own: no critical or serious issues, a couple of moderate landmark-labeling items still on my list. Every image on the site ships with real alt text, not filler.\n\nThe portfolio splits into Bridal and Session categories with a Google review carousel on the homepage, but the part that actually mattered for the business was making the booking form fast, trustworthy, and resistant to spam, not how the portfolio grid looks.",
+    "description": "A bridal and occasion hairstylist's site rebuilt from WordPress into Next.js for better performance and speed.",
+    "longDescription": "Lizz Davies' site was originally built on WordPress with a page-builder theme. I rebuilt it in Next.js, with images served as WebP through next/image. The rebuild loads in under half a second on a normal connection, a big improvement over the original WordPress build.",
     "featuredImage": "/media/projects/lizzdavies-featured.png",
     "images": [
       "/media/projects/page-images/lizzdavies-1.png",
@@ -116,7 +116,7 @@
     "jobType": "Freelance",
     "techStack": ["Wordpress", "GA4", "Mailchimp", "GTM", "MySQL", "Recaptcha"],
     "description": "A WordPress site for a multi-disciplinary photography studio, with GA4, Mailchimp, and reCAPTCHA-protected forms.",
-    "longDescription": "WPS (Work & Play Studio) is a multi-disciplinary photography and videography studio. I built their site on WordPress because the client wanted to manage their own content and galleries without needing a developer for every update, which is the actual argument for WordPress over a custom build on a site like this.\n\nForms are protected with reCAPTCHA, Mailchimp handles mailing list signups, and GA4 plus GTM are wired in for real traffic and conversion tracking instead of guessing at what's working. It's a straightforward brief done properly: something a non-technical client can run on their own, with tracking and spam protection built in from day one instead of bolted on later.",
+    "longDescription": "WPS (Work & Play Studio) is a multi-disciplinary photography and videography studio. Built on WordPress so the client can manage their own content and galleries without a developer. Forms are protected with reCAPTCHA, Mailchimp handles mailing list signups, and GA4 plus GTM track traffic.",
     "featuredImage": "/media/projects/wps-featured.png",
     "images": [
       "/media/projects/page-images/wpsbedge-1.png",
@@ -132,7 +132,7 @@
     "jobType": "Hobby",
     "techStack": ["Express.js", "Node.js", "JSON", "REST API", "File System (FS)", "Marked.js", "Render"],
     "description": "A RESTful API for managing jokes, with full CRUD support and third-party API integration.",
-    "longDescription": "The Joke API is a small Express/Node backend I built to practice REST fundamentals properly: real routing, validation middleware, and full CRUD against a local JSON file instead of reaching for a database I didn't need yet. It also pulls jokes from jokeapi.dev on request, and serves its own docs at /docs, rendered straight from Markdown with Marked.js so the docs live next to the code instead of in a separate wiki. It's deployed on Render and pinged every five minutes via UptimeRobot, since Render's free tier spins an idle service down otherwise.",
+    "longDescription": "An Express/Node backend with routing, validation middleware, and full CRUD against a local JSON file. Pulls jokes from jokeapi.dev on request and serves docs at /docs, rendered from Markdown with Marked.js. Deployed on Render, pinged every five minutes via UptimeRobot to keep it awake.",
     "featuredImage": "/media/projects/joke-api-featured.webp",
     "images": [
       "/media/projects/page-images/joke-api-1.png",
@@ -148,7 +148,7 @@
     "jobType": "Hobby",
     "techStack": ["Kotlin", "Yelp Fusion", "Retrofit Api", "MVVM Design", "Coroutines", "Room Database"],
     "description": "A mobile app for finding local businesses, built on the Yelp Fusion API with an MVVM architecture.",
-    "longDescription": "Business Finder is an Android app built to practice MVVM properly on a real third-party API instead of a tutorial dataset: Retrofit for the Yelp Fusion API calls, Coroutines for the async work, and a Room database so recent searches are cached locally instead of re-hitting the network every time the screen reopens. Small app, but the point was getting the separation between data, view model, and UI right.",
+    "longDescription": "An Android app built with MVVM: Retrofit for the Yelp Fusion API calls, Coroutines for async work, and a Room database to cache recent searches locally.",
     "featuredImage": "/media/projects/yelp-app-featured.png",
     "images": [
       "/media/projects/page-images/kotlin-api-app-1.webp",
@@ -165,7 +165,7 @@
     "jobType": "Hobby",
     "techStack": ["React Native", "Redux", "Expo", "Weather API", "Agile Design"],
     "description": "A task manager with a lightweight points and rewards loop, built with React Native and Redux.",
-    "longDescription": "Ting is a task manager built with React Native and Expo, with Redux handling state across the app. Completing tasks earns points redeemable for small rewards, mostly because a plain to-do list is easy to abandon and a small incentive loop isn't. It also pulls in live weather through a public API, which has nothing to do with task management and everything to do with wanting a second, unrelated API integration in the same app without overcomplicating the first one.",
+    "longDescription": "Ting is a task manager built with React Native and Expo, with Redux handling state. Completing tasks earns points redeemable for small rewards. Also pulls in live weather through a public API as a second, unrelated integration.",
     "featuredImage": "/media/projects/ting-featured.png",
     "images": [
       "/media/projects/page-images/ting-1.png",
@@ -181,7 +181,7 @@
     "jobType": "Freelance",
     "techStack": ["Wordpress", "GA4", "GTM", "GSAP", "Yoast SEO", "MySQL", "Recaptcha"],
     "description": "A WordPress portfolio site for a wedding photographer, built with SEO and analytics tracking from day one.",
-    "longDescription": "F10 Photography needed a portfolio that puts the photography first, a wedding photographer's actual work carries a site like this, not the copy around it. I built it on WordPress with Yoast for on-page SEO, GA4 and GTM for tracking, GSAP for motion on the gallery transitions, and reCAPTCHA on the contact form.\n\nWordPress was the right call for the usual reason: the client needed to add new galleries and blog posts without calling me every time.",
+    "longDescription": "Built on WordPress with Yoast for on-page SEO, GA4 and GTM for tracking, GSAP for gallery transitions, and reCAPTCHA on the contact form. WordPress let the client add galleries and blog posts without a developer.",
     "featuredImage": "/media/projects/f10-featured.png",
     "images": [
       "/media/projects/page-images/f10-1.png",
@@ -197,7 +197,7 @@
     "jobType": "Hobby",
     "techStack": ["React Native", "Firebase", "Firestore", "Gifted Chat",  "Firebase Auth", "TailwindCSS", "Headless UI"],
     "description": "A recovery support app concept built around real-time chat and community, using React Native and Firebase.",
-    "longDescription": "Chattee is a React Native app built around a simple idea: recovery support that leans on real-time chat and community rather than a static list of resources. Firebase Auth handles accounts, Firestore stores the data, and Gifted Chat powers the messaging so conversations feel immediate instead of like a support ticket. It's a hobby build, not a shipped clinical product, but the real-time data modeling in Firestore and the chat UX were the things I actually wanted to get right.",
+    "longDescription": "A React Native app with Firebase Auth for accounts, Firestore for data, and Gifted Chat for real-time messaging. A hobby build focused on Firestore data modeling and chat UX.",
     "featuredImage": "/media/projects/chatee-featured.png",
     "images": [
       "/media/projects/page-images/chattee-1.png",
@@ -219,7 +219,7 @@
     "jobType": "Hobby",
     "techStack": ["React", "REST API", "Bootstrap", "TailwindCSS", "Tesseract.js"],
     "description": "A web app that converts images to text using OCR.",
-    "longDescription": "OCR To Text is a small React app built around Tesseract.js: upload an image, get editable text back, all running client-side with no backend and no server ever touching the uploaded image. It was mostly an excuse to see how far a fully client-side OCR pipeline could get without needing an API key or a server.",
+    "longDescription": "A React app built around Tesseract.js. Upload an image, get editable text back. Runs entirely client-side, no backend or API key needed.",
     "featuredImage": "/media/projects/imagetotext-featured.png",
     "images": [
       "/media/projects/page-images/ocr-1.png",
@@ -235,7 +235,7 @@
     "jobType": "Hobby",
     "techStack": ["Swift", "Storyboard"],
     "description": "Explore Hangman where users take the reins in guessing while enjoying prompts and clues for an enhanced gameplay experience.",
-    "longDescription": "A Hangman clone built in Swift with Storyboards, from back when I was learning iOS fundamentals the old-school way, laying out UI by hand instead of SwiftUI. Simple game, but a lot of my early UIKit habits came from building this.",
+    "longDescription": "A Hangman clone built in Swift with Storyboards, laying out UI by hand instead of SwiftUI.",
     "featuredImage": "/media/projects/hangman-featured.png",
     "images": [
       "/media/projects/page-images/hangman-1.png",
@@ -256,7 +256,7 @@
     "jobType": "Hobby",
     "techStack": ["React", "LocalStorage"],
     "description": "Hidden Letter game is a light-hearted game where users guess the hidden letter on a board of similar letters.",
-    "longDescription": "A small 2D letter-finding game built in React with game state persisted to LocalStorage. Nothing complex, just a clean example of keeping state simple and out of a global store when a global store isn't actually needed.",
+    "longDescription": "A small 2D letter-finding game built in React with game state persisted to LocalStorage.",
     "featuredImage": "/media/projects/hidden-letter-game-featured.png",
     "images": [
       "/media/projects/page-images/hidden-letter-game-1.png"
@@ -271,7 +271,7 @@
     "jobType": "Hobby",
     "techStack": ["Swift", "Storyboard", "MVVM Design", "Core Location", "Weather API"],
     "description": "A mobile app that helps you find the weather using Open Weather API.",
-    "longDescription": "A Swift weather app using the OpenWeather API and Core Location for location-based forecasts, built with MVVM. One of my earlier iOS projects, mostly focused on getting comfortable with location permissions and async API calls in UIKit before I'd leaned on any third-party networking library.",
+    "longDescription": "A Swift weather app using the OpenWeather API and Core Location for location-based forecasts, built with MVVM.",
     "featuredImage": "/media/projects/weather-app-featured.png",
     "images": [
       "/media/projects/page-images/weather-2.png",
@@ -288,7 +288,7 @@
     "jobType": "Hobby",
     "techStack": ["React", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
     "description": "A real-time employee voting app built with React and Firestore.",
-    "longDescription": "Best In Uniform is a voting app built with React and Firebase: employees vote on nominees across different categories, results tally in Firestore in real time, and Firebase Auth keeps voting tied to a real account instead of anonymous ballot stuffing. Built to practice Firestore's real-time listeners against an actual write-heavy access pattern instead of a read-only demo.",
+    "longDescription": "Best In Uniform is a voting app built with React and Firebase. Employees vote on nominees across categories, results tally in Firestore in real time, and Firebase Auth ties voting to a real account.",
     "featuredImage": "/media/projects/best-in-uniform-featured.png",
     "images": [
       "/media/projects/page-images/best-in-uniform-1.png",
@@ -305,7 +305,7 @@
     "jobType": "Hobby",
     "techStack": ["HTML5", "CSS3", "JS", "REST API"],
     "description": "A web app that helps you play Jeopardy. using Jservice.io API.",
-    "longDescription": "A browser-based Jeopardy clone in vanilla HTML, CSS, and JS, pulling categories and questions from the jService API. No framework, just DOM manipulation and a scorekeeping loop, from back when I wanted to get comfortable with vanilla JS before leaning on a framework for everything.",
+    "longDescription": "A browser-based Jeopardy clone in vanilla HTML, CSS, and JS, pulling categories and questions from the jService API. No framework, just DOM manipulation and a scorekeeping loop.",
     "featuredImage": "/media/projects/jeopardy-game-featured.png",
     "images": [
       "/media/projects/jeopardy-game-featured.png"
@@ -320,7 +320,7 @@
     "jobType": "Freelance",
     "techStack": ["HTML5", "CSS3", "JS", "PHP"],
     "description": "A wedding website for a couple to share their story, photo gallery, and RSVP.",
-    "longDescription": "Meet The Arunas is a wedding site I built for a couple who wanted somewhere to put their story, photos, and RSVP in one place instead of juggling a Facebook event and a spreadsheet. Plain HTML, CSS, and PHP, no framework overhead for a site that only needed to exist for a few months around the wedding date and didn't need to outlive its purpose.",
+    "longDescription": "A wedding site built for a couple to share their story, photos, and RSVP in one place. Built with plain HTML, CSS, and PHP.",
     "featuredImage": "/media/projects/meetthearunas-featured.png",
     "images": [
       "/media/projects/page-images/meetthearunas-1.png"
