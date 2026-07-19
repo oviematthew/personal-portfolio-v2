@@ -8,8 +8,8 @@
       "TypeScript",
       "Tailwind CSS"
     ],
-    "description": "A web app that turns a pasted player list into randomized, position-balanced teams in one click, built for anyone organizing a pickup match.",
-    "longDescription": "Paste in a player list with names and positions, set a team size or team count, and it generates randomized, position-balanced teams. Each team gets a baseline mix of strikers, mids, and defenders, with the rest split evenly by position and team size. Results can be copied, shared as a link, exported as an image, or reshuffled. Runs entirely client-side, no backend. Built with Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
+    "description": "A web app that turns a pasted player list into randomized teams balanced by position and skill in one click, built for anyone organizing a pickup match.",
+    "longDescription": "Paste in a player list with names, positions, and an optional 1-5 skill rating, set a team size or team count, and it generates randomized teams balanced by both. Each team gets a baseline mix of strikers, mids, and defenders, and no team stacks too many players of the same rating, so sides come out even on skill, not just headcount. Results can be copied, shared as a link, exported as an image, or reshuffled. Runs entirely client-side, no backend. Built with Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
     "featuredImage": "/media/projects/footy-teams-featured.png",
     "images": [
       "/media/projects/page-images/footy-teams-1.png",
