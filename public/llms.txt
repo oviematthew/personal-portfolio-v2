@@ -1,0 +1,27 @@
+# Matthew Ovie Enamuotor
+
+> Frontend and mobile developer based in London, Ontario, Canada. Currently a Frontend Developer at Rentsync, building Vue applications. Five years of experience shipping 200+ websites for 130+ clients.
+
+## Pages
+
+- [Home](https://oviematthew.com): Selected work, about, and contact.
+- [Blog](https://oviematthew.com/blog): Technical writing on React, Next.js, mobile development, and AI tooling.
+- [Privacy Policy](https://oviematthew.com/privacy-policy)
+
+## Selected work
+
+- [Footy Teams](https://oviematthew.com/project/footy-teams): Web app that builds balanced pickup football teams from a pasted player list. Next.js, TypeScript, Tailwind CSS.
+- [Realtor Block](https://oviematthew.com/project/realtor-block): Real estate listings platform with map search and agent accounts. Next.js, Supabase, Clerk, Google Maps API.
+- [BOAS](https://oviematthew.com/project/boas): Denim wholesale storefront, migrated from Shopify Liquid to headless Next.js with Strapi.
+- [Bedge Pictures](https://oviematthew.com/project/bedge-pictures): Wedding photography site with a markdown blog and spam-protected contact form. Next.js, GSAP.
+
+## Skills
+
+React, Next.js, Vue, TypeScript, React Native, Swift, Kotlin, Tailwind CSS, Node.js, Supabase, GraphQL, Shopify.
+
+## Contact
+
+- Resume: https://drive.google.com/file/d/1PzRW7u4C7Iq51PgM5KTSWs_EIQxsjS54/view
+- Email: hello@oviematthew.com
+- GitHub: https://github.com/oviematthew
+- LinkedIn: https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/

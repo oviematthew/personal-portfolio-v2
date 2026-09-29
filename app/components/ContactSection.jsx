@@ -1,36 +1,41 @@
-import React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section
-      id="contact"
-      className="px-6 py-30 w-full lg:w-1/2 mx-auto text-white rounded-lg shadow-lg flex items-center justify-center h-[100%]"
-    >
-      <div className="w-full max-w-xl text-center">
-        <h2 className="text-3xl font-bold font-heading mb-4">
-          Get in Touch <span className="text-brand">.</span>
-        </h2>
+    <section id="contact" className="mx-auto max-w-[1400px] px-6 pb-32 pt-8 lg:pb-48">
+      <h2 className="text-[clamp(3rem,9vw,9rem)] font-semibold leading-[0.95] tracking-[-0.05em]">
+        Have something
+        <br />
+        in mind<span className="text-brand">?</span>
+      </h2>
 
-        <p className="text-lg mb-8">
-          Fill the form below or shoot me an email on{" "}
-          <a
+      <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-12">
+        <div className="lg:col-span-6">
+          <Link
             href="mailto:hello@oviematthew.com"
-            className="text-brand hover:text-brand/90 transition hover:underline"
+            className="group inline-flex items-center gap-3 text-2xl font-medium tracking-tight transition-colors hover:text-brand md:text-4xl"
           >
             hello@oviematthew.com
-          </a>{" "}
-          alternatively, text me on{" "}
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
-            className="text-brand hover:text-brand/90 transition hover:underline"
-          >
-            LinkedIn
-          </a>
-        </p>
+            <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </Link>
+          <p className="mt-6 max-w-sm leading-relaxed text-neutral-400">
+            Or send a note with the form. You can also find me on{" "}
+            <Link
+              href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
+              target="_blank"
+              className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand"
+            >
+              LinkedIn
+            </Link>
+            .
+          </p>
+        </div>
 
-        <ContactForm />
+        <div className="lg:col-span-6">
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

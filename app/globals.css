@@ -3,39 +3,48 @@
 
 :root {
   --background: #171717;
-  --foreground: #ffffff;
+  --surface: #1f1f1f;
+  --foreground: #f2f2f2;
+  --muted: #a3a3a3;
+  --line: rgba(255, 255, 255, 0.1);
   --brand: #F15A24;
   --brand-light: #FFEFE7;
   --brand-dark: #7A341C;
   /* Same hue as --brand, darkened enough that white text on top of it
      clears the 4.5:1 contrast ratio (~4.9:1), for solid CTA buttons/badges. */
   --brand-cta: #C9431A;
-
-  --font-inter: "Inter", sans-serif;
-  --font-playfair: "Playfair Display", serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 html {
   scroll-behavior: smooth;
-}
-
-/* Fonts */
-
-.font-roboto {
-  font-family: var(--font-roboto);
-}
-
-.font-montserrat {
-  font-family: var(--font-montserrat);
+  background: var(--background);
 }
 
 body {
-  background:
-    radial-gradient(circle at 12% 0%, rgba(241, 90, 36, 0.06), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(241, 90, 36, 0.04), transparent 30%),
-    var(--background);
-  background-attachment: fixed;
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter);
+  font-family: var(--font-geist), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* Fonts: one family site-wide. .font-heading is kept so blog/project pages inherit the new type. */
+.font-heading {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-text {
+  font-family: var(--font-geist), system-ui, sans-serif;
+}
+
+.font-mono-ui {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 /* nav link underline */
@@ -49,65 +58,49 @@ body {
   left: 0;
   bottom: -4px;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: var(--brand);
-  transition: width 0.25s ease;
+  transition: width 0.35s var(--ease-out);
 }
 
 .nav-link:hover::after {
   width: 100%;
 }
 
-
-.font-text {
-  font-family: var(--font-inter);
-}
-
-.font-heading {
-  font-family: var(--font-playfair);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-
-
-
 /* brand color utility classes */
-.bg-brand {
-  background-color: var(--brand);
-}
-
-.text-brand {
-  color: var(--brand);
-}
-
-.hover\:text-brand:hover {
-  color: var(--brand);
-}
-
-.bg-brand-light {
-  background-color: var(--brand-light);
-}
-
-.text-brand-light {
-  color: var(--brand-light);
-}
-
-.bg-brand-dark {
-  background-color: var(--brand-dark);
-}
-
-.bg-brand-cta {
-  background-color: var(--brand-cta);
-}
-
+.bg-brand { background-color: var(--brand); }
+.text-brand { color: var(--brand); }
+.hover\:text-brand:hover { color: var(--brand); }
+.bg-brand-light { background-color: var(--brand-light); }
+.text-brand-light { color: var(--brand-light); }
+.bg-brand-dark { background-color: var(--brand-dark); }
+.bg-brand-cta { background-color: var(--brand-cta); }
 .hover\:bg-brand-cta\/90:hover {
   background-color: color-mix(in srgb, var(--brand-cta) 90%, transparent);
+}
+
+/* The one marquee on the page (tech stack) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
 }
 
 /* fix for broken blog/[slug] page */
@@ -117,12 +110,9 @@ body {
   word-break: break-word;
 }
 
-
 pre {
   background-color: #0d1117;
-  /* dark background */
   color: #c9d1d9;
-  /* text color */
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
@@ -131,7 +121,7 @@ pre {
 }
 
 code {
-  font-family: 'Fira Code', monospace;
+  font-family: var(--font-geist-mono), 'Fira Code', monospace;
   font-size: 0.9rem;
 }
 
@@ -156,9 +146,7 @@ pre:hover .copy-button {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.post-content > p {
-  margin-bottom: 1.75rem;
-}
+.post-content > p { margin-bottom: 1.75rem; }
 
 .post-content > h2 {
   margin-top: 3rem;
@@ -169,9 +157,7 @@ pre:hover .copy-button {
   color: #ffffff;
 }
 
-.post-content > h2:first-child {
-  margin-top: 0;
-}
+.post-content > h2:first-child { margin-top: 0; }
 
 .post-content > h3 {
   margin-top: 2.25rem;
@@ -193,23 +179,15 @@ pre:hover .copy-button {
   padding-left: 1.5rem;
 }
 
-.post-content > ul {
-  list-style: disc;
-}
-
-.post-content > ol {
-  list-style: decimal;
-}
+.post-content > ul { list-style: disc; }
+.post-content > ol { list-style: decimal; }
 
 .post-content li {
   margin-bottom: 0.6rem;
   line-height: 1.75;
 }
 
-.post-content strong {
-  color: #ffffff;
-  font-weight: 600;
-}
+.post-content strong { color: #ffffff; font-weight: 600; }
 
 .post-content a {
   color: var(--brand);

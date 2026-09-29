@@ -1,58 +1,49 @@
+import LegalPage from "../components/LegalPage";
+
 export const metadata = {
-  title: "Privacy Policy - Matthew Ovie Enamuotor",
+  title: "Privacy Policy | Matthew Ovie Enamuotor",
 };
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen mx-auto max-w-3xl px-4 py-12 pb-20 text-white">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-
-      <p className="italic mb-5 text-gray-400">Updated: May 1 2025</p>
-
-      <p className="mb-4">
-        On my portfolio website, I respect your privacy and i am committed to
-        protecting your personal data. This policy outlines how I handle your
-        information.
-      </p>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">Analytics</h2>
-      <p className="mb-4">
-        I use the following tools to understand how visitors use our site:
-      </p>
-      <ul className="list-disc list-inside mb-4">
-        <li>
-          <strong>Google Analytics</strong>: Helps me analyze Ibsite traffic and
-          usage. This tool may use cookies and collect anonymized IP addresses
-          and usage behavior.
-        </li>
-        <li>
-          <strong>Vercel Analytics</strong>: Provides real-time metrics such as
-          page views and visitor counts. This data is aggregated and not
-          personally identifiable.
-        </li>
-      </ul>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">Cookies</h2>
-      <p className="mb-4">
-        Cookies are used only to support the analytics tools mentioned above.
-        You can disable cookies through your browser settings if you prefer not
-        to be tracked.
-      </p>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">Data Sharing</h2>
-      <p className="mb-4">
-        I do not sell or share your personal information with third parties,
-        except as required by law or for the operation of analytics tools.
-      </p>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">Contact</h2>
-      <p>
-        If you have questions about this privacy policy, please email me at{" "}
-        <a href="mailto:info@oviematthew.com" className="underline text-brand">
-          info@oviematthew.com
-        </a>
-        .
-      </p>
-    </main>
+    <LegalPage
+      title="Privacy Policy"
+      updated="September 29, 2026"
+      intro="This is the personal portfolio site of Matthew Ovie Enamuotor. I respect your privacy and collect only what I need to run the site. This policy explains what that is."
+      sections={[
+        {
+          heading: "Analytics",
+          body: ["I use these tools to understand how visitors use the site:"],
+          list: [
+            "Google Analytics and Google Tag Manager: traffic and usage statistics. These may set cookies and collect anonymized IP addresses and usage behavior.",
+            "Vercel Analytics: page views and visitor counts. The data is aggregated and not personally identifiable.",
+          ],
+        },
+        {
+          heading: "Contact form",
+          body: [
+            "If you use the contact form, I receive the name, email address and message you submit. I use them only to reply to you. The form is protected by Google reCAPTCHA, which is subject to Google's own privacy policy.",
+          ],
+        },
+        {
+          heading: "Referral links",
+          body: [
+            "Some links to this site include a short source tag (for example, from a resume or profile). When you arrive through one, I may log the source, the approximate city and country of your visit, and the time. I do not store your IP address or identify you personally.",
+          ],
+        },
+        {
+          heading: "Cookies",
+          body: [
+            "Cookies are used only to support the analytics tools above. See the Cookie Policy for details and how to turn them off.",
+          ],
+        },
+        {
+          heading: "Data sharing",
+          body: [
+            "I do not sell your personal information. I share data only with the service providers needed to run the site, such as analytics and hosting, or when required by law.",
+          ],
+        },
+      ]}
+    />
   );
 }

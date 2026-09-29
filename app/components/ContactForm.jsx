@@ -106,16 +106,16 @@ export default function ContactForm() {
   };
 
   const fieldClass = (name) =>
-    `w-full px-4 py-3 border focus:outline-none text-white placeholder-gray-500 transition ${
+    `w-full bg-transparent border-0 border-b py-3 text-lg text-white focus:outline-none transition-colors ${
       touched[name] && fieldErrors[name]
-        ? "border-red-500 focus:border-red-500"
-        : "border-gray-300 focus:border-brand focus:ring-brand"
+        ? "border-red-400 focus:border-red-400"
+        : "border-white/30 focus:border-brand"
     }`;
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6 max-w-xl w-full mt-5">
+    <form onSubmit={handleSubmit} noValidate className="space-y-8 w-full">
       <div>
-        <label htmlFor="fullName" className="sr-only">
+        <label htmlFor="fullName" className="block mb-1 text-sm text-neutral-300">
           Full Name
         </label>
         <input
@@ -127,20 +127,19 @@ export default function ContactForm() {
           value={values.fullName}
           onChange={handleChange}
           onBlur={handleBlur}
-          placeholder="Full Name"
           aria-invalid={touched.fullName && !!fieldErrors.fullName}
           aria-describedby="fullName-error"
           className={fieldClass("fullName")}
         />
         {touched.fullName && fieldErrors.fullName && (
-          <p id="fullName-error" className="mt-1.5 text-sm text-red-400">
+          <p id="fullName-error" className="mt-1.5 text-sm text-red-300">
             {fieldErrors.fullName}
           </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="email" className="sr-only">
+        <label htmlFor="email" className="block mb-1 text-sm text-neutral-300">
           Email Address
         </label>
         <input
@@ -153,20 +152,19 @@ export default function ContactForm() {
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
-          placeholder="Email Address"
           aria-invalid={touched.email && !!fieldErrors.email}
           aria-describedby="email-error"
           className={fieldClass("email")}
         />
         {touched.email && fieldErrors.email && (
-          <p id="email-error" className="mt-1.5 text-sm text-red-400">
+          <p id="email-error" className="mt-1.5 text-sm text-red-300">
             {fieldErrors.email}
           </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="message" className="sr-only">
+        <label htmlFor="message" className="block mb-1 text-sm text-neutral-300">
           Your Message
         </label>
         <textarea
@@ -177,14 +175,13 @@ export default function ContactForm() {
           value={values.message}
           onChange={handleChange}
           onBlur={handleBlur}
-          placeholder="Your Message"
-          rows={6}
+          rows={4}
           aria-invalid={touched.message && !!fieldErrors.message}
           aria-describedby="message-error"
           className={fieldClass("message")}
         />
         {touched.message && fieldErrors.message && (
-          <p id="message-error" className="mt-1.5 text-sm text-red-400">
+          <p id="message-error" className="mt-1.5 text-sm text-red-300">
             {fieldErrors.message}
           </p>
         )}
@@ -194,7 +191,7 @@ export default function ContactForm() {
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           onChange={(token) => setCaptchaToken(token || "")}
-          className="flex justify-center"
+          
         />
       </div>
 
@@ -202,13 +199,13 @@ export default function ContactForm() {
         type="submit"
         disabled={!canSubmit}
         aria-label="Submit"
-        className={`mt-4 inline-flex items-center justify-center w-full px-6 py-3 text-md font-semibold italic transition transform duration-300 ease-in-out ${
+        className={`inline-flex h-12 items-center justify-center rounded-full px-8 text-[15px] font-medium text-white transition duration-300 ${
           !canSubmit
-            ? "bg-gray-500 opacity-60 cursor-not-allowed"
-            : "bg-brand-cta hover:bg-brand-cta/90 cursor-pointer hover:scale-95"
-        } text-white`}
+            ? "bg-neutral-600 cursor-not-allowed"
+            : "bg-brand-cta hover:bg-brand cursor-pointer active:scale-[0.98]"
+        }`}
       >
-        {isSubmitting ? <Loader className="animate-spin" /> : "Submit"}
+        {isSubmitting ? <Loader className="animate-spin" /> : "Send message"}
       </button>
     </form>
   );

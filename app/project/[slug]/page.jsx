@@ -3,22 +3,16 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
+import Reveal from "../../components/Reveal";
 
-// ✅ 1. Add dynamic metadata
 export async function generateMetadata({ params }) {
-  // await params first as required in nextjs14+
   const { slug } = await params;
-
   const project = projectsData.find((p) => p.slug === slug);
 
-  if (!project) {
-    return {
-      title: "Project Not Found",
-    };
-  }
+  if (!project) return { title: "Project Not Found" };
 
   return {
-    title: `Project: ${project.name}`,
+    title: `${project.name} | Matthew Ovie Enamuotor`,
     description: project.description,
   };
 }
@@ -29,99 +23,114 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const project = projectsData.find((p) => p.slug === slug);
+  const index = projectsData.findIndex((p) => p.slug === slug);
+  if (index === -1) return notFound();
 
-  if (!project) return notFound();
+  const project = projectsData[index];
+  const next = projectsData[(index + 1) % projectsData.length];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
-      <div className="title-section flex items-center justify-between mb-6 ">
-        <div className="back-link hover:scale-95">
-          <Link
-            href="/#projects"
-            className="flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95"
-          >
-            <ArrowLeft className="text-gray-300" />
-            <span className="hidden md:flex">Back</span>
-          </Link>
-        </div>
+    <article className="mx-auto max-w-[1400px] px-6 pb-24">
+      <Link
+        href="/#work"
+        className="group mt-10 inline-flex items-center gap-2 text-neutral-400 transition hover:text-white"
+      >
+        <ArrowLeft size={18} className="transition-transform group-hover:-translate-x-1" />
+        All work
+      </Link>
 
-        <div className="title">
-          <h1 className="text-lg md:text-3xl font-bold font-heading">
-            {project.name}
-          </h1>
-        </div>
+      <Reveal>
+        <h1 className="mt-10 text-[clamp(3rem,10vw,10rem)] font-semibold leading-[0.95] tracking-[-0.05em]">
+          {project.name}
+          <span className="text-brand">.</span>
+        </h1>
+      </Reveal>
 
-        <div className="forward-link flex items-center gap-4">
-          {project.github && (
-            <Link
-              href={project.github}
-              target="_blank"
-              className="flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95 transition"
-            >
-              <Github size={18} className="text-gray-300" />
-              <span className="hidden md:inline">Code</span>
-            </Link>
-          )}
-          <Link
-            href={project.live}
-            target="_blank"
-            className="ml-auto flex items-center gap-2 text-gray-300 text-sm md:text-md hover:scale-95 transition"
-          >
-            Visit
-            <ArrowUpRight className="text-gray-300" />
-          </Link>
-        </div>
-      </div>
-      <p className="text-sm text-center italic text-gray-400 mb-5">
-        Job Type: {project.jobType}
-      </p>
-
-      <div className="text-gray-300 mb-10 font-text text-center leading-relaxed space-y-4">
-        {project.longDescription.split("\n\n").map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
-      </div>
-      <div className="flex justify-center flex-wrap gap-4 mb-10">
-        {project.techStack.map((tech) => (
-          <span
-            key={tech}
-            className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      <div className="featuredImage">
+      <Reveal delay={0.1} className="relative mt-14 aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-black md:aspect-[16/8]">
         <Image
           src={project.featuredImage}
           alt={`${project.name} featured image`}
-          width={1200}
-          height={800}
-          className="rounded-lg mb-6"
-          placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzM3NDE1MSIvPjwvc3ZnPg=="
+          fill
+          priority
+          sizes="(min-width: 1400px) 1352px, 100vw"
+          className="object-cover object-top"
         />
+      </Reveal>
+
+      <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <aside className="lg:col-span-4">
+          <dl className="flex flex-col gap-8 lg:sticky lg:top-28">
+            <div>
+              <dt className="text-sm text-neutral-500">Engagement</dt>
+              <dd className="mt-1 text-lg">{project.jobType}</dd>
+            </div>
+            <div>
+              <dt className="text-sm text-neutral-500">Stack</dt>
+              <dd className="mt-2 flex flex-wrap gap-2">
+                {project.techStack.map((t) => (
+                  <span key={t} className="rounded-full border border-white/15 px-3 py-1 text-sm text-neutral-300">
+                    {t}
+                  </span>
+                ))}
+              </dd>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={project.live}
+                target="_blank"
+                className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
+              >
+                Visit site
+                <ArrowUpRight size={16} />
+              </Link>
+              {project.github && (
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-7 text-[15px] transition hover:border-white/40 active:scale-[0.98]"
+                >
+                  <Github size={16} />
+                  Code
+                </Link>
+              )}
+            </div>
+          </dl>
+        </aside>
+
+        <Reveal className="space-y-6 text-xl leading-relaxed text-neutral-300 lg:col-span-8 md:text-2xl">
+          {project.longDescription.split("\n\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </Reveal>
       </div>
 
-      <h2 className="text-lg text-center font-bold text-gray-300 mb-5 mt-10">
-        More Screenshot(s)
-      </h2>
+      {project.images.length > 0 && (
+        <div className="mt-24 columns-1 gap-6 md:columns-2 [&>*]:mb-6">
+          {project.images.map((img, i) => (
+            <Reveal key={img} className="break-inside-avoid">
+              <Image
+                src={img}
+                alt={`${project.name} screenshot ${i + 1}`}
+                width={1200}
+                height={800}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="h-auto w-full rounded-2xl border border-white/10"
+              />
+            </Reveal>
+          ))}
+        </div>
+      )}
 
-      <div className="grid grid-cols-1 place-items-center gap-4">
-        {project.images.map((img, index) => (
-          <Image
-            key={index}
-            src={img}
-            alt={`${project.name} screenshot ${index + 1}`}
-            width={600}
-            height={400}
-            className="rounded"
-            unoptimized={project.featuredImage.endsWith(".gif")} // Important: disables Next.js optimization for GIFs
-          />
-        ))}
-      </div>
-    </div>
+      <Link
+        href={`/project/${next.slug}`}
+        className="group mt-28 block border-t border-white/10 pt-10"
+      >
+        <p className="text-sm text-neutral-500">Next project</p>
+        <p className="mt-3 flex items-center justify-between gap-6 text-5xl font-semibold tracking-tighter transition-colors group-hover:text-brand md:text-8xl">
+          {next.name}
+          <ArrowUpRight className="h-10 w-10 shrink-0 transition duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 md:h-20 md:w-20" strokeWidth={1.25} />
+        </p>
+      </Link>
+    </article>
   );
 }

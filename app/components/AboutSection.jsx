@@ -1,85 +1,82 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+
+const TEXT =
+  "I'm a frontend and mobile developer in London, Ontario. Over five years I've shipped 200+ websites for 130+ clients across four continents. Today I build Vue applications at Rentsync, and I care about the details users feel but never see.";
+
+function Word({ children, range, progress }) {
+  const opacity = useTransform(progress, range, [0.18, 1]);
+  return (
+    <span className="relative mr-[0.25em] inline-block">
+      <motion.span style={{ opacity }}>{children}</motion.span>
+    </span>
+  );
+}
 
 export default function AboutSection() {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.6"] });
+  const words = TEXT.split(" ");
+
   return (
-    <motion.section
-      id="about"
-      className="min-h-screen mx-auto w-full max-w-6xl px-6 flex items-center py-30 lg:py-40 mt-10"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: false, amount: 0.4 }}
-    >
-      <div className="about-container flex flex-col lg:flex-row items-center gap-8">
-        {/* Text section */}
-        <div className="left-about w-full lg:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 border-brand inline-block font-heading text-white">
-            About Me <span className="text-brand">.</span>
-          </h2>
+    <section id="about" className="mx-auto max-w-[1400px] px-6 py-32 lg:py-48">
+      <p ref={ref} className="max-w-5xl text-3xl font-medium leading-[1.2] tracking-tight sm:text-4xl lg:text-6xl">
+        {words.map((w, i) => {
+          const start = i / words.length;
+          const end = start + 1 / words.length;
+          return reduce ? (
+            <span key={i} className="mr-[0.25em] inline-block">{w}</span>
+          ) : (
+            <Word key={i} range={[start, end]} progress={scrollYProgress}>
+              {w}
+            </Word>
+          );
+        })}
+      </p>
 
-          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            Hi! I’m <strong>Matthew Ovie Enamuotor</strong>, a Frontend and
-            Mobile Developer based in London, Ontario, Canada. I bagged my
-            bachelors' in <strong>Computer Engineering</strong> from{" "}
-            <Link
-              href="https://covenantuniversity.edu.ng"
-              className="text-brand underline"
-              target="_blank"
-            >
-              @Covenant University
-            </Link>{" "}
-            and recently graduated from{" "}
-            <Link
-              href="https://www.fanshawec.ca"
-              className="text-brand underline"
-              target="_blank"
-            >
-              @Fanshawe College
-            </Link>{" "}
-            with a Post Grad in <strong>Mobile Application Development</strong>.
-          </p>
-
-          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            Over the past 5 years, I’ve worked as a web developer, building over{" "}
-            <strong>200 websites</strong> for more than{" "}
-            <strong>130 clients</strong> across <strong>4 continents</strong>.
-          </p>
-
-          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed mb-4">
-            I currently work{" "}
-            <Link
-              href="https://rentsync.com"
-              className="text-brand underline"
-              target="_blank"
-            >
-              @Rentsync
-            </Link>
-            , as a Frontend Developer, where I help build and maintain
-            high-quality, scalable web applications using Vue.
-          </p>
-
-          <p className="text-lg xl:text-xl text-gray-300 leading-relaxed">
-            I’m a curious problem solver, passionate about beautiful UI and
-            intuitive UX. I continuously strive to improve my skills — one
-            project at a time.
-          </p>
-        </div>
-
-        {/* Image section */}
-        <div className="right-about w-full lg:w-1/2 p-6 rounded-lg flex justify-center items-center">
+      <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-12 lg:mt-32">
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-5 md:col-start-2"
+        >
           <Image
             src="/media/matthew-ovie.jpg"
             alt="Matthew Ovie Enamuotor"
             width={800}
             height={600}
-            className="w-full h-[80%] object-cover rounded-sm shadow-lg"
+            className="h-auto w-full rounded-2xl object-cover"
           />
+        </motion.div>
+
+        <div className="flex flex-col justify-end gap-8 md:col-span-4 md:col-start-8 text-neutral-400 leading-relaxed">
+          <p>
+            B.Eng in Computer Engineering from{" "}
+            <Link href="https://covenantuniversity.edu.ng" target="_blank" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand">
+              Covenant University
+            </Link>
+            . Post Grad in Mobile Application Development from{" "}
+            <Link href="https://www.fanshawec.ca" target="_blank" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand">
+              Fanshawe College
+            </Link>
+            .
+          </p>
+          <p>
+            Day to day I work with{" "}
+            <Link href="https://rentsync.com" target="_blank" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand">
+              Rentsync
+            </Link>{" "}
+            on high-quality, scalable web applications.
+          </p>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

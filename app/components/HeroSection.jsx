@@ -2,117 +2,113 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
-import { Volume2, ChevronDown } from "lucide-react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
-import GitHubCalendar from "react-github-calendar";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { Volume2, ArrowDown, Download } from "lucide-react";
+
+const EASE = [0.16, 1, 0.3, 1];
+
+function Word({ text, delay, reduce }) {
+  return (
+    <span className="inline-flex overflow-hidden pb-[0.08em] -mb-[0.08em]">
+      {text.split("").map((ch, i) => (
+        <motion.span
+          key={i}
+          className="inline-block"
+          initial={reduce ? false : { y: "110%" }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.9, delay: delay + i * 0.045, ease: EASE }}
+        >
+          {ch === " " ? "\u00A0" : ch}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
 
 export default function HeroSection() {
-  const handleClick = () => {
-    const audio = new Audio("/media/name.mp3");
-    audio.play();
+  const reduce = useReducedMotion();
+
+  // Portrait leans toward the pointer. Motion values, so no React re-renders.
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 80, damping: 18 });
+  const sy = useSpring(my, { stiffness: 80, damping: 18 });
+  const rotateY = useTransform(sx, [-0.5, 0.5], [-14, 14]);
+  const rotateX = useTransform(sy, [-0.5, 0.5], [12, -12]);
+
+  const onMove = (e) => {
+    if (reduce) return;
+    mx.set(e.clientX / window.innerWidth - 0.5);
+    my.set(e.clientY / window.innerHeight - 0.5);
   };
 
+  const playName = () => new Audio("/media/name.mp3").play();
+
   return (
-    <div className="xl:max-h-screen w-full lg:w-4xl mx-auto px-6 grid-cols2 mt-10">
+    <section
+      onPointerMove={onMove}
+      className="relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-[1400px] flex-col justify-end px-6 pb-14 pt-24"
+    >
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col items-center text-center"
+        style={reduce ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
+        initial={reduce ? false : { opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: EASE }}
+        className="absolute right-6 top-12 w-36 sm:w-48 lg:right-16 lg:top-12 lg:w-56 xl:w-72"
       >
-        {/* Profile Image */}
-        <div className="hero-top flex space-between items-center flex-col w-[100%] gap5 ">
-          <div className="left-hero-top md:w-[50%] flex justify-center items-center">
-            <div className="rounded-full w-52 h-52 mb-6 bg-brand">
-              <Image
-                src="/media/welcome.png"
-                alt="Matthew Ovie Enamuotor"
-                width={208}
-                height={208}
-                className="w-52 h-52 object-cover"
-                priority
-                fetchPriority="high"
-              />
-            </div>
-          </div>
+        <Image
+          src="/media/welcome.png"
+          alt="Matthew Ovie Enamuotor"
+          width={416}
+          height={416}
+          priority
+          className="h-auto w-full"
+        />
+      </motion.div>
 
-          {/* Heading with audio icon */}
-          <div className="right-hero-top ">
-            <div className="flex justify-center gap-x-3 mb-2">
-              <h1 className="text-xl md:text-3xl font-extrabold text-white font-heading flex">
-                Hey, I'm Ovie
-              </h1>
-              <button
-                onClick={handleClick}
-                className="p-2 cursor-pointer rounded-full bg-white/10 hover:bg-white/20 transition"
-                aria-label="Hear how to pronounce Ovie"
-              >
-                <Volume2 className="w-5 h-5 text-white" />
-              </button>
-            </div>
+      <h1 className="font-heading text-[clamp(2.75rem,min(10vw,17dvh),10rem)] font-semibold leading-[0.9] tracking-[-0.055em]">
+        <span className="block"><Word text="Matthew Ovie" delay={0.1} reduce={reduce} /></span>
+        <span className="block">
+          <Word text="Enamuotor" delay={0.35} reduce={reduce} />
+          <span className="text-brand">.</span>
+        </span>
+      </h1>
 
-            {/* Description */}
-            <p className=" text-lg md:text-xl text-gray-400 mt-2 text-center  ">
-              I am a minimalist that specializes in building fast, responsive,
-              accessible, and user-prioritzed frontend web & mobile app
-              experiences.
-            </p>
-          </div>
-        </div>
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.1, ease: EASE }}
+        className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+      >
+        <p className="max-w-md text-lg leading-relaxed text-neutral-400">
+          Frontend engineer building fast, accessible web and mobile experiences.
+        </p>
 
-        {/* GitHub Calendar */}
-        {/* <div className="mt-5 hidden lg:block">
-          <GitHubCalendar
-            username="oviematthew"
-            theme={{
-              light: ["#ebedf0", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
-              dark: ["#1c1c1c", "#fbd4b4", "#F15A23", "#F15A23", "#F15A23"],
-            }}
-          />
-        </div> */}
-
-        {/* Social Media Links */}
-        <div className="social-links mt-5 mb-5 flex gap-6">
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={playName}
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/15 text-white transition hover:border-brand hover:text-brand active:scale-95"
+            aria-label="Hear how to pronounce Ovie"
+          >
+            <Volume2 size={18} />
+          </button>
           <Link
-            href="https://github.com/oviematthew"
+            href="#work"
+            className="group inline-flex h-12 items-center gap-3 rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
+          >
+            See work
+            <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" />
+          </Link>
+          <Link
+            href="https://drive.google.com/uc?export=download&id=1PzRW7u4C7Iq51PgM5KTSWs_EIQxsjS54"
             target="_blank"
-            aria-label="GitHub"
-            className="text-white hover:text-brand hover:scale-95 transition duration-300"
+            className="group inline-flex h-12 items-center gap-3 rounded-full border border-white/15 px-7 text-[15px] font-medium text-white transition hover:border-white/40 active:scale-[0.98]"
           >
-            <FaGithub size={25} />
-          </Link>
-
-          <Link
-            href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
-            target="_blank"
-            aria-label="LinkedIn"
-            className="text-white hover:text-brand hover:scale-95 transition duration-300"
-          >
-            <FaLinkedin size={25} />
-          </Link>
-
-          <Link
-            href="mailto:hello@oviematthew.com"
-            aria-label="Email"
-            className="text-white hover:text-brand hover:scale-95 transition duration-300"
-          >
-            <FaEnvelope size={25} />
-          </Link>
-        </div>
-
-        {/* Call-to-Action */}
-        <div className="mt-2">
-          <Link
-            href="#projects"
-            className="inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic"
-          >
-            View Projects
-            <ChevronDown className="w-5 h-5 animate-pulse" />
+            Resume
+            <Download size={16} className="transition-transform group-hover:translate-y-0.5" />
           </Link>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

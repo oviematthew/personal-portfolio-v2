@@ -1,22 +1,21 @@
 import "./globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import ScrollToTopBtn from "./components/ScrollToTopBtn";
 import CookiePolicy from "./components/CookiePolicy";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-geist",
 });
 
-const playfair = Playfair_Display({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-geist-mono",
 });
 
 export const metadata = {
@@ -37,11 +36,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        <main>{children}</main>
+        <main className="pt-16">{children}</main>
         <Analytics />
-        <ScrollToTopBtn />
         <CookiePolicy />
         <Footer />
       </body>

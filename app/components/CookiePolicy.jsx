@@ -25,9 +25,9 @@ export default function CookiePolicy() {
     <div className="fixed bottom-3 left-3 right-3 z-50 mx-auto w-auto max-w-3xl rounded-md bg-neutral-800/95 border border-white/10 px-6 py-4 shadow-lg backdrop-blur-md sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:transform">
       <div className="flex items-center justify-between gap-4">
         <p className="text-sm text-white leading-snug">
-          This site uses cookies for traffic and usage analysis. See my{" "}
-          <Link href="/privacy-policy" className="underline hover:text-brand">
-            Privacy Policy
+          This site uses cookies for traffic and usage analysis. See the{" "}
+          <Link href="/cookie-policy" className="underline hover:text-brand">
+            Cookie Policy
           </Link>
           .
         </p>

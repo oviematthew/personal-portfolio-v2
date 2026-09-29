@@ -1,21 +1,21 @@
 import HeroSection from "./components/HeroSection";
+import WorkSection from "./components/WorkSection";
 import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
-import BlogSection from "./components/BlogSection";
 import SkillsSection from "./components/SkillsSection";
+import WritingSection from "./components/WritingSection";
 import ContactSection from "./components/ContactSection";
-import RefWelcomeModal from "./components/RefWelcomeModal";
+import RefTracker from "./components/RefTracker";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <WorkSection />
       <AboutSection />
       <SkillsSection />
-      <ProjectsSection />
-      <BlogSection />
+      <WritingSection />
       <ContactSection />
-      <RefWelcomeModal />
+      <RefTracker />
     </>
   );
 }

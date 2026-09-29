@@ -1,4 +1,5 @@
-[{
+[
+  {
     "name": "Footy Teams",
     "slug": "footy-teams",
     "type": "web",
@@ -38,7 +39,6 @@
     ],
     "description": "A full-stack real estate listings platform with map-based search, agent accounts, and image uploads, built with Next.js, Supabase, and the Google Maps API.",
     "longDescription": "Agents sign in through Clerk and manage their own listings: photos, price, bed/bath/parking, and availability. Listing data is stored in Supabase Postgres with Row Level Security, so agents can only edit their own listings at the database level. Photos are stored in Supabase Storage. Search uses the Google Maps and Places APIs for address autocomplete, geocoding, and an interactive map, with filters for bed/bath/parking/type. Built on the Next.js App Router with TypeScript.",
-
     "featuredImage": "/media/projects/realtor-block-featured.png",
     "images": [
       "/media/projects/page-images/realtor-block-1.png",
@@ -59,28 +59,18 @@
     "featured": true
   },
   {
-    "name": "Bedge Pictures",
-    "slug": "bedge-pictures",
-    "type": "web",
-    "jobType": "Freelance",
-    "techStack": ["Next.js", "GSAP", "TailwindCSS", "Lucide Icons", "GA4", "GTM", "Playwright", "Woocommerce"],
-    "description": "A wedding and engagement photography site rebuilt in Next.js, with a markdown-driven blog and a spam-protected contact form.",
-    "longDescription": "Built in Next.js on the App Router, with blog posts and wedding stories written as Markdown files instead of pulled from a CMS. The contact form runs on Nodemailer with Google reCAPTCHA in front of it. The site loads in about half a second, with images served as WebP. Also includes dark/light theme support, GSAP scroll animations, and a separate WooCommerce store on a subdomain for the digital shop. GA4 and Vercel Analytics track traffic.",
-    "featuredImage": "/media/projects/bedge-featured.png",
-    "images": [
-      "/media/projects/page-images/bedge-pictures-1.png",
-      "/media/projects/page-images/bedge-pictures-2.png"
-    ],
-    "live": "https://bedgepictures.com",
-     "featured": false
-    
-  },
-  {
     "name": "BOAS",
     "slug": "boas",
     "type": "web",
     "jobType": "Full Time",
-    "techStack": ["Shopify", "Next.js", "GraphQL", "Typescript", "Strapi", "Liquid"],
+    "techStack": [
+      "Shopify",
+      "Next.js",
+      "GraphQL",
+      "Typescript",
+      "Strapi",
+      "Liquid"
+    ],
     "description": "Started on Shopify Liquid, then helped migrate the storefront to a headless setup with Next.js, Strapi, and the Shopify Storefront API.",
     "longDescription": "BOAS is a denim wholesale company. Started as a Shopify developer writing Liquid templates and maintaining custom store features, including a private Shopify app for operational needs the default admin couldn't handle. Later worked with the dev team to migrate the storefront off Shopify's theme layer to Next.js for the frontend, Strapi for content, and the Shopify Storefront API for product data and checkout. Built the dynamic product pages, category listings, and reusable UI components.",
     "featuredImage": "/media/projects/boas-featured.png",
@@ -89,14 +79,43 @@
       "/media/projects/page-images/boas-2.png"
     ],
     "live": "https://boas.co",
-    "featured": false
+    "featured": true
+  },
+  {
+    "name": "Bedge Pictures",
+    "slug": "bedge-pictures",
+    "type": "web",
+    "jobType": "Freelance",
+    "techStack": [
+      "Next.js",
+      "GSAP",
+      "TailwindCSS",
+      "Lucide Icons",
+      "GA4",
+      "GTM",
+      "Playwright",
+      "Woocommerce"
+    ],
+    "description": "A wedding and engagement photography site rebuilt in Next.js, with a markdown-driven blog and a spam-protected contact form.",
+    "longDescription": "Built in Next.js on the App Router, with blog posts and wedding stories written as Markdown files instead of pulled from a CMS. The contact form runs on Nodemailer with Google reCAPTCHA in front of it. The site loads in about half a second, with images served as WebP. Also includes dark/light theme support, GSAP scroll animations, and a separate WooCommerce store on a subdomain for the digital shop. GA4 and Vercel Analytics track traffic.",
+    "featuredImage": "/media/projects/bedge-featured.png",
+    "images": [
+      "/media/projects/page-images/bedge-pictures-1.png",
+      "/media/projects/page-images/bedge-pictures-2.png"
+    ],
+    "live": "https://bedgepictures.com",
+    "featured": true
   },
   {
     "name": "Lizz Davies",
     "slug": "lizz-davies",
     "type": "web",
     "jobType": "Freelance",
-    "techStack": ["Next.js", "Tailwind CSS", "Vercel"],
+    "techStack": [
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel"
+    ],
     "description": "A bridal and occasion hairstylist's site rebuilt from WordPress into Next.js for better performance and speed.",
     "longDescription": "Lizz Davies' site was originally built on WordPress with a page-builder theme. I rebuilt it in Next.js, with images served as WebP through next/image. The rebuild loads in under half a second on a normal connection, a big improvement over the original WordPress build.",
     "featuredImage": "/media/projects/lizzdavies-featured.png",
@@ -107,227 +126,6 @@
       "/media/projects/page-images/lizzdavies-4.png"
     ],
     "live": "https://lizzdavies.com",
-    "featured": false
-  },
-  {
-    "name": "WPS Bedge",
-    "slug": "wps-bedge",
-    "type": "web",
-    "jobType": "Freelance",
-    "techStack": ["Wordpress", "GA4", "Mailchimp", "GTM", "MySQL", "Recaptcha"],
-    "description": "A WordPress site for a multi-disciplinary photography studio, with GA4, Mailchimp, and reCAPTCHA-protected forms.",
-    "longDescription": "WPS (Work & Play Studio) is a multi-disciplinary photography and videography studio. Built on WordPress so the client can manage their own content and galleries without a developer. Forms are protected with reCAPTCHA, Mailchimp handles mailing list signups, and GA4 plus GTM track traffic.",
-    "featuredImage": "/media/projects/wps-featured.png",
-    "images": [
-      "/media/projects/page-images/wpsbedge-1.png",
-      "/media/projects/page-images/wpsbedge-2.png"
-    ],
-    "live": "https://wpsbedge.com",
-    "featured": false
-  },
-  {
-    "name": "Joke API",
-    "slug": "joke-api",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["Express.js", "Node.js", "JSON", "REST API", "File System (FS)", "Marked.js", "Render"],
-    "description": "A RESTful API for managing jokes, with full CRUD support and third-party API integration.",
-    "longDescription": "An Express/Node backend with routing, validation middleware, and full CRUD against a local JSON file. Pulls jokes from jokeapi.dev on request and serves docs at /docs, rendered from Markdown with Marked.js. Deployed on Render, pinged every five minutes via UptimeRobot to keep it awake.",
-    "featuredImage": "/media/projects/joke-api-featured.webp",
-    "images": [
-      "/media/projects/page-images/joke-api-1.png",
-      "/media/projects/page-images/joke-api-2.png"
-    ],
-    "live": "https://jokes-api-gbee.onrender.com/",
-    "featured": false
-  },
-  {
-    "name": "Business Finder App",
-    "slug": "business-finder-app",
-    "type": "mobile",
-    "jobType": "Hobby",
-    "techStack": ["Kotlin", "Yelp Fusion", "Retrofit Api", "MVVM Design", "Coroutines", "Room Database"],
-    "description": "A mobile app for finding local businesses, built on the Yelp Fusion API with an MVVM architecture.",
-    "longDescription": "An Android app built with MVVM: Retrofit for the Yelp Fusion API calls, Coroutines for async work, and a Room database to cache recent searches locally.",
-    "featuredImage": "/media/projects/yelp-app-featured.png",
-    "images": [
-      "/media/projects/page-images/kotlin-api-app-1.webp",
-      "/media/projects/page-images/kotlin-api-app-2.gif"
-    ],
-    "live": "https://github.com/oviematthew/kotlin-api-project",
-    "featured": false
-  },
-
-  {
-    "name": "Personal Task Organizer",
-    "slug": "personal-task-organizer",
-    "type": "mobile",
-    "jobType": "Hobby",
-    "techStack": ["React Native", "Redux", "Expo", "Weather API", "Agile Design"],
-    "description": "A task manager with a lightweight points and rewards loop, built with React Native and Redux.",
-    "longDescription": "Ting is a task manager built with React Native and Expo, with Redux handling state. Completing tasks earns points redeemable for small rewards. Also pulls in live weather through a public API as a second, unrelated integration.",
-    "featuredImage": "/media/projects/ting-featured.png",
-    "images": [
-      "/media/projects/page-images/ting-1.png",
-      "/media/projects/page-images/ting-2.png"
-    ],
-    "live": "https://github.com/oviematthew/ting",
-    "featured": false
-  },
-  {
-    "name": "F10 Photography",
-    "slug": "f10-photography",
-    "type": "web",
-    "jobType": "Freelance",
-    "techStack": ["Wordpress", "GA4", "GTM", "GSAP", "Yoast SEO", "MySQL", "Recaptcha"],
-    "description": "A WordPress portfolio site for a wedding photographer, built with SEO and analytics tracking from day one.",
-    "longDescription": "Built on WordPress with Yoast for on-page SEO, GA4 and GTM for tracking, GSAP for gallery transitions, and reCAPTCHA on the contact form. WordPress let the client add galleries and blog posts without a developer.",
-    "featuredImage": "/media/projects/f10-featured.png",
-    "images": [
-      "/media/projects/page-images/f10-1.png",
-      "/media/projects/page-images/f10-2.png"
-    ],
-    "live": "https://f10studio.ca/",
-    "featured": false
-  },
-   {
-    "name": "Addict Wellness App",
-    "slug": "chattee-app",
-    "type": "mobile",
-    "jobType": "Hobby",
-    "techStack": ["React Native", "Firebase", "Firestore", "Gifted Chat",  "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "A recovery support app concept built around real-time chat and community, using React Native and Firebase.",
-    "longDescription": "A React Native app with Firebase Auth for accounts, Firestore for data, and Gifted Chat for real-time messaging. A hobby build focused on Firestore data modeling and chat UX.",
-    "featuredImage": "/media/projects/chatee-featured.png",
-    "images": [
-      "/media/projects/page-images/chattee-1.png",
-      "/media/projects/page-images/chattee-2.png",
-      "/media/projects/page-images/chattee-3.png",
-      "/media/projects/page-images/chattee-4.png",
-      "/media/projects/page-images/chattee-5.png",
-      "/media/projects/page-images/chattee-7.png",
-      "/media/projects/page-images/chattee-6.gif"
-
-    ],
-    "live": "https://github.com/oviematthew/chattee",
-    "featured": false
-  },
-   {
-    "name": "OCR To Text",
-    "slug": "ocr-to-text",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["React", "REST API", "Bootstrap", "TailwindCSS", "Tesseract.js"],
-    "description": "A web app that converts images to text using OCR.",
-    "longDescription": "A React app built around Tesseract.js. Upload an image, get editable text back. Runs entirely client-side, no backend or API key needed.",
-    "featuredImage": "/media/projects/imagetotext-featured.png",
-    "images": [
-      "/media/projects/page-images/ocr-1.png",
-      "/media/projects/page-images/ocr-2.png"
-    ],
-    "live": "https://imagetotextapp.vercel.app/",
-    "featured": false
-  },
-   {
-    "name": "Hangman Game",
-    "slug": "hangman-game",
-    "type": "mobile",
-    "jobType": "Hobby",
-    "techStack": ["Swift", "Storyboard"],
-    "description": "Explore Hangman where users take the reins in guessing while enjoying prompts and clues for an enhanced gameplay experience.",
-    "longDescription": "A Hangman clone built in Swift with Storyboards, laying out UI by hand instead of SwiftUI.",
-    "featuredImage": "/media/projects/hangman-featured.png",
-    "images": [
-      "/media/projects/page-images/hangman-1.png",
-      "/media/projects/page-images/hangman-2.png",
-      "/media/projects/page-images/hangman-3.png",
-      "/media/projects/page-images/hangman-4.png",
-      "/media/projects/page-images/hangman-5.png",
-      "/media/projects/page-images/hangman-6.png",
-      "/media/projects/page-images/hangman-7.png"
-    ],
-    "live": "https://github.com/oviematthew/hangman-app",
-    "featured": false
-  },
-  {
-    "name": "Hidden Letter Game",
-    "slug": "hidden-letter-game",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["React", "LocalStorage"],
-    "description": "Hidden Letter game is a light-hearted game where users guess the hidden letter on a board of similar letters.",
-    "longDescription": "A small 2D letter-finding game built in React with game state persisted to LocalStorage.",
-    "featuredImage": "/media/projects/hidden-letter-game-featured.png",
-    "images": [
-      "/media/projects/page-images/hidden-letter-game-1.png"
-    ],
-    "live": "https://hidden-letter-game.vercel.app/",
-    "featured": false
-  },
-  {
-    "name": "Weather App",
-    "slug": "weather-app",
-    "type": "mobile",
-    "jobType": "Hobby",
-    "techStack": ["Swift", "Storyboard", "MVVM Design", "Core Location", "Weather API"],
-    "description": "A mobile app that helps you find the weather using Open Weather API.",
-    "longDescription": "A Swift weather app using the OpenWeather API and Core Location for location-based forecasts, built with MVVM.",
-    "featuredImage": "/media/projects/weather-app-featured.png",
-    "images": [
-      "/media/projects/page-images/weather-2.png",
-      "/media/projects/page-images/weather-1.png",
-      "/media/projects/page-images/weather-3.png"
-    ],
-    "live": "https://github.com/oviematthew/weather-app-swift",
-    "featured": false
-  },
-  {
-    "name": "Employee Voting System",
-    "slug": "employee-voting-system",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["React", "React Router", "Firestore", "Firebase Auth", "TailwindCSS", "Headless UI"],
-    "description": "A real-time employee voting app built with React and Firestore.",
-    "longDescription": "Best In Uniform is a voting app built with React and Firebase. Employees vote on nominees across categories, results tally in Firestore in real time, and Firebase Auth ties voting to a real account.",
-    "featuredImage": "/media/projects/best-in-uniform-featured.png",
-    "images": [
-      "/media/projects/page-images/best-in-uniform-1.png",
-      "/media/projects/best-in-uniform-featured.png"
-    ],
-    "live": "https://bestinuniform980-9w9y.vercel.app/",
-    "featured": false
-  },
-
-  {
-    "name": "Jeopardy Game",
-    "slug": "jeopardy-game",
-    "type": "web",
-    "jobType": "Hobby",
-    "techStack": ["HTML5", "CSS3", "JS", "REST API"],
-    "description": "A web app that helps you play Jeopardy. using Jservice.io API.",
-    "longDescription": "A browser-based Jeopardy clone in vanilla HTML, CSS, and JS, pulling categories and questions from the jService API. No framework, just DOM manipulation and a scorekeeping loop.",
-    "featuredImage": "/media/projects/jeopardy-game-featured.png",
-    "images": [
-      "/media/projects/jeopardy-game-featured.png"
-    ],
-    "live": "https://github.com/oviematthew/jeopardy-game-clone",
-    "featured": false
-  },
-  {
-    "name": "Meet The Arunas",
-    "slug": "meet-the-arunas",
-    "type": "web",
-    "jobType": "Freelance",
-    "techStack": ["HTML5", "CSS3", "JS", "PHP"],
-    "description": "A wedding website for a couple to share their story, photo gallery, and RSVP.",
-    "longDescription": "A wedding site built for a couple to share their story, photos, and RSVP in one place. Built with plain HTML, CSS, and PHP.",
-    "featuredImage": "/media/projects/meetthearunas-featured.png",
-    "images": [
-      "/media/projects/page-images/meetthearunas-1.png"
-    ],
-    "live": "https://meet-the-arunas.vercel.app/",
-    "featured": false
+    "featured": true
   }
-
-  
 ]
