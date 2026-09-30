@@ -1,42 +1,47 @@
-import React from "react";
 import Link from "next/link";
+import StatusPage from "../components/StatusPage";
+
 export const metadata = {
-  title: "Form Submission Failed",
+  title: "Message failed | Matthew Ovie Enamuotor",
   description: "Message failed to send.",
   robots: "noindex, nofollow",
 };
 
 export default function FormFailed() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center px-4">
-      <h1 className="text-2xl lg:text-4xl font-cormorant text-red-600 font-semibold">
-        Oops! Something went wrong!
-      </h1>
-      <p className="mt-4 text-md font-montserrat max-w-xl text-white">
-        I'm sorry, but your message could not be sent. Please try again in a few
-        minutes or contact me directly via{" "}
-        <a
-          href="mailto:info@oviematthew.com"
-          className="underline text-brand hover:underline transition"
-        >
-          email
-        </a>
-        .
-      </p>
-
-      <div className="mt-8 flex gap-4">
-        <Link href="/#contact">
-          <button className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic">
-            Try Again
-          </button>
-        </Link>
-
-        <Link href="/">
-          <button className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-brand bg-white hover:scale-95 transition duration-300 ease-in-out italic">
-            Go Home
-          </button>
-        </Link>
-      </div>
-    </div>
+    <StatusPage
+      variant="error"
+      title={
+        <>
+          That didn&apos;t send
+          <span className="text-brand">.</span>
+        </>
+      }
+      actions={
+        <>
+          <Link
+            href="/#contact"
+            className="inline-flex h-12 items-center rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
+          >
+            Try again
+          </Link>
+          <Link
+            href="/"
+            className="inline-flex h-12 items-center rounded-full border border-white/15 px-7 text-[15px] text-white transition hover:border-white/40 active:scale-[0.98]"
+          >
+            Back home
+          </Link>
+        </>
+      }
+    >
+      Something went wrong on my end. Please try again in a few minutes, or email me directly at{" "}
+      <a
+        href="mailto:hello@oviematthew.com"
+        className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand"
+      >
+        hello@oviematthew.com
+      </a>
+      .
+    </StatusPage>
   );
 }

@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { redirect } from "next/navigation";
+import { useSearchParams, redirect } from "next/navigation";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import StatusPage from "../components/StatusPage";
 
 export default function SuccessContent() {
-  const [loading, setLoading] = useState(true);
-
   const searchParams = useSearchParams();
   const fullName = searchParams.get("fullName");
 
@@ -15,53 +13,38 @@ export default function SuccessContent() {
     redirect("/");
   }
 
-  // Capitalize first letter of fullName and join
-  const formattedName = fullName
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 700);
-    return () => clearTimeout(timer);
-  }, []);
+  // First name only, capitalized
+  const firstName = fullName.trim().split(" ")[0];
+  const formattedName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
 
   return (
-    <div className="h-screen w-full flex justify-center items-center px-4 mt-5">
-      <div className="text-center flex flex-col items-center w-[90%] xl:w-1/2">
-        {loading ? (
-          <div className="space-y-4 animate-pulse mt-10 w-[90%]">
-            <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-3/4 mx-auto" />
-          </div>
-        ) : (
-          <h1 className="text-lg flex gap-2 items-center md:text-2xl font-cormorant text-pretty mb-5">
-            Your Message Has Been Sent{" "}
-            <span className="text-brand font-bold">{formattedName}</span>!
-          </h1>
-        )}
-
-        {loading ? (
-          <div className="space-y-4 animate-pulse mt-10 w-[90%]">
-            <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-4/4 mx-auto" />
-            <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-1/4 mx-auto" />
-          </div>
-        ) : (
-          <>
-            <p className="text-sm lg:text-lg font-montserrat">
-              Thank you for reaching out, I appreciate your message and will get
-              back to you as soon as possible.
-            </p>
-
-            <div className="mt-8">
-              <Link href="/">
-                <button className="cursor-pointer inline-flex items-center gap-x-2 px-4 py-3 text-md font-semibold text-white bg-brand-cta hover:bg-brand-cta/90 hover:scale-95 transition duration-300 ease-in-out italic">
-                  Go Home
-                </button>
-              </Link>
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+    <StatusPage
+      variant="success"
+      title={
+        <>
+          Thanks, {formattedName}
+          <span className="text-brand">.</span>
+        </>
+      }
+      actions={
+        <>
+          <Link
+            href="/"
+            className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
+          >
+            Back home
+            <ArrowUpRight size={16} />
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex h-12 items-center rounded-full border border-white/15 px-7 text-[15px] text-white transition hover:border-white/40 active:scale-[0.98]"
+          >
+            Read my writing
+          </Link>
+        </>
+      }
+    >
+      Your message is in. I read everything and will get back to you as soon as I can.
+    </StatusPage>
   );
 }

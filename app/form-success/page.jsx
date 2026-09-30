@@ -2,20 +2,14 @@ import { Suspense } from "react";
 import SuccessContent from "./SuccessContent";
 
 export const metadata = {
-  title: "Form Submission Success",
+  title: "Message sent | Matthew Ovie Enamuotor",
   description: "Message sent successfully.",
   robots: "noindex, nofollow",
 };
 
 export default function FormSuccessPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center">
-          Loading...
-        </div>
-      }
-    >
+    <Suspense fallback={<div className="min-h-[calc(100dvh-4rem)]" />}>
       <SuccessContent />
     </Suspense>
   );

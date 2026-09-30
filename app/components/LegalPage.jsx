@@ -59,8 +59,8 @@ export default function LegalPage({ title, updated, intro, sections }) {
           ))}
           <p>
             Questions? Email{" "}
-            <a href="mailto:info@oviematthew.com" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand">
-              info@oviematthew.com
+            <a href="mailto:hello@oviematthew.com" className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand">
+              hello@oviematthew.com
             </a>
             .
           </p>
