@@ -1,6 +1,6 @@
 # Matthew Ovie Enamuotor
 
-> Frontend and mobile developer based in London, Ontario, Canada. Currently a Frontend Developer at Rentsync, building Vue applications. Five years of experience shipping 200+ websites for 130+ clients.
+> Frontend and mobile developer based in London, Ontario, Canada. Currently a Frontend Developer at Rentsync, building Vue applications for the real estate industry. Previously five years of freelance work (200+ websites for 130+ clients across four continents) and a Shopify developer at BOAS.
 
 ## Pages
 
@@ -10,14 +10,17 @@
 
 ## Selected work
 
+- [From Ashes](https://oviematthew.com/project/from-ashes): Story-driven open-world game in the browser. Three.js, Supabase, Azure Speech and Blender MCP. A voiced cast, an economy of copper and shillings, stamina and strength progression, stealth, fights, cars, accounts, cloud saves and a Stripe shop.
 - [Footy Teams](https://oviematthew.com/project/footy-teams): Web app that builds balanced pickup football teams from a pasted player list. Next.js, TypeScript, Tailwind CSS.
 - [Realtor Block](https://oviematthew.com/project/realtor-block): Real estate listings platform with map search and agent accounts. Next.js, Supabase, Clerk, Google Maps API.
 - [BOAS](https://oviematthew.com/project/boas): Denim wholesale storefront, migrated from Shopify Liquid to headless Next.js with Strapi.
+- [Addict Wellness App](https://oviematthew.com/project/chattee-app): Recovery support app concept with real-time chat and community. React Native, Firebase.
 - [Bedge Pictures](https://oviematthew.com/project/bedge-pictures): Wedding photography site with a markdown blog and spam-protected contact form. Next.js, GSAP.
+- [Lizz Davies](https://oviematthew.com/project/lizz-davies): Bridal and occasion hairstylist site rebuilt from WordPress to Next.js.
 
 ## Skills
 
-React, Next.js, Vue, TypeScript, React Native, Swift, Kotlin, Tailwind CSS, Node.js, Supabase, GraphQL, Shopify.
+React, Next.js, Vue, TypeScript, React Native, Swift, Kotlin, Tailwind CSS, Node.js, Supabase, GraphQL, Shopify, AI-assisted coding.
 
 ## Contact
 

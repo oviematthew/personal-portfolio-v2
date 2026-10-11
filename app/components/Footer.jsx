@@ -23,7 +23,7 @@ export default function Footer() {
     <footer className="border-t border-white/10">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-8 px-6 py-10">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <Image src="/media/footer-icon.png" alt="Ovie" width={56} height={56} className="h-14 w-14 object-cover" />
+          <Image src="/media/footer-icon.png" alt="Ovie, a cartoon avatar of Matthew Ovie Enamuotor working on a laptop" width={56} height={56} className="h-14 w-14 object-cover" />
 
           <div className="flex items-center gap-6">
             {SOCIALS.map(({ href, label, Icon }) => (

@@ -1,6 +1,6 @@
 import HeroSection from "./components/HeroSection";
-import WorkSection from "./components/WorkSection";
 import AboutSection from "./components/AboutSection";
+import WorkSection from "./components/WorkSection";
 import SkillsSection from "./components/SkillsSection";
 import WritingSection from "./components/WritingSection";
 import ContactSection from "./components/ContactSection";
@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <WorkSection />
       <AboutSection />
+      <WorkSection />
       <SkillsSection />
       <WritingSection />
       <ContactSection />

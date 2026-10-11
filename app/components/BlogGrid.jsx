@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight, Loader } from "lucide-react";
 import Reveal from "./Reveal";
 
@@ -31,29 +30,17 @@ export default function BlogGrid({ posts }) {
       {/* Latest post, large */}
       {latest && (
         <Reveal className="mt-20">
-          <Link href={`/blog-post/${latest.slug}`} className="group grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 bg-black lg:col-span-8">
-              <Image
-                src={latest.coverImage}
-                alt=""
-                fill
-                priority
-                sizes="(min-width: 1024px) 66vw, 100vw"
-                className="object-cover object-left transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-              />
-            </div>
-            <div className="lg:col-span-4">
-              <p className="text-sm text-neutral-400">
-                {formatDate(latest.date)}, {latest.readingTime}
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tighter transition-colors group-hover:text-brand md:text-4xl">
-                {latest.title}
-              </h2>
-              <p className="mt-4 line-clamp-3 leading-relaxed text-neutral-400">{latest.excerpt}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-white">
-                Read post <ArrowUpRight size={18} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </span>
-            </div>
+          <Link href={`/blog-post/${latest.slug}`} className="group block border-t border-white/10 pt-10">
+            <p className="text-sm text-neutral-400">
+              {formatDate(latest.date)}, {latest.readingTime}
+            </p>
+            <h2 className="mt-4 max-w-5xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] transition-colors group-hover:text-brand md:text-7xl">
+              {latest.title}
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">{latest.excerpt}</p>
+            <span className="mt-8 inline-flex items-center gap-2 text-white transition-colors group-hover:text-brand">
+              Read post <ArrowUpRight size={18} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </span>
           </Link>
         </Reveal>
       )}
@@ -64,7 +51,7 @@ export default function BlogGrid({ posts }) {
           <li key={post.slug}>
             <Link
               href={`/blog-post/${post.slug}`}
-              className="group grid grid-cols-1 items-center gap-6 py-8 md:grid-cols-[10rem_1fr_9rem] md:gap-10"
+              className="group grid grid-cols-1 items-center gap-6 py-8 md:grid-cols-[10rem_1fr] md:gap-10"
             >
               <p className="text-sm text-neutral-400">
                 {formatDate(post.date)}
@@ -75,15 +62,6 @@ export default function BlogGrid({ posts }) {
                   {post.title}
                 </h3>
                 <p className="mt-2 line-clamp-2 max-w-2xl text-neutral-400">{post.excerpt}</p>
-              </div>
-              <div className="relative hidden h-20 w-36 justify-self-end overflow-hidden rounded-xl md:block">
-                <Image
-                  src={post.coverImage}
-                  alt=""
-                  fill
-                  sizes="144px"
-                  className="object-cover object-left grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                />
               </div>
             </Link>
           </li>

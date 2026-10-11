@@ -37,7 +37,7 @@ export default function FormFailed() {
       Something went wrong on my end. Please try again in a few minutes, or email me directly at{" "}
       <a
         href="mailto:hello@oviematthew.com"
-        className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand"
+        className="link-brand"
       >
         hello@oviematthew.com
       </a>

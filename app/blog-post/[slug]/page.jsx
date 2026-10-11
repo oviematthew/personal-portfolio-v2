@@ -3,7 +3,6 @@ import { getAllPosts } from "../../utils/Posts";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import readingDuration from "reading-duration";
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import GoBackUrl from "../../utils/GoBackUrl";
 
@@ -80,18 +79,14 @@ export default async function Post({ params }) {
         </h1>
 
         <div className="mt-8 flex flex-wrap items-center gap-3 text-neutral-400">
-          <Image src="/media/welcome.png" alt="" width={36} height={36} className="rounded-full bg-white/10" />
           <span className="text-white">Matthew Ovie Enamuotor</span>
           <span>{formattedDate}</span>
           <span>{readingTime}</span>
         </div>
 
-        <div className="relative mt-12 aspect-[16/8] overflow-hidden rounded-3xl border border-white/10 bg-black">
-          <Image src={post.coverImage} alt="" fill priority sizes="(min-width: 1024px) 1024px, 100vw" className="object-cover object-left" />
-        </div>
       </div>
 
-      <div className="mx-auto max-w-2xl px-6 pt-16">
+      <div className="mx-auto max-w-2xl px-6 pt-14">
         <article className="post-content w-full break-words overflow-hidden">
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </article>

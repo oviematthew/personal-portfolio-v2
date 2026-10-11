@@ -25,7 +25,7 @@ export default function ContactSection() {
             <Link
               href="https://www.linkedin.com/in/matthew-ovie-enamuotor-9992b6132/"
               target="_blank"
-              className="text-white underline decoration-white/30 underline-offset-4 hover:decoration-brand"
+              className="link-brand"
             >
               LinkedIn
             </Link>

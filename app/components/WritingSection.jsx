@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { getAllPosts } from "../utils/Posts";
 
@@ -27,7 +26,7 @@ export default function WritingSection() {
           <li key={post.slug}>
             <Link
               href={`/blog-post/${post.slug}`}
-              className="group grid grid-cols-1 items-center gap-6 py-8 md:grid-cols-[1fr_auto] md:gap-12"
+              className="group grid grid-cols-1 items-center gap-6 py-8"
             >
               <div className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-3">
                 <p className="text-sm text-neutral-400">
@@ -40,15 +39,6 @@ export default function WritingSection() {
                 <h3 className="mt-2 max-w-3xl text-2xl font-medium tracking-tight transition-colors group-hover:text-brand md:text-4xl">
                   {post.title}
                 </h3>
-              </div>
-              <div className="relative hidden h-24 w-40 overflow-hidden rounded-xl md:block">
-                <Image
-                  src={post.coverImage}
-                  alt=""
-                  fill
-                  sizes="160px"
-                  className="object-cover object-left grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                />
               </div>
             </Link>
           </li>

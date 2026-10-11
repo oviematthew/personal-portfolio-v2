@@ -1,5 +1,187 @@
 [
   {
+    "name": "From Ashes",
+    "slug": "from-ashes",
+    "type": "web",
+    "jobType": "Solo build",
+    "techStack": [
+      "Three.js",
+      "Supabase",
+      "Azure Speech",
+      "Blender MCP",
+      "Stripe",
+      "Web Audio",
+      "Vite",
+      "JavaScript"
+    ],
+    "description": "A story-driven open-world game that runs in the browser. A living three.js city, a voiced cast and the progression systems to keep you playing.",
+    "longDescription": "You play Kayo, who escaped when a private army burned his village, and now works a scrapyard in Port Sable while searching for his lost sister. The game is built from scratch on three.js: a living town with a day and night cycle, weather, cars, animals and a fully voiced cast.\n\nI designed it the way I design product: a core loop that teaches itself, progression that rewards curiosity, and the systems around it (accounts, cloud saves, a real shop, an admin dashboard) that make it something people can actually play and a team can actually run.",
+    "featuredImage": "/media/projects/from-ashes/featured.jpg",
+    "gif": "/media/projects/from-ashes/gameplay.gif",
+    "features": [
+      {
+        "title": "Core loop and economy",
+        "items": [
+          "Copper coils are scattered across the yard, and some sit on piles and roofs only a climber can reach. Collect them, carry them, then sell to Mama Efe at her table for shillings.",
+          "Shillings fund everything: outfits, vehicle repairs at Tobi's workshop and a pocket that gets lighter if Kayo is knocked out.",
+          "A rival, Dayo, races Kayo for the most copper. Whoever delivers more gets paid first, and beating him earns a secret bonus. He can be fought too.",
+          "Side hustles feed the same economy: catch chickens by creeping up on them (sprinting scares them off), then roast, eat or sell them. Up to four birds show in Kayo's hands."
+        ]
+      },
+      {
+        "title": "Missions and guidance",
+        "items": [
+          "Every chapter is a list of steps that read live game state. The first unfinished step becomes the current objective, so the story reacts to what the player has actually done.",
+          "An objective card shows the chapter, the goal, a contextual hint and the distance to the target, and flashes when a new objective starts.",
+          "Guidance is layered: a minimap and full map, waypoints, route arrows painted on the ground and on-screen markers. Each can be switched off.",
+          "Prompts adapt to the input device. Keyboard players see key hints, touch players get a thumb stick and action buttons.",
+          "A mission-complete banner shows what was earned. Checkpoints save progress, and getting caught by a patrol sends you back to the last one."
+        ]
+      },
+      {
+        "title": "Body and progression",
+        "items": [
+          "Health and stamina bars with real consequences. Running, jumping and fighting drain stamina, and at zero Kayo is spent and breathing hard. Food heals, and a knockout costs shillings.",
+          "A local gym, the Iron Yard, has a cement barbell and iron dumbbells. Each session costs stamina and the muscles need rest before the next one. Strength levels 1 to 5 make punches and the machete hit harder.",
+          "Weapons are unlocked by the story, not bought: a machete for catching the thief, then a Dane gun in Chapter 3. A weapon wheel (Tab, the mouse wheel or 1 to 3) swaps between hands, machete and gun, and H holsters.",
+          "Aiming is a skill. Right click to aim over the shoulder, hold Shift to steady your breath, and the damage you deal is shown on every hit."
+        ]
+      },
+      {
+        "title": "Challenge systems",
+        "items": [
+          "Stealth at the Harbour Gate: guards patrol with torches whose light shows on the ground, crouching halves how far you are seen, and a stealth meter tracks suspicion. Running is loud and a caught counter tracks your mistakes.",
+          "Fist fights with punch, block and dodge. Crowds gather around a brawl.",
+          "Cars can be driven, hotwired or have their locks picked, and owners chase you down. A mechanic's workshop repairs dents and broken glass for a price.",
+          "Chases are tuned so they stay fair: the thief tires after a few seconds, so he is catchable but never easy."
+        ]
+      },
+      {
+        "title": "A world that reacts",
+        "items": [
+          "Townspeople have jobs, moods, rumours, routines and a three-step relationship meter with Kayo. Befriend someone and they start sharing rumours.",
+          "Each stranger speaks in the accent of where they are from (Nigerian, Kenyan, Tanzanian and South African), keeps one voice through a whole conversation, and is voiced from a generated cast of 24 voices.",
+          "Day and night run on a configurable clock from 10 to 80 minutes, with rain, thunder and wet skin. The radio, music and ambience change with the time.",
+          "Dogs, cats and goats are single sculpted bodies with a lighter version used at a distance, and lizards and birds share the yard."
+        ]
+      },
+      {
+        "title": "Meta game and live ops",
+        "items": [
+          "Accounts, saves and friends work offline in the browser or on Supabase, behind one shared API. Progress made as a guest moves to the account on first sign-in, and guests get a free-roam taste of the game with a prompt to sign up.",
+          "A shop sells outfits, vehicles and shilling packs. Real-money purchases go through Stripe checkout, and prices are looked up on the server by item id so they cannot be changed from the browser.",
+          "An admin dashboard shows who is playing right now, money coming in and bug reports sent from the pause menu, with separate dev and live databases and a demo mode.",
+          "A built-in story tab holds the chapter outline, the cast and the status of every system, so the writing and the game live in one place."
+        ]
+      },
+      {
+        "title": "Engineering and accessibility",
+        "items": [
+          "Performance is a feature: LODs for people and animals, a frame-rate cap, render-scale and shadow settings, an FPS and draw-call overlay, and a real loading bar. Asset work cut about 11 MB from the first load, for example a 6.7 MB character file shrank to 0.3 MB.",
+          "Models are built in Blender, driven by an AI assistant over MCP, and exported as compressed GLB files.",
+          "Accessibility is built in: ARIA meters for health and stamina, live regions for objectives and toasts, subtitles for all dialogue, keyboard and touch controls and a full controls reference in the pause menu."
+        ]
+      }
+    ],
+    "images": [
+      "/media/projects/from-ashes/scrapyard.jpg",
+      "/media/projects/from-ashes/climb.jpg",
+      "/media/projects/from-ashes/carrying-copper.jpg",
+      "/media/projects/from-ashes/mama-efe-dialogue.jpg",
+      "/media/projects/from-ashes/villager.jpg",
+      "/media/projects/from-ashes/chicken.jpg",
+      "/media/projects/from-ashes/chicken-roasting.jpg",
+      "/media/projects/from-ashes/chicken-eating.jpg",
+      "/media/projects/from-ashes/stamina.jpg",
+      "/media/projects/from-ashes/gym.jpg",
+      "/media/projects/from-ashes/strength.jpg",
+      "/media/projects/from-ashes/fight.jpg",
+      "/media/projects/from-ashes/weapons.jpg",
+      "/media/projects/from-ashes/aiming.jpg",
+      "/media/projects/from-ashes/harbour-stealth.jpg",
+      "/media/projects/from-ashes/harbour-torchlight.jpg",
+      "/media/projects/from-ashes/harbour-fence.jpg",
+      "/media/projects/from-ashes/bottle-range.jpg",
+      "/media/projects/from-ashes/driving.jpg",
+      "/media/projects/from-ashes/hotwire.jpg",
+      "/media/projects/from-ashes/lockpick.jpg",
+      "/media/projects/from-ashes/radio.jpg",
+      "/media/projects/from-ashes/workshop.jpg",
+      "/media/projects/from-ashes/tobi-dialogue.jpg",
+      "/media/projects/from-ashes/interior.jpg",
+      "/media/projects/from-ashes/door-force.jpg",
+      "/media/projects/from-ashes/knockout-wake.jpg",
+      "/media/projects/from-ashes/wardrobe-tryon.jpg",
+      "/media/projects/from-ashes/outfit.jpg",
+      "/media/projects/from-ashes/shop.jpg",
+      "/media/projects/from-ashes/map.jpg",
+      "/media/projects/from-ashes/night.jpg",
+      "/media/projects/from-ashes/rain.jpg",
+      "/media/projects/from-ashes/settings.jpg",
+      "/media/projects/from-ashes/controls.jpg",
+      "/media/projects/from-ashes/prologue.jpg",
+      "/media/projects/from-ashes/intro.jpg",
+      "/media/projects/from-ashes/mobile-play.jpg",
+      "/media/projects/from-ashes/mobile-dialogue.jpg"
+    ],
+    "imageCaptions": [
+      "Collecting copper in the scrapyard: shillings and copper counter, health and stamina bars, an objective card with distance, and a minimap.",
+      "Climbing a shipping container for a coil only a climber can reach.",
+      "On the roof with a coil in hand, ready to carry it back to Mama Efe's table to sell.",
+      "Talking to Mama Efe. Every townsperson has a portrait, a job, a mood and a relationship meter, and finishing a step fires a mission banner.",
+      "Another townsperson, with their own job, history and replies.",
+      "A chicken caught by creeping up on it, held in Kayo's arms.",
+      "Roasting the chicken on a spit over the fire barrel, as a short cutscene.",
+      "Then Kayo sits down and eats it, in a close-up scene.",
+      "Sprinting until stamina runs low, at which point Kayo drops to a jog.",
+      "The Iron Yard: a cement barbell press that costs stamina and builds strength.",
+      "After a second gym session: Strength 1 of 5, and punches and the machete hit 8 percent harder.",
+      "A fist fight with damage numbers on every hit.",
+      "The weapon wheel: hands, Dane gun and machete.",
+      "Aiming the Dane gun over the shoulder, with a breath bar for steadying the shot.",
+      "Harbour Gate stealth: an eye meter fills as the guards start to notice you.",
+      "Guards patrol with torches whose light shows on the ground, and a warning follows if you linger.",
+      "Crouching at the fence to slip through the hole under the wire.",
+      "Shooting practice with the Dane gun: a damage number and sparks as a bottle breaks.",
+      "Driving a saloon through Port Sable traffic.",
+      "Cars can be hotwired, with prompts to smash a window or pick the lock.",
+      "A successful lock pick: the lock gives.",
+      "The car radio, with a toast naming the station.",
+      "Tobi's workshop at the back of the yard, where cars are repaired.",
+      "Tobi the mechanic, with a car waiting in the bay.",
+      "Walking into a stranger's home.",
+      "Doors can be forced, if you are willing to risk it.",
+      "After a knockout, Kayo comes round by the fire barrel.",
+      "Trying on Kente cloth in the wardrobe's turning 3D preview.",
+      "Kayo wearing the Kente outfit out in the yard.",
+      "The shop: outfits, vehicles and shilling packs.",
+      "The full map of Port Sable with a go-to list of places.",
+      "The same yard at night, on the game's own day and night clock.",
+      "Rain, switched on from the settings menu.",
+      "Settings for day length, weather, graphics quality and accessibility.",
+      "A controls reference in the pause menu, for keyboard and touch.",
+      "The prologue cutscene, with letterbox bars and subtitles.",
+      "The title screen, with a real loading bar.",
+      "On a phone: a thumb stick, jump and run buttons, and the same objective card.",
+      "The talk card and mission banner on a phone."
+    ],
+    "video": {
+      "webm": "/media/projects/from-ashes/gameplay.webm"
+    },
+    "clips": [
+      {
+        "name": "Fist fights",
+        "video": {
+          "webm": "/media/projects/from-ashes/action.webm"
+        },
+        "gif": "/media/projects/from-ashes/gameplay-2.gif",
+        "poster": "/media/projects/from-ashes/fight.jpg",
+        "caption": "A fist fight with an area boy: punches, blocks, damage numbers on every hit and a vignette when you are hurt."
+      }
+    ],
+    "galleryPreview": 8
+  },
+  {
     "name": "Footy Teams",
     "slug": "footy-teams",
     "type": "web",
@@ -9,8 +191,8 @@
       "TypeScript",
       "Tailwind CSS"
     ],
-    "description": "A web app that turns a pasted player list into randomized teams balanced by position and skill in one click, built for anyone organizing a pickup match.",
-    "longDescription": "Paste in a player list with names, positions, and an optional 1-5 skill rating, set a team size or team count, and it generates randomized teams balanced by both. Each team gets a baseline mix of strikers, mids, and defenders, and no team stacks too many players of the same rating, so sides come out even on skill, not just headcount. Results can be copied, shared as a link, exported as an image, or reshuffled. Runs entirely client-side, no backend. Built with Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
+    "description": "Turns a pasted player list into balanced pickup teams in one click, evened out by position and skill.",
+    "longDescription": "A client-side Next.js and TypeScript app. A constraint-based balancer spreads positions and 1-5 skill ratings across teams, so sides are even on paper, not just on headcount.\n\nResults reshuffle instantly and export as a shareable link or an image. No backend, deployed on Vercel.",
     "featuredImage": "/media/projects/footy-teams-featured.png",
     "images": [
       "/media/projects/page-images/footy-teams-1.png",
@@ -37,8 +219,8 @@
       "Supabase PostgreSQL",
       "Supabase Storage"
     ],
-    "description": "A full-stack real estate listings platform with map-based search, agent accounts, and image uploads, built with Next.js, Supabase, and the Google Maps API.",
-    "longDescription": "Agents sign in through Clerk and manage their own listings: photos, price, bed/bath/parking, and availability. Listing data is stored in Supabase Postgres with Row Level Security, so agents can only edit their own listings at the database level. Photos are stored in Supabase Storage. Search uses the Google Maps and Places APIs for address autocomplete, geocoding, and an interactive map, with filters for bed/bath/parking/type. Built on the Next.js App Router with TypeScript.",
+    "description": "A full-stack listings platform with map search, agent accounts and media uploads.",
+    "longDescription": "Built on the Next.js App Router. Clerk handles auth, Supabase Postgres stores listings behind row-level security so agents can only edit their own, and Supabase Storage serves the media.\n\nSearch runs on the Google Maps and Places APIs with geocoded, filterable results.",
     "featuredImage": "/media/projects/realtor-block-featured.png",
     "images": [
       "/media/projects/page-images/realtor-block-1.png",
@@ -59,6 +241,35 @@
     "featured": true
   },
   {
+    "name": "Addict Wellness App",
+    "slug": "chattee-app",
+    "type": "mobile",
+    "jobType": "Hobby",
+    "techStack": [
+      "React Native",
+      "Firebase",
+      "Firestore",
+      "Gifted Chat",
+      "Firebase Auth",
+      "TailwindCSS",
+      "Headless UI"
+    ],
+    "description": "A recovery support app built around real-time chat and community.",
+    "longDescription": "A React Native app with Firebase Auth and Firestore. The data model is designed around low-latency messaging and community threads, with Gifted Chat powering the conversation UI.",
+    "featuredImage": "/media/projects/chatee-featured.png",
+    "images": [
+      "/media/projects/page-images/chattee-1.png",
+      "/media/projects/page-images/chattee-2.png",
+      "/media/projects/page-images/chattee-3.png",
+      "/media/projects/page-images/chattee-4.png",
+      "/media/projects/page-images/chattee-5.png",
+      "/media/projects/page-images/chattee-7.png",
+      "/media/projects/page-images/chattee-6.gif"
+    ],
+    "live": "https://github.com/oviematthew/chattee",
+    "featured": true
+  },
+  {
     "name": "BOAS",
     "slug": "boas",
     "type": "web",
@@ -71,8 +282,8 @@
       "Strapi",
       "Liquid"
     ],
-    "description": "Started on Shopify Liquid, then helped migrate the storefront to a headless setup with Next.js, Strapi, and the Shopify Storefront API.",
-    "longDescription": "BOAS is a denim wholesale company. Started as a Shopify developer writing Liquid templates and maintaining custom store features, including a private Shopify app for operational needs the default admin couldn't handle. Later worked with the dev team to migrate the storefront off Shopify's theme layer to Next.js for the frontend, Strapi for content, and the Shopify Storefront API for product data and checkout. Built the dynamic product pages, category listings, and reusable UI components.",
+    "description": "Took a denim wholesaler from a Shopify theme to a headless storefront.",
+    "longDescription": "Started as the Shopify developer, owning the Liquid theme and a private Shopify app for operations the admin couldn't cover.\n\nThen transitioned the store to a headless stack with the team: Next.js on the frontend, Strapi for content and the Shopify Storefront API for catalog and checkout. Built the product pages, category listings and shared UI layer.",
     "featuredImage": "/media/projects/boas-featured.png",
     "images": [
       "/media/projects/page-images/boas-1.png",
@@ -96,8 +307,8 @@
       "Playwright",
       "Woocommerce"
     ],
-    "description": "A wedding and engagement photography site rebuilt in Next.js, with a markdown-driven blog and a spam-protected contact form.",
-    "longDescription": "Built in Next.js on the App Router, with blog posts and wedding stories written as Markdown files instead of pulled from a CMS. The contact form runs on Nodemailer with Google reCAPTCHA in front of it. The site loads in about half a second, with images served as WebP. Also includes dark/light theme support, GSAP scroll animations, and a separate WooCommerce store on a subdomain for the digital shop. GA4 and Vercel Analytics track traffic.",
+    "description": "A photography studio site rebuilt in Next.js for speed, SEO and editorial control.",
+    "longDescription": "A Next.js App Router rebuild with server-rendered pages and metadata for SEO, Markdown-driven stories, a reCAPTCHA-protected contact flow and WebP media for sub-second loads.\n\nGSAP handles scroll motion, and a WooCommerce subdomain runs the digital shop.",
     "featuredImage": "/media/projects/bedge-featured.png",
     "images": [
       "/media/projects/page-images/bedge-pictures-1.png",
@@ -116,8 +327,8 @@
       "Tailwind CSS",
       "Vercel"
     ],
-    "description": "A bridal and occasion hairstylist's site rebuilt from WordPress into Next.js for better performance and speed.",
-    "longDescription": "Lizz Davies' site was originally built on WordPress with a page-builder theme. I rebuilt it in Next.js, with images served as WebP through next/image. The rebuild loads in under half a second on a normal connection, a big improvement over the original WordPress build.",
+    "description": "A bridal hairstylist's site migrated from WordPress to Next.js for better SEO and speed.",
+    "longDescription": "Replaced a page-builder WordPress theme with a statically rendered Next.js site: clean semantic markup and per-page metadata for search, plus optimized imagery. Load time dropped to under half a second.",
     "featuredImage": "/media/projects/lizzdavies-featured.png",
     "images": [
       "/media/projects/page-images/lizzdavies-1.png",

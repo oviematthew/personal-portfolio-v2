@@ -1,142 +1,124 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useState } from "react";
+import { canPlayWebm } from "../utils/media";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import projects from "../data/projects.json";
 
-// Track geometry in vw: lead heading panel, then one panel + gap per project.
-const LEAD = 42;
-const PANEL = 62;
-const GAP = 3;
-const TAIL = 32;
-const PAD = 6;
 const MORE = "https://github.com/oviematthew";
-const TRACK = PAD + LEAD + GAP + projects.length * (PANEL + GAP) + TAIL + PAD;
-const TRAVEL = TRACK - 100;
+const EASE = [0.16, 1, 0.3, 1];
 
-function Heading() {
-  return (
-    <h2 className="text-5xl font-semibold tracking-tighter md:text-8xl">
-      Selected work<span className="text-brand">.</span>
-    </h2>
-  );
-}
+// Where each screenshot is anchored inside its frame, so every crop shows the interesting part.
+const FOCUS = {
+  "chattee-app": "50% 42%",
+  "from-ashes": "50% 55%",
+};
 
-function Meta({ p }) {
-  return (
-    <div className="mt-6 flex items-start justify-between gap-6">
-      <div>
-        <h3 className="text-3xl font-semibold tracking-tighter transition-colors group-hover:text-brand md:text-5xl">
-          {p.name}
-        </h3>
-        <p className="mt-3 max-w-xl text-neutral-400">{p.description}</p>
-        <p className="mt-3 text-sm text-neutral-500">{p.techStack.slice(0, 4).join(", ")}</p>
-      </div>
-      <ArrowUpRight
-        size={36}
-        strokeWidth={1.5}
-        className="mt-1 shrink-0 text-neutral-500 transition duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand"
-      />
-    </div>
-  );
-}
+// Alternating 7/5 and 5/7 column spans give the grid rhythm while every frame keeps the same height.
+// The first project is the headline: full width and taller. The rest alternate 7/5 and 5/7.
+const SPAN = ["lg:col-span-12", "lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7", "lg:col-span-7", "lg:col-span-5"];
 
-function MoreLink({ className = "" }) {
+function Card({ p, i, reduce }) {
+  const featured = i === 0;
+  // gameplay gif is heavy, so it is only fetched the first time the card is hovered or focused
+  const [playing, setPlaying] = useState(false);
+  const [webm, setWebm] = useState(true);
+  useEffect(() => setWebm(canPlayWebm()), []);
   return (
-    <Link
-      href={MORE}
-      target="_blank"
-      className={`group inline-flex items-center gap-4 text-4xl font-semibold tracking-tighter transition-colors hover:text-brand md:text-6xl ${className}`}
+    <motion.article
+      initial={reduce ? false : { opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.9, delay: (i % 2) * 0.08, ease: EASE }}
+      className={SPAN[i % SPAN.length]}
     >
-      More projects
-      <ArrowUpRight className="h-9 w-9 transition duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 md:h-14 md:w-14" strokeWidth={1.25} />
-    </Link>
-  );
-}
-
-// Small screens and reduced motion: a plain vertical list, no scroll hijack.
-function Stacked({ className }) {
-  return (
-    <div className={`mx-auto max-w-[1400px] px-6 py-24 ${className}`}>
-      <div className="mb-14">
-        <Heading />
-      </div>
-      <ul className="flex flex-col gap-16">
-        {projects.map((p) => (
-          <li key={p.slug}>
-            <Link href={`/project/${p.slug}`} className="group block">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-black">
-                <Image src={p.featuredImage} alt={`${p.name} screenshot`} fill sizes="100vw" className="object-cover object-top" />
-              </div>
-              <Meta p={p} />
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <MoreLink className="mt-16" />
-    </div>
-  );
-}
-
-function Pinned() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const smooth = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
-  const x = useTransform(smooth, [0, 1], ["0vw", `-${TRAVEL}vw`]);
-
-  return (
-    <div ref={ref} className="relative hidden md:block" style={{ height: `${projects.length * 90 + 100}vh` }}>
-      <div className="sticky top-0 flex h-[100dvh] flex-col justify-center overflow-hidden pt-16">
-        <motion.div style={{ x, paddingLeft: `${PAD}vw`, columnGap: `${GAP}vw` }} className="flex w-max items-center">
-          <div style={{ width: `${LEAD}vw` }} className="shrink-0">
-            <Heading />
-          </div>
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/project/${p.slug}`}
-              style={{ width: `${PANEL}vw` }}
-              className="group block shrink-0"
-            >
-              <div className="relative h-[50dvh] overflow-hidden rounded-3xl border border-white/10 bg-black">
-                <Image
-                  src={p.featuredImage}
-                  alt={`${p.name} screenshot`}
-                  fill
-                  sizes="62vw"
-                  className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                />
-              </div>
-              <Meta p={p} />
-            </Link>
-          ))}
-          <div style={{ width: `${TAIL}vw` }} className="shrink-0">
-            <MoreLink />
-          </div>
-        </motion.div>
-
-        {/* Progress through the projects */}
-        <div className="absolute inset-x-6 bottom-8 h-px bg-white/10 lg:inset-x-[6vw]">
-          <motion.div style={{ scaleX: smooth }} className="h-full origin-left bg-brand" />
+      <Link
+        href={`/project/${p.slug}`}
+        className="group block"
+        onPointerEnter={() => (p.video || p.gif) && setPlaying(true)}
+        onFocus={() => (p.video || p.gif) && setPlaying(true)}
+      >
+        <div className={`relative h-64 overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e0e] sm:h-80 ${featured ? "lg:h-[36rem]" : "lg:h-[26rem]"}`}>
+          <Image
+            src={p.featuredImage}
+            alt={`${p.name} project screenshot`}
+            fill
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            style={{ objectPosition: FOCUS[p.slug] ?? "top" }}
+            className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+            priority={featured}
+          />
+          {playing &&
+            (p.video && webm ? (
+              <video
+                muted
+                loop
+                playsInline
+                autoPlay
+                aria-label={`${p.name} gameplay preview`}
+                className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              >
+                {p.video.webm && <source src={p.video.webm} type="video/webm" />}
+                {p.video.mp4 && <source src={p.video.mp4} type="video/mp4" />}
+              </video>
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={p.gif}
+                alt={`${p.name} gameplay preview, animated`}
+                className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
+            ))}
         </div>
-      </div>
-    </div>
+
+        <div className="mt-6 flex items-start justify-between gap-6">
+          <div>
+            <h3 className={`font-semibold tracking-tighter transition-colors duration-300 group-hover:text-brand ${featured ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>
+              {p.name}
+            </h3>
+            <p className={`mt-2 text-neutral-400 ${featured ? "max-w-2xl text-lg" : "max-w-md"}`}>{p.description}</p>
+            <p className="mt-3 text-sm text-neutral-500">{p.techStack.slice(0, 4).join(", ")}</p>
+          </div>
+          <ArrowUpRight
+            size={32}
+            strokeWidth={1.5}
+            className="mt-1 shrink-0 text-neutral-500 transition duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand"
+          />
+        </div>
+      </Link>
+    </motion.article>
   );
 }
 
 export default function WorkSection() {
   const reduce = useReducedMotion();
+
   return (
-    <section id="work">
-      {reduce ? <Stacked className="" /> : (
-        <>
-          <Stacked className="md:hidden" />
-          <Pinned />
-        </>
-      )}
+    <section id="work" className="mx-auto max-w-[1400px] px-6 py-24 lg:py-40">
+      <h2 className="mb-16 text-5xl font-semibold tracking-tighter md:text-8xl lg:mb-20">
+        Selected work<span className="text-brand">.</span>
+      </h2>
+
+      <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-12 lg:gap-y-20">
+        {projects.map((p, i) => (
+          <Card key={p.slug} p={p} i={i} reduce={reduce} />
+        ))}
+      </div>
+
+      <Link
+        href={MORE}
+        target="_blank"
+        className="group mt-24 inline-flex items-center gap-4 text-4xl font-semibold tracking-tighter transition-colors hover:text-brand md:text-6xl"
+      >
+        More projects
+        <ArrowUpRight
+          className="h-9 w-9 transition duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 md:h-14 md:w-14"
+          strokeWidth={1.25}
+        />
+      </Link>
     </section>
   );
 }

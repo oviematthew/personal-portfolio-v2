@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
+import GameClip from "../../components/GameClip";
+import Gallery from "../../components/Gallery";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -47,15 +49,20 @@ export default async function ProjectPage({ params }) {
       </Reveal>
 
       <Reveal delay={0.1} className="relative mt-14 aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-black md:aspect-[16/8]">
-        <Image
-          src={project.featuredImage}
-          alt={`${project.name} featured image`}
-          fill
-          priority
-          sizes="(min-width: 1400px) 1352px, 100vw"
-          className="object-cover object-top"
-        />
+        {project.gif || project.video ? (
+          <GameClip video={project.video} gif={project.gif} poster={project.featuredImage} name={project.name} priority />
+        ) : (
+          <Image
+            src={project.featuredImage}
+            alt={`${project.name} featured image`}
+            fill
+            priority
+            sizes="(min-width: 1400px) 1352px, 100vw"
+            className="object-cover object-top"
+          />
+        )}
       </Reveal>
+
 
       <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12">
         <aside className="lg:col-span-4">
@@ -75,15 +82,17 @@ export default async function ProjectPage({ params }) {
               </dd>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href={project.live}
-                target="_blank"
-                className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
-              >
-                Visit site
-                <ArrowUpRight size={16} />
-              </Link>
-              {project.github && (
+              {project.live && (
+                <Link
+                  href={project.live}
+                  target="_blank"
+                  className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-cta px-7 text-[15px] font-medium text-white transition hover:bg-brand active:scale-[0.98]"
+                >
+                  {project.live.includes("github.com") ? "View code" : "Visit site"}
+                  <ArrowUpRight size={16} />
+                </Link>
+              )}
+              {project.github && project.github !== project.live && (
                 <Link
                   href={project.github}
                   target="_blank"
@@ -104,21 +113,47 @@ export default async function ProjectPage({ params }) {
         </Reveal>
       </div>
 
-      {project.images.length > 0 && (
-        <div className="mt-24 columns-1 gap-6 md:columns-2 [&>*]:mb-6">
-          {project.images.map((img, i) => (
-            <Reveal key={img} className="break-inside-avoid">
-              <Image
-                src={img}
-                alt={`${project.name} screenshot ${i + 1}`}
-                width={1200}
-                height={800}
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="h-auto w-full rounded-2xl border border-white/10"
-              />
+      {project.features && (
+        <section aria-labelledby="how-it-plays" className="mt-28">
+          <h2 id="how-it-plays" className="text-4xl font-semibold tracking-tighter md:text-7xl">
+            How it plays<span className="text-brand">.</span>
+          </h2>
+          <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
+            {project.features.map((group) => (
+              <Reveal key={group.title} className="grid grid-cols-1 gap-6 py-12 lg:grid-cols-12 lg:gap-12">
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl lg:col-span-4">{group.title}</h3>
+                <ul className="space-y-4 text-lg leading-relaxed text-neutral-400 lg:col-span-8">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex gap-4">
+                      <span aria-hidden className="mt-[0.7em] h-1.5 w-1.5 shrink-0 bg-brand" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {project.clips?.length > 0 && (
+        <section aria-label="More gameplay" className="mt-24 space-y-12">
+          {project.clips.map((clip) => (
+            <Reveal key={clip.name} className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+              <div className="relative aspect-video overflow-hidden rounded-3xl border border-white/10 bg-black lg:col-span-8">
+                <GameClip video={clip.video} gif={clip.gif} poster={clip.poster} name={clip.name} />
+              </div>
+              <div className="lg:col-span-4">
+                <h3 className="text-3xl font-semibold tracking-tighter md:text-4xl">{clip.name}</h3>
+                <p className="mt-4 text-lg leading-relaxed text-neutral-400">{clip.caption}</p>
+              </div>
             </Reveal>
           ))}
-        </div>
+        </section>
+      )}
+
+      {project.images.length > 0 && (
+        <Gallery images={project.images} captions={project.imageCaptions ?? []} name={project.name} preview={project.galleryPreview} />
       )}
 
       <Link
