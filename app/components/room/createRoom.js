@@ -4,6 +4,7 @@
 // Loaded lazily by RoomCanvas.
 import {
   ACESFilmicToneMapping,
+  Color,
   AdditiveBlending,
   Box3,
   BoxGeometry,
@@ -280,10 +281,10 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
   ball(root, 0.22, std(0xc4c9cf, 0.4, 0.55), ductX, ductY, ductZ, 1, 1, 1, 18);
   for (const z of [-2.2, 0.4, 2.4]) cyl(root, 0.012, 0.012, 0.2, std(0x222222, 0.6, 0.6), ductX, 2.3, z, 6);
 
-  // curtains: an ivory sheer across the window, framed by sage linen drapes
+  // curtains: an ivory sheer across the window, framed by warm greige linen drapes
   const sheerMat = std(0xf1ece2, 1, 0, { side: DoubleSide, transparent: true, opacity: 0.88 });
-  const sageMat = std(0x8a9677, 1, 0, { side: DoubleSide });
-  const curtain = (width, height, place, curtainMat = sageMat) => {
+  const drapeMat = std(0xa99a85, 1, 0, { side: DoubleSide });
+  const curtain = (width, height, place, curtainMat = drapeMat) => {
     const g = new PlaneGeometry(width, height, Math.round(width * 26), 1);
     const pos = g.attributes.position;
     for (let i = 0; i < pos.count; i++) {
@@ -391,6 +392,22 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
   blob(TABLE.x, TABLE.z, 1.1, 1.5);
   root.add(table);
   register("table", table, { label: "Coffee break", station: "coffee" });
+
+  // notepad and pen on the table: the link to the blog
+  const notepad = new Group();
+  notepad.position.set(TABLE.x, 0, TABLE.z);
+  notepad.rotation.y = Math.PI / 2;
+  const padLean = new Group();
+  padLean.position.set(0.3, 0.485, -0.08);
+  padLean.rotation.y = 0.4;
+  box(padLean, 0.2, 0.014, 0.27, std(0xf2ecdc, 0.9), 0, 0.007, 0);
+  box(padLean, 0.2, 0.008, 0.05, std(BRAND, 0.7), 0, 0.017, -0.11);
+  for (let i = 0; i < 4; i++) box(padLean, 0.13, 0.002, 0.006, std(0x8a8578, 1), -0.02, 0.016, -0.05 + i * 0.04);
+  cyl(padLean, 0.006, 0.006, 0.15, std(0x161616, 0.4), 0.13, 0.014, 0.04, 8).rotation.z = Math.PI / 2;
+  notepad.add(padLean);
+  hitArea(notepad, 0.36, 0.1, 0.4, 0.3, 0.5, -0.08);
+  root.add(notepad);
+  register("notepad", notepad, { label: "Writing", href: "/blog", station: "write" });
 
   // ---- accent: travertine drum side table --------------------------------------------
   const accent = new Group();
@@ -816,7 +833,6 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
   shelf.add(pot3);
   root.add(shelf);
   blob(RX - 0.21, SHELF_Z, 0.5, 1.1);
-  register("shelf", shelf, { label: "Writing", href: "/blog", station: "shelf" });
 
   // record player on the third shelf
   const record = new Group();
@@ -1279,6 +1295,7 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     football: { spot: [LX + 0.55, SOFA_Z - 0.3], exit: SOFA_EXIT, via: [[LX + 0.55, SOFA_Z + 0.55]], face: RIGHT, pose: "sofaWatch", tv: "football", sound: "football", party: "football", serve: true },
     sofaGame: { spot: [LX + 0.55, SOFA_Z - 0.3], exit: SOFA_EXIT, via: [[LX + 0.55, SOFA_Z + 0.55]], face: RIGHT, pose: "sofaGame", tv: "game", party: "game" },
     lounge: { spot: [TOGO.x, TOGO.z], exit: [0.1, TOGO.z], face: TOGO.rot, pose: "lounge" },
+    write: { spot: [TABLE.x + 0.8, TABLE.z - 0.3], exit: [TABLE.x + 0.8, TABLE.z - 0.3], face: LEFT, pose: "stand" },
     coffee: { spot: [TABLE.x + 0.8, TABLE.z], exit: [TABLE.x + 0.8, TABLE.z], face: LEFT, pose: "standSip" },
     lamp: { spot: [LX + 1.05, -3.2], exit: [0.1, -3.2], face: LEFT, pose: "reach", toggle: "lamp" },
     plant: { spot: [LX + 2.05, -3.62], exit: [0.1, -3.62], face: LEFT, pose: "water" },
@@ -1406,13 +1423,13 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     renderer.setSize(width, height, false);
     const a = width / height;
     camera.aspect = a;
-    if (a < 1.25) Object.assign(cam, { fov: 56, dist: 7, y: 3.1, offY: 0.0 }); // phones: a higher viewpoint shows more floor, so the room reads taller
+    if (a < 1.25) Object.assign(cam, { fov: 52, dist: 8, y: 6.2, offY: 0.0 }); // phones: a higher viewpoint shows more floor, so the room reads taller
     else if (a < 1.8) Object.assign(cam, { fov: 46, dist: 9.6, y: 2.3, offY: 0.04 });
     else Object.assign(cam, { fov: 34, dist: 8.5, y: 2.0, offY: 0.02 }); // wide, short strip
     // never crop the room's width: pull back until both walls (and the cart and drawer at the
     // front of the room) fit, with a little room for the mouse parallax
     const halfH = Math.atan(Math.tan(MathUtils.degToRad(cam.fov / 2)) * a);
-    const fitDist = (a < 1.25 ? 1.6 : 3.7) + (ROOM.w / 2 + 0.15) / Math.tan(halfH) - lookTarget.z;
+    const fitDist = (a < 1.25 ? 1.7 : 3.9) + (ROOM.w / 2 + 0.15) / Math.tan(halfH) - lookTarget.z;
     cam.dist = Math.max(cam.dist, fitDist);
     camera.fov = cam.fov;
     camera.setViewOffset(width, height, 0, height * cam.offY, width, height);
@@ -1445,6 +1462,38 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     return { x: ((p.x + 1) / 2) * width, y: ((1 - p.y) / 2) * height };
   };
 
+  // Desktop hover: the object under the cursor lifts softly in its own colour, so it reads as clickable.
+  // Materials are shared across many meshes, so the hovered object gets its own temporary copies.
+  const glowOn = { saved: [] };
+  const clearGlow = () => {
+    glowOn.saved.forEach(([mesh, original]) => {
+      mesh.material.dispose();
+      mesh.material = original;
+    });
+    glowOn.saved = [];
+  };
+  const setGlow = (name) => {
+    clearGlow();
+    if (!name) return;
+    registry.get(name)?.group.traverse((o) => {
+      if (!o.isMesh || Array.isArray(o.material)) return;
+      const copy = o.material.clone();
+      if (copy.emissive) {
+        // lamps and screens that already emit light just get a little brighter
+        if (copy.emissive.getHex() !== 0) copy.emissiveIntensity = (copy.emissiveIntensity || 1) * 1.35;
+        else {
+          // lift the object's own colour (blended toward white so dark pieces still read), no orange cast
+          copy.emissive = (copy.color ? copy.color.clone() : new Color(0xffffff)).lerp(new Color(0xffffff), 0.5);
+          copy.emissiveIntensity = 0.2;
+        }
+      } else if (copy.color) {
+        copy.color.multiplyScalar(1.3); // basic (unlit) materials such as screens
+      }
+      glowOn.saved.push([o, o.material]);
+      o.material = copy;
+    });
+  };
+
   let hovered = null;
   let downAt = null;
   const onMove = (e) => {
@@ -1456,6 +1505,7 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
       if (name !== hovered) {
         hovered = name;
         canvas.style.cursor = name ? "pointer" : "default";
+        setGlow(name);
         onHover?.(name ? { ...registry.get(name).meta, ...screenPoint(name) } : null);
       }
     } else if (e.pressure > 0) {
@@ -1490,6 +1540,7 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     if (hovered) {
       hovered = null;
       canvas.style.cursor = "default";
+      setGlow(null);
       onHover?.(null);
     }
   };

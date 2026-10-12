@@ -1,11 +1,11 @@
 # Matthew Ovie Enamuotor
 
-> Frontend and mobile developer based in London, Ontario, Canada. Currently a Frontend Developer at Rentsync, building Vue applications for the real estate industry. Previously five years of freelance work (200+ websites for 130+ clients across four continents) and a Shopify developer at BOAS.
+> Frontend and mobile developer based in London, Ontario, Canada. Frontend Developer at Rentsync, building web applications for the real estate industry. Works across React, Next.js and Vue on the web, and React Native, Swift and Kotlin on mobile. Previously five years of freelance work (anomalitech.com: 200+ websites for 130+ clients across four continents) and BOAS (boas.co), where he helped move the store from a Shopify theme to a headless build on Strapi and the Shopify Storefront API. B.Eng in Computer Engineering and a postgraduate diploma in Mobile Application Development. Builds for the keyboard user, the screen reader and the slow phone first.
 
 ## Pages
 
 - [Home](https://oviematthew.com): Selected work, about, and contact.
-- [Blog](https://oviematthew.com/blog): Technical writing on React, Next.js, mobile development, and AI tooling.
+- [Blog](https://oviematthew.com/blog): Technical writing on React, Next.js, Vue, mobile development, security and AI tooling.
 - [Privacy Policy](https://oviematthew.com/privacy-policy)
 
 ## Selected work
@@ -20,7 +20,32 @@
 
 ## Skills
 
-React, Next.js, Vue, TypeScript, React Native, Swift, Kotlin, Tailwind CSS, Node.js, Supabase, GraphQL, Shopify, AI-assisted coding.
+- Frontend: React, Next.js, Vue, TypeScript, JavaScript, Tailwind CSS, Sass, shadcn/ui, Motion, GSAP, Three.js, Accessibility (WCAG)
+- Mobile: React Native, Expo, Swift, Kotlin, Java
+- State and APIs: Redux, Zustand, Context API, GraphQL, REST
+- Backend and data: Node.js, Express, Supabase, Firebase, PostgreSQL, MySQL, MongoDB, SQLite
+- CMS and commerce: Shopify, Liquid, Storefront API, Strapi, Headless CMS, WordPress, WooCommerce, Wix
+- AI and tooling: AI-assisted coding, Playwright, Jest, Git, Docker, Vercel, Netlify, CI/CD, Figma
+
+## Writing
+
+- [Blog index](https://oviematthew.com/blog)
+- One Year of Frontend in Real Estate (2026-10-03)
+- From Vue 2 to Vue 3: What Actually Changed (2026-08-28)
+- What I Learned Fixing a React Server Components CVE (2026-06-09)
+- Idempotency in Transaction-Based Systems (2026-04-22)
+- Setting Up GEO for AI Search Visibility (2026-03-11)
+- Setting Up Claude Cowork for Multi-Step Work (2026-02-19)
+- Setting Up Claude Projects the Right Way (2026-02-05)
+- SQL Injection: Best Practices for Safer Queries (2026-01-19)
+- Building Footy Teams in About Five Hours With Claude (2025-12-08)
+- From React to Vue: Culture Shocks as a Frontend Developer (2025-11-19)
+- Optimizing Frontend Performance with Supabase and Edge Functions (2025-08-20)
+- Mastering Next.js App Router: Best Practices for Modern Web Apps (2025-05-01)
+- Getting Started with Layout in SwiftUI (2025-04-05)
+- Building Accessible React Components That Everyone Can Use (2025-04-03)
+- Kickstarting Your Mobile App with Expo and React Native (2025-03-06)
+- Building Modern Android UIs with Kotlin (2025-03-06)
 
 ## Contact
 

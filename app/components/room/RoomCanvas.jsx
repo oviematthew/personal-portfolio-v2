@@ -10,7 +10,7 @@ import { ArrowUpRight, Volume2, VolumeX } from "lucide-react";
 // things their dots retire, which lets the ones that were hidden for spacing appear.
 const HINT_ORDER = [
   "tv", "sofa", "monitor", "cart", "record", "soundbar", "cabinet", "chair", "lamp", "lamp2", "plant", "table",
-  "vertical", "laptop", "ring", "ps5desk", "ps5tv", "diffuser", "notes", "keyboard", "shelf", "photos", "mirror", "accent",
+  "vertical", "laptop", "ring", "ps5desk", "ps5tv", "diffuser", "notes", "keyboard", "notepad", "photos", "mirror", "accent",
 ];
 const HINT_GAP = 34; // minimum distance between two visible dots, in CSS pixels
 

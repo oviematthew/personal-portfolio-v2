@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import MergingGreeting from "./MergingGreeting";
 import { Volume2, ArrowDown, Download, MousePointerClick } from "lucide-react";
 import RoomCanvas from "./room/RoomCanvas";
 
@@ -10,6 +11,9 @@ const RESUME = "https://drive.google.com/uc?export=download&id=1PzRW7u4C7Iq51PgM
 
 export default function HeroSection() {
   const reduce = useReducedMotion();
+  // everything except the greeting fades as you scroll, so nothing collides with the greeting on its way down
+  const { scrollY } = useScroll();
+  const fade = useTransform(scrollY, [0, 260], [1, 0]);
   const playName = () => new Audio("/media/name.mp3").play();
   const rise = (delay) => ({
     initial: reduce ? false : { opacity: 0, y: 24 },
@@ -20,7 +24,7 @@ export default function HeroSection() {
   return (
     <section className="flex flex-col md:h-[calc(100dvh-4rem)] md:min-h-[640px]">
       {/* The room gets its own band above the text, so the two never overlap */}
-      <div className="relative h-[56dvh] min-h-[360px] overflow-hidden md:h-auto md:min-h-0 md:flex-1">
+      <div className="relative h-[64dvh] min-h-[400px] overflow-hidden md:h-auto md:min-h-0 md:flex-1">
         <RoomCanvas />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#171717] to-transparent" />
         <motion.p
@@ -35,20 +39,22 @@ export default function HeroSection() {
       <div className="mx-auto w-full max-w-[1400px] px-6 pb-8 pt-2 lg:pb-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <motion.p {...rise(0.1)} className="text-sm text-neutral-400 md:text-base">
-              Matthew Ovie Enamuotor
-            </motion.p>
-            <motion.h1
-              {...rise(0.2)}
-              className="font-heading mt-1 text-[clamp(2.4rem,min(5.4vw,8dvh),4.75rem)] font-semibold leading-[0.95] tracking-[-0.05em]"
-            >
-              Hi, I&apos;m Ovie<span className="text-brand">.</span>
-            </motion.h1>
-            <motion.p {...rise(0.35)} className="mt-3 max-w-xl text-base leading-relaxed text-neutral-300 md:text-lg">
-              A frontend engineer building fast, accessible web and mobile experiences.
-            </motion.p>
+            <motion.div style={{ opacity: reduce ? 1 : fade }}>
+              <motion.p {...rise(0.1)} className="text-sm text-neutral-400 md:text-base">
+                Matthew Ovie Enamuotor
+              </motion.p>
+            </motion.div>
+            <motion.div {...rise(0.2)} className="mt-1">
+              <MergingGreeting />
+            </motion.div>
+            <motion.div style={{ opacity: reduce ? 1 : fade }}>
+              <motion.p {...rise(0.35)} className="mt-3 max-w-xl text-base leading-relaxed text-neutral-300 md:text-lg">
+                A frontend engineer building fast, accessible web and mobile experiences.
+              </motion.p>
+            </motion.div>
           </div>
 
+          <motion.div style={{ opacity: reduce ? 1 : fade }}>
           <motion.div {...rise(0.5)} className="flex flex-wrap items-center gap-2 md:gap-3">
             <Link
               href="#work"
@@ -73,6 +79,7 @@ export default function HeroSection() {
               <Volume2 size={18} />
               <span className="hidden sm:inline">How to say it</span>
             </button>
+          </motion.div>
           </motion.div>
         </div>
       </div>

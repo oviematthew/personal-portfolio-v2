@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
+import AboutGreeting from "./AboutGreeting";
 
 const L = ({ href, children }) => (
   <Link href={href} target="_blank" className="link-brand">
@@ -11,16 +12,20 @@ export default function AboutSection() {
   return (
     <section id="about" className="mx-auto max-w-[1400px] px-6 py-28 lg:py-40">
       <div className="max-w-4xl space-y-8 text-2xl font-medium leading-[1.4] tracking-tight text-neutral-400 md:text-3xl lg:text-[2.1rem]">
-        <Reveal>
+        {/* no vertical slide here: the hero greeting lands exactly on this line, so it must not move */}
+        <Reveal rise={0}>
           <p>
-            <span className="text-white">I&apos;m Ovie</span>, a frontend engineer based in London, Ontario. I build
-            interfaces that are fast, accessible and easy to use.
+            <AboutGreeting />
+            <span className="text-white">Frontend engineer based in London, Ontario.</span> I like interfaces that load
+            fast, work for everyone and feel obvious to use.
           </p>
         </Reveal>
 
         <Reveal delay={0.05}>
           <p>
-            Now at <L href="https://rentsync.com">Rentsync</L>, building Vue applications for the real estate industry.
+            Now a frontend developer at <L href="https://rentsync.com">Rentsync</L>, building web applications for the
+            real estate industry. My toolkit spans React, Next.js and Vue on the web, and React Native, Swift and Kotlin
+            on mobile.
             Before that, five years of <L href="https://anomalitech.com">freelancing</L>: 200+ websites for 130+ clients
             across four continents. At <L href="https://boas.co">BOAS</L> I helped move the store from a Shopify theme to
             a headless build on Strapi and the Shopify Storefront API.
