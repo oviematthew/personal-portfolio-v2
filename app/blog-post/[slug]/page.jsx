@@ -74,11 +74,11 @@ export default async function Post({ params }) {
           Back
         </Link>
 
-        <h1 className="mt-10 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] md:text-7xl">
+        <h1 className="mx-auto mt-10 max-w-4xl text-balance text-center text-4xl font-semibold leading-[1.05] tracking-[-0.04em] md:text-7xl">
           {post.title}
         </h1>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3 text-neutral-400">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-center text-neutral-400">
           <span className="text-white">Matthew Ovie Enamuotor</span>
           <span>{formattedDate}</span>
           <span>{readingTime}</span>
