@@ -30,6 +30,7 @@
 ## Writing
 
 - [Blog index](https://oviematthew.com/blog)
+- Prompt Engineering: How to Build a Better Product With It (2026-11-14)
 - One Year of Frontend in Real Estate (2026-10-03)
 - From Vue 2 to Vue 3: What Actually Changed (2026-08-28)
 - What I Learned Fixing a React Server Components CVE (2026-06-09)
