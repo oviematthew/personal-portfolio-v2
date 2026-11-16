@@ -14,7 +14,7 @@
       "Vite",
       "JavaScript"
     ],
-    "description": "A story-driven open-world game that runs in the browser. A living three.js city, a voiced cast and the progression systems to keep you playing.",
+    "description": "A story-driven open-world game that runs in the browser. A living three.js city, a voiced cast, 30 chapters and a town full of things to do between them.",
     "longDescription": "You play Kayo, who escaped when a private army burned his village, and now works a scrapyard in Port Sable while searching for his lost sister. The game is built from scratch on three.js: a living town with a day and night cycle, weather, cars, animals and a fully voiced cast.\n\nI designed it the way I design product: a core loop that teaches itself, progression that rewards curiosity, and the systems around it (accounts, cloud saves, a real shop, an admin dashboard) that make it something people can actually play and a team can actually run.",
     "featuredImage": "/media/projects/from-ashes/featured.jpg",
     "gif": "/media/projects/from-ashes/gameplay.gif",
@@ -57,6 +57,17 @@
         ]
       },
       {
+        "title": "Life in Port Sable",
+        "items": [
+          "Four side hustles for small money: pure water rounds, okada deliveries against the clock, danfo conductor runs and a timing game at the suya grill.",
+          "Ayo Olopon with Baba Ilori: a full 12-pit board game with an AI opponent. Every win unlocks one of eight stories about Nkaro and Odara.",
+          "An owambe party every evening, with a live band synthesised in the browser in three styles (highlife, afrobeat and fuji). Spray money, or dance to the beat in a rhythm game.",
+          "The Harbour Lights bar at night: Whot, pool and darts for stakes, plus a rumour seller. Radio Nkaro 88.4 plays the same original music in cars, between story-linked news bulletins.",
+          "Respect works as a reputation: greeting elders and helping people earns it, and it moves market prices by roughly 15 to 20 percent. Cowrie shells and old photographs of Odara reward exploring.",
+          "Timed keke and okada routes with bronze, silver and gold medals, the Iron Yard sparring ladder, cars and a house to buy, and a five-a-side football pitch Kayo can join."
+        ]
+      },
+      {
         "title": "A world that reacts",
         "items": [
           "Townspeople have jobs, moods, rumours, routines and a three-step relationship meter with Kayo. Befriend someone and they start sharing rumours.",
@@ -84,102 +95,23 @@
       }
     ],
     "images": [
-      "/media/projects/from-ashes/scrapyard.jpg",
-      "/media/projects/from-ashes/climb.jpg",
-      "/media/projects/from-ashes/carrying-copper.jpg",
-      "/media/projects/from-ashes/mama-efe-dialogue.jpg",
-      "/media/projects/from-ashes/villager.jpg",
-      "/media/projects/from-ashes/chicken.jpg",
-      "/media/projects/from-ashes/chicken-roasting.jpg",
-      "/media/projects/from-ashes/chicken-eating.jpg",
-      "/media/projects/from-ashes/stamina.jpg",
-      "/media/projects/from-ashes/gym.jpg",
-      "/media/projects/from-ashes/strength.jpg",
-      "/media/projects/from-ashes/fight.jpg",
-      "/media/projects/from-ashes/weapons.jpg",
-      "/media/projects/from-ashes/aiming.jpg",
-      "/media/projects/from-ashes/harbour-stealth.jpg",
-      "/media/projects/from-ashes/harbour-torchlight.jpg",
-      "/media/projects/from-ashes/harbour-fence.jpg",
-      "/media/projects/from-ashes/bottle-range.jpg",
-      "/media/projects/from-ashes/driving.jpg",
-      "/media/projects/from-ashes/hotwire.jpg",
-      "/media/projects/from-ashes/lockpick.jpg",
-      "/media/projects/from-ashes/radio.jpg",
-      "/media/projects/from-ashes/workshop.jpg",
-      "/media/projects/from-ashes/tobi-dialogue.jpg",
-      "/media/projects/from-ashes/interior.jpg",
-      "/media/projects/from-ashes/door-force.jpg",
-      "/media/projects/from-ashes/knockout-wake.jpg",
-      "/media/projects/from-ashes/wardrobe-tryon.jpg",
-      "/media/projects/from-ashes/outfit.jpg",
-      "/media/projects/from-ashes/shop.jpg",
-      "/media/projects/from-ashes/map.jpg",
-      "/media/projects/from-ashes/night.jpg",
-      "/media/projects/from-ashes/rain.jpg",
-      "/media/projects/from-ashes/settings.jpg",
-      "/media/projects/from-ashes/controls.jpg",
-      "/media/projects/from-ashes/prologue.jpg",
-      "/media/projects/from-ashes/intro.jpg",
-      "/media/projects/from-ashes/mobile-play.jpg",
-      "/media/projects/from-ashes/mobile-dialogue.jpg"
+      "/media/projects/from-ashes/fa-1.jpg",
+      "/media/projects/from-ashes/fa-2.jpg",
+      "/media/projects/from-ashes/fa-3.jpg",
+      "/media/projects/from-ashes/fa-4.jpg",
+      "/media/projects/from-ashes/fa-5.jpg"
     ],
     "imageCaptions": [
-      "Collecting copper in the scrapyard: shillings and copper counter, health and stamina bars, an objective card with distance, and a minimap.",
-      "Climbing a shipping container for a coil only a climber can reach.",
-      "On the roof with a coil in hand, ready to carry it back to Mama Efe's table to sell.",
-      "Talking to Mama Efe. Every townsperson has a portrait, a job, a mood and a relationship meter, and finishing a step fires a mission banner.",
-      "Another townsperson, with their own job, history and replies.",
-      "A chicken caught by creeping up on it, held in Kayo's arms.",
-      "Roasting the chicken on a spit over the fire barrel, as a short cutscene.",
-      "Then Kayo sits down and eats it, in a close-up scene.",
-      "Sprinting until stamina runs low, at which point Kayo drops to a jog.",
-      "The Iron Yard: a cement barbell press that costs stamina and builds strength.",
-      "After a second gym session: Strength 1 of 5, and punches and the machete hit 8 percent harder.",
-      "A fist fight with damage numbers on every hit.",
-      "The weapon wheel: hands, Dane gun and machete.",
-      "Aiming the Dane gun over the shoulder, with a breath bar for steadying the shot.",
-      "Harbour Gate stealth: an eye meter fills as the guards start to notice you.",
-      "Guards patrol with torches whose light shows on the ground, and a warning follows if you linger.",
-      "Crouching at the fence to slip through the hole under the wire.",
-      "Shooting practice with the Dane gun: a damage number and sparks as a bottle breaks.",
-      "Driving a saloon through Port Sable traffic.",
-      "Cars can be hotwired, with prompts to smash a window or pick the lock.",
-      "A successful lock pick: the lock gives.",
-      "The car radio, with a toast naming the station.",
-      "Tobi's workshop at the back of the yard, where cars are repaired.",
-      "Tobi the mechanic, with a car waiting in the bay.",
-      "Walking into a stranger's home.",
-      "Doors can be forced, if you are willing to risk it.",
-      "After a knockout, Kayo comes round by the fire barrel.",
-      "Trying on Kente cloth in the wardrobe's turning 3D preview.",
-      "Kayo wearing the Kente outfit out in the yard.",
-      "The shop: outfits, vehicles and shilling packs.",
-      "The full map of Port Sable with a go-to list of places.",
-      "The same yard at night, on the game's own day and night clock.",
-      "Rain, switched on from the settings menu.",
-      "Settings for day length, weather, graphics quality and accessibility.",
-      "A controls reference in the pause menu, for keyboard and touch.",
-      "The prologue cutscene, with letterbox bars and subtitles.",
-      "The title screen, with a real loading bar.",
-      "On a phone: a thumb stick, jump and run buttons, and the same objective card.",
-      "The talk card and mission banner on a phone."
+      "Kayo in Mama Efe's scrapyard in afternoon light: cash, health and stamina, an objective card with distance, a minimap and the clock.",
+      "A street fight with Ineza, a boxer-style opponent: damage numbers, a Blocked callout, a red hurt screen and a crowd watching.",
+      "Pool for 20 against Tunde at the Harbour Lights bar, with an aim line and hold-to-shoot power.",
+      "Ayo with Baba Ilori under the tree: a 12-pit board where every win earns a story about Nkaro and Odara.",
+      "Driving the keke on a timed route: speed, vehicle health, a split timer and a ring to drive through."
     ],
     "video": {
       "webm": "/media/projects/from-ashes/gameplay.webm"
     },
-    "clips": [
-      {
-        "name": "Fist fights",
-        "video": {
-          "webm": "/media/projects/from-ashes/action.webm"
-        },
-        "gif": "/media/projects/from-ashes/gameplay-2.gif",
-        "poster": "/media/projects/from-ashes/fight.jpg",
-        "caption": "A fist fight with an area boy: punches, blocks, damage numbers on every hit and a vignette when you are hurt."
-      }
-    ],
-    "galleryPreview": 8
+    "galleryPreview": 5
   },
   {
     "name": "Footy Teams",

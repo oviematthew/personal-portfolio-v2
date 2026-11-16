@@ -10,7 +10,7 @@
 
 ## Selected work
 
-- [From Ashes](https://oviematthew.com/project/from-ashes): Story-driven open-world game in the browser. Three.js, Supabase, Azure Speech and Blender MCP. A voiced cast, an economy of copper and shillings, stamina and strength progression, stealth, fights, cars, accounts, cloud saves and a Stripe shop.
+- [From Ashes](https://oviematthew.com/project/from-ashes): Story-driven open-world game in the browser. Three.js, Supabase, Azure Speech and Blender MCP. 30 chapters, a voiced cast, an economy of copper and shillings, fights, cars, side hustles, Ayo, an owambe with a live synthesised band, accounts, cloud saves and a Stripe shop.
 - [Footy Teams](https://oviematthew.com/project/footy-teams): Web app that builds balanced pickup football teams from a pasted player list. Next.js, TypeScript, Tailwind CSS.
 - [Realtor Block](https://oviematthew.com/project/realtor-block): Real estate listings platform with map search and agent accounts. Next.js, Supabase, Clerk, Google Maps API.
 - [BOAS](https://oviematthew.com/project/boas): Denim wholesale storefront, migrated from Shopify Liquid to headless Next.js with Strapi.
