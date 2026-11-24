@@ -5,21 +5,7 @@ excerpt: "A step-by-step guide to pulling WooCommerce products into a Next.js Ap
 date: "2026-08-12"
 ---
 
-A lot of small businesses end up with the same setup: a nice marketing site, and a WooCommerce store bolted on at `shop.example.com` that looks and feels like a different website. Customers click "Shop" and suddenly the fonts change, the nav changes and the site gets slower.
-
-You don't have to throw WooCommerce away to fix that. You can keep WordPress for what it's good at (managing products, taking payments, sending order emails) and build the storefront itself in Next.js. That's what "headless" means here: WooCommerce becomes the backend, and your Next.js site becomes the shop window.
-
-This post walks through the whole thing step by step. I'm using the App Router, but nothing here depends on a particular design or project. If you have a WooCommerce store and a Next.js site, you can follow along.
-
-## What we're building
-
-Here's the split of responsibilities:
-
-- **WooCommerce** keeps the products, stock, prices, coupons, taxes, payments and order emails. Nothing changes for whoever manages the store.
-- **Next.js** renders the shop page, product pages and cart, using your own components and design.
-- **Checkout** stays on WooCommerce. When the customer clicks "Checkout", we send their cart over to the store and they pay there.
-
-Keeping checkout on WooCommerce is the part that makes this practical. Payment gateways, tax rules, shipping zones and order emails are a lot of work to rebuild, and you'd be rebuilding things that already work. You get most of the benefit of going headless (speed, design, one consistent site) with a fraction of the risk.
+This is a step-by-step guide to running a WooCommerce store headless: products come from WooCommerce, the storefront and cart are built in Next.js, and customers pay on the WooCommerce checkout you already have. That keeps payments, taxes and order emails where they already work, while the shop itself matches the rest of your site.
 
 ## What you need
 
@@ -559,19 +545,7 @@ A plain link is the right tool here. The customer is leaving your Next.js site f
 Some things to know before you ship it:
 
 - **Variable products need the variation ID.** For a product with sizes or colours, the cart has to store the chosen variation's ID, not the parent product's. The Store API lists them under `variations` on the product.
-- **Clear the cart, but keep a backup.** After checkout the customer never comes back to your Next.js site to confirm the order, so there's no moment where you know it went through. A simple approach: clear the cart when they click Checkout, and save a copy in `localStorage` with a timestamp first. If they come back without paying, the cart page can offer to restore it. Throw the backup away after a day so it doesn't come back weeks later.
-
-```js
-// Add to CartProvider and expose it from the context. The checkout button
-// then calls checkout() in its onClick instead of being a plain link.
-const checkout = () => {
-  localStorage.setItem("cart_backup_v1", JSON.stringify({ items, at: Date.now() }));
-  setItems([]);
-  window.location.href = getCheckoutUrl(items);
-};
-```
-
-- **The order confirmation stays on WooCommerce.** After payment, WooCommerce shows its own order received page, and sends the confirmation email as usual. You don't need to build anything for that. It's one more reason to make the store's theme look like your site.
+- **Don't clear the cart on click.** If the customer comes back from checkout without paying, they should still find their cart. Clear it when you know the order went through, for example on a thank-you page.
 - **Make the checkout look like your site.** The customer is now on WooCommerce. Spend a little time on the WordPress theme so the checkout uses the same logo, colours and fonts. Even a simple match makes the jump feel intentional instead of jarring.
 - **On older WooCommerce,** a link like `/?add-to-cart=123&quantity=2` works for a single product. For multiple products you'd need a small custom plugin that reads the cart from the URL, which is more work. Upgrading is usually the easier route.
 
@@ -941,6 +915,6 @@ From here, the usual next steps are:
 
 - **Search**, using the Store API's `search` parameter.
 - **Customer accounts**, so people can sign in on your site and arrive at checkout already logged in. The Store API doesn't handle logins, so this builds on Step 11: custom REST routes in the mu-plugin, protected by the shared secret, that check a customer's email and password with WordPress's `wp_authenticate()`.
-- **Your own thank-you page (optional).** WooCommerce's order received page works fine as it is. If you want the confirmation to look like the rest of your site, you can build one in Next.js and have WooCommerce redirect there after payment. It needs a way to look up the order securely, so treat it as an extra rather than part of the basic setup.
+- **A thank-you page** on your Next.js site, with WooCommerce redirecting there after payment, so the order confirmation feels like part of the same experience.
 
 The main idea holds for all of them: let WooCommerce do the commerce and let Next.js do the experience. Once you draw that line clearly, each piece stays simple.
