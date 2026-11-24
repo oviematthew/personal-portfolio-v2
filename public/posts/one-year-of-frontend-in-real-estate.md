@@ -5,30 +5,30 @@ excerpt: "A year of building interfaces for the real estate industry taught me t
 date: "2026-10-03"
 ---
 
-A year ago I started building the frontends that power parts of the real estate industry. I expected to learn a new codebase. I did not expect it to change how I think about product work as a whole.
+A year ago I started building frontends for the real estate industry. I expected to learn a new codebase. I didn't expect it to change how I think about product work in general.
 
-## The users are not who you picture
+## There's more than one user
 
-When you build a consumer app, you usually picture one kind of person. Real estate products have several at once: the renter browsing on their phone at midnight, the leasing agent juggling inquiries between showings, the property manager reconciling a portfolio, and the marketing team trying to fill units before the end of the month.
+When you build a consumer app, you usually picture one kind of person using it. Real estate products have several at once: a renter scrolling listings on their phone at midnight, a leasing agent answering inquiries between showings, a property manager looking after a whole portfolio, and a marketing team trying to fill units before the end of the month.
 
-Every feature lands differently for each of them. A filter that feels obvious to a renter can be noise to an agent. Learning to hold all of those people in mind at once has made me a far more careful engineer.
+The same feature lands differently for each of them. A filter that's obvious to a renter can be clutter to an agent. Getting used to thinking about all of them at once has made me a lot more careful about what I ship.
 
-## Speed is a business metric
+## A slow page costs leads
 
-In this industry, a slow listing page is not a minor annoyance. It is a lost lead. Performance stopped being something I optimized at the end of a sprint and became something I designed for from the first commit: lean pages, predictable data loading, images that respect the network they are on.
+In this industry a slow listing page isn't a small annoyance, it's a renter who gives up and looks somewhere else. So performance stopped being something I tidied up at the end of a sprint. I think about it from the first commit now: lean pages, predictable data loading, and images sized for the connection people are actually on.
 
-## Accessibility is reach
+## Everyone needs a place to live
 
-Housing is for everyone, so the interfaces around it have to be too. Keyboard support, clear contrast, sensible structure for screen readers: none of it is optional when the audience is everyone looking for a place to live. Building accessible by default is simply the right baseline.
+That means everyone has to be able to use the interface. Keyboard support, good contrast and a sensible structure for screen readers aren't extras when your audience is anyone looking for a home. I build them in from the start.
 
-## Data is the product
+## The data is most of the work
 
-Listings, availability, pricing and media flow through many systems before they ever reach a screen. A good chunk of frontend work here is making messy, fast-moving data feel calm and trustworthy. The interface is only as good as the confidence people have in what it shows them.
+Listings, availability, pricing and photos pass through a lot of systems before they reach the screen, and they change constantly. A big part of the job is taking that messy data and presenting it in a way people can trust. If the availability shown is wrong once, people stop believing it.
 
-## Small details, compounded
+## It comes down to small details
 
-The biggest lesson is that this industry runs on trust, and trust is built from small things: a form that does not lose your input, a map that loads where you expect, an availability badge that is actually correct. None of these are glamorous. All of them matter.
+The biggest lesson of the year is that people need to trust what they see, and that trust comes from small things: a form that doesn't lose what you typed, a map that opens where you expect, an availability badge that's actually right. None of it would make a good demo, but people notice when it's wrong.
 
-## Looking ahead
+## What's next
 
-One year in, I understand the shape of the problems far better than when I started, and I am more excited about them, not less. Real estate is a space where a thoughtful interface makes a measurable difference to real people, and that is a good place to be building.
+A year in, I understand the problems much better than when I started, and I'm more interested in them now, not less. A careful interface makes a real difference to someone trying to find a place to live, and that's a good kind of problem to work on.

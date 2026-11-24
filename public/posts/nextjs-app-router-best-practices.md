@@ -2,15 +2,15 @@
 title: "Mastering Next.js App Router: Best Practices for Modern Web Apps"
 slug: "nextjs-app-router-best-practices"
 coverImage: "/media/blog/nextjs-app-router.png"
-excerpt: "Explore essential patterns and practical tips for working with the Next.js App Router effectively."
+excerpt: "The App Router patterns I use on every Next.js project: routing, layouts, loading and error states, metadata and server versus client components."
 date: "2025-05-01"
 ---
 
-Next.js 13+ introduced the App Router, a file-system based routing system that encourages server components, nested layouts, and a clearer separation between server and client code. The App Router helps build scalable, high-performance React apps when used with Next.js server and edge features.
+The App Router, added in Next.js 13, changed how Next.js apps are put together. Routes are folders, layouts nest, and components run on the server unless you say otherwise. This site is built on it, and these are the patterns I use on every project.
 
-## File-based routing
+## Routes are folders
 
-### Create routes under the `app/` directory. Files and folders map directly to routes
+Every folder inside `app/` is a route segment, and a `page.js` inside it makes that route public:
 
 ```text
 app/
@@ -23,11 +23,11 @@ app/
       page.js        # /blog/:slug
 ```
 
-### Use colocated files (e.g., loading.js, error.js, page.js, layout.js) to control behavior for a route segment
+A segment can also have special files next to its page: `layout.js`, `loading.js` and `error.js`. Each one controls a different part of how that route behaves.
 
 ## Layouts
 
-### Layouts provide persistent UI across nested routes (navigation, footers, sidebars). Place a layout.js (or .jsx/.ts/.tsx) at a route segment to wrap its children
+A layout wraps every page below it and stays mounted when you navigate between them. That's where the nav, footer and sidebars go:
 
 ```jsx
 export default function RootLayout({ children }) {
@@ -43,13 +43,11 @@ export default function RootLayout({ children }) {
 }
 ```
 
-## Keep layouts small and composable so they can be reused across multiple routes
+I try to keep layouts small. A short root layout plus a separate layout for, say, the blog section is easier to work with than one big layout full of conditions.
 
-## Loading & error UI
+## Loading and error states
 
-### Place loading.js to show skeletons or spinners while server rendering/fetching. Use error.js to handle rendering errors for the segment
-
-## Example
+Drop a `loading.js` into a segment and Next.js shows it while the page's data loads. An `error.js` catches errors in that segment, so the rest of the app keeps working:
 
 ```jsx
 // loading.js
@@ -58,57 +56,58 @@ export default function Loading() {
 }
 
 // error.js
-export default function Error({ error }) {
-  return <div className="error">Something went wrong: {error.message}</div>;
-}
-```
-
-## Metadata API
-
-### Use the metadata export (or generateMetadata) to configure SEO per route
-
-```js
-export const metadata = {
-  title: 'Home | MySite',
-  description: 'Welcome to my site',
-};
-```
-
-### This gives you per-route control of titles, descriptions, Open Graph, and other head tags
-
-## Server and client components
-
-### By default, components in the App Router are server components. Add "use client" at the top of a file for client-side interactivity
-
-```jsx
-// ToggleButton.jsx
 "use client";
-import { useState } from 'react';
 
-export default function ToggleButton() {
-  const [on, setOn] = useState(false);
+export default function Error({ error, reset }) {
   return (
-    <button onClick={() => setOn((s) => !s)}>
-      {on ? 'On' : 'Off'}
-    </button>
+    <div className="error">
+      <p>Something went wrong.</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
   );
 }
 ```
 
-### Prefer server components for rendering and data fetching when possible, and only opt into client components for UI that requires browser APIs or stateful interactivity
+Error boundaries have to be Client Components, which is why `error.js` starts with `"use client"`. I also avoid showing `error.message` to users, since it can leak details that should stay on the server.
 
-## Best practices
+## Metadata
 
-### Keep layouts modular and focused: compose small layouts rather than one large global layout
+Export a `metadata` object, or a `generateMetadata` function for dynamic routes, to set the title, description and Open Graph tags per route:
 
-### Separate server and client responsibilities. Fetch data in server components and keep UI logic in client components
+```js
+export const metadata = {
+  title: "Home | MySite",
+  description: "Welcome to my site",
+};
+```
 
-### Use loading.js and error.js to provide clear feedback during fetches and failures
+No more managing `<head>` by hand, and each page gets its own SEO tags.
 
-### Leverage the Metadata API for SEO and social sharing metadata at the route level
+## Server and client components
 
-### Co-locate CSS/modules and small components with the route that uses them for easier maintenance
+Components in the App Router are Server Components by default. They render on the server and send HTML, not JavaScript. When something needs state, effects or browser APIs, add `"use client"` at the top of the file:
+
+```jsx
+// ToggleButton.jsx
+"use client";
+import { useState } from "react";
+
+export default function ToggleButton() {
+  const [on, setOn] = useState(false);
+  return <button onClick={() => setOn((s) => !s)}>{on ? "On" : "Off"}</button>;
+}
+```
+
+My rule of thumb: fetch data in Server Components, and push `"use client"` as far down the tree as you can. A page can stay on the server and only the toggle button inside it ships JavaScript.
+
+## What I stick to
+
+- Small layouts, composed together.
+- Data fetching on the server, interactivity in small client components.
+- A `loading.js` and an `error.js` for any route that fetches data.
+- Metadata set per route, not once globally.
+- Components and styles that only one route uses live next to that route.
 
 ## Wrap-up
 
-### The App Router provides a clean architecture for scalable Next.js apps. Favor server components for performance, use nested layouts for structure, and keep client components minimal and focused to achieve a fast, maintainable codebase
+Most of getting the App Router right is putting things where the framework expects them. Once you do, you get fast pages, good SEO and a codebase that's easy to find your way around.

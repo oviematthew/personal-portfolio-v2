@@ -2,45 +2,29 @@
 title: "Optimizing Frontend Performance with Supabase and Edge Functions"
 slug: "frontend-performance-supabase-edge"
 coverImage: "/media/blog/supabase-edge-performance.png"
-excerpt: "Learn how to leverage Supabase and edge functions to build lightning-fast, scalable frontend applications with real-time capabilities."
+excerpt: "Practical ways to keep a Supabase-backed frontend fast: fetch less, subscribe instead of polling, move work to Edge Functions and cache at every layer."
 date: "2025-08-20"
 ---
 
-In modern frontend development, performance is king. Users expect apps to load instantly, react smoothly, and handle data seamlessly. One way to achieve this is by integrating **Supabase**, a serverless Postgres database with real-time capabilities, alongside **Edge Functions** to offload computations closer to the user.
+Supabase gives you a Postgres database, auth, storage and realtime updates in one place, and Edge Functions let you run server code close to your users. That makes it easy to get an app working. Keeping it fast as the data grows takes a bit more thought. These are the techniques I use, roughly in the order I reach for them.
 
-This post dives into practical strategies to optimize your frontend apps while using Supabase effectively.
+## 1. Fetch only what the page needs
 
-
-## Why Supabase + Edge Functions?
-
-Supabase is more than just a backend. It's a **real-time database**, authentication provider, and file storage service. Combining it with edge functions gives you:
-
-- **Ultra-low latency** by running code closer to the client.
-- **Scalable serverless architecture** without managing infrastructure.
-- **Real-time data updates** that keep the frontend in sync without heavy polling.
-
-This is especially useful for dashboards, analytics apps, and interactive websites.
-
-
-## 1. Efficient Data Fetching
-
-Fetching only what the client needs reduces load time and improves perceived performance.
-
-### Example: Paginated Posts Fetch
+The easiest win is asking for less. Paginate, and select only the columns you actually render:
 
 ```javascript
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export async function getPaginatedPosts(page = 1, limit = 10) {
   const from = (page - 1) * limit;
   const to = page * limit - 1;
 
   const { data, error } = await supabase
-    .from('posts')
-    .select('*')
-    .order('created_at', { ascending: false })
+    .from("posts")
+    .select("id, title, excerpt, created_at")
+    .order("created_at", { ascending: false })
     .range(from, to);
 
   if (error) throw new Error(error.message);
@@ -48,35 +32,33 @@ export async function getPaginatedPosts(page = 1, limit = 10) {
 }
 ```
 
-### Fetch only the rows needed for the current view
+`select("*")` is fine while prototyping. In production it means sending every column, including big text fields the list view never shows.
 
-### Reduce payload size and memory consumption on the frontend
+## 2. Subscribe instead of polling
 
-## 2. Real-Time Subscriptions
-
-### Supabase allows subscribing to table changes in real-time, minimizing full page reloads or polling
+If the page needs to stay up to date, don't refetch the whole table on a timer. Supabase can push changes to you as they happen:
 
 ```javascript
-import { createClient } from '@supabase/supabase-js';
-import { useEffect, useState } from 'react';
+import { createClient } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export default function RealtimePosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const { data } = await supabase.from('posts').select('*').order('created_at', { ascending: false });
-      setPosts(data);
-    };
-    fetchPosts();
+    supabase
+      .from("posts")
+      .select("id, title")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setPosts(data ?? []));
 
     const channel = supabase
-      .channel('posts-inserts')
+      .channel("posts-inserts")
       .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'posts' },
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "posts" },
         (payload) => setPosts((prev) => [payload.new, ...prev])
       )
       .subscribe();
@@ -86,128 +68,96 @@ export default function RealtimePosts() {
 
   return (
     <ul>
-      {posts.map(post => <li key={post.id}>{post.title}</li>)}
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
     </ul>
   );
 }
 ```
 
-## Benefits
+You load the list once, then only the new rows come over the wire. Always remove the channel in the cleanup, or you'll end up with duplicate subscriptions every time the component remounts.
 
-### Updates happen instantly without refetching the entire table
+## 3. Move heavy work to Edge Functions
 
-### Reduces bandwidth usage and speeds up UI updates
+Some work doesn't belong in the browser: aggregating numbers across many rows, filtering data the user shouldn't see in full, or checking permissions before anything is returned. Supabase Edge Functions run that on the server, close to the user, and send back only the result:
 
-## 3. Edge Functions for Preprocessing
+```typescript
+// supabase/functions/get-posts/index.ts
+import { createClient } from "npm:@supabase/supabase-js@2";
 
-### Perform server-side logic close to the user using Supabase Edge Functions. This is ideal for
+const supabase = createClient(
+  Deno.env.get("SUPABASE_URL")!,
+  Deno.env.get("SUPABASE_ANON_KEY")!
+);
 
-- Calculating aggregates.
-- Filtering data.
-- Handling authentication and authorization before sending data to the client.
-
-```javascript
-// edge/functions/get-posts.ts
-import { serve } from 'https://deno.land/std@0.203.0/http/server.ts';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(Deno.env.get('SUPABASE_URL'), Deno.env.get('SUPABASE_KEY'));
-
-serve(async (req) => {
+Deno.serve(async (req) => {
   const url = new URL(req.url);
-  const page = Number(url.searchParams.get('page') || 1);
+  const page = Number(url.searchParams.get("page") || 1);
   const limit = 10;
   const from = (page - 1) * limit;
   const to = page * limit - 1;
 
-  const { data, error } = await supabase.from('posts').select('*').order('created_at', { ascending: false }).range(from, to);
+  const { data, error } = await supabase
+    .from("posts")
+    .select("id, title, excerpt, created_at")
+    .order("created_at", { ascending: false })
+    .range(from, to);
 
-  if (error) return new Response(JSON.stringify({ error: error.message }), { status: 500 });
-  return new Response(JSON.stringify({ data }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  if (error) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+  return Response.json({ data });
 });
 ```
 
-### Edge functions execute near the client, reducing latency
+The browser gets a small, ready-to-use payload instead of raw rows it has to process itself.
 
-### Preprocessing ensures frontend receives exactly what it needs
+## 4. Cache and revalidate
 
-## 4. Caching and Revalidation
-
-### Combine Supabase Edge Functions with Next.js ISR (Incremental Static Regeneration)
+Not every page needs fresh data on every request. With Next.js, you can statically generate a page and refresh it in the background every so often with ISR:
 
 ```javascript
-export const revalidate = 60; // regenerate every 60 seconds
+export const revalidate = 60; // regenerate at most every 60 seconds
 ```
 
-### Pages can be statically generated for speed
+I use this for anything public and mostly read-only, like a blog or a product list, and keep Edge Functions for data that's personal or changes constantly.
 
-### Edge functions handle dynamic or personalized data
+## 5. Don't let images undo the work
 
-## 5. Optimizing Images and Assets
-
-- Even with fast data, slow assets kill perceived performance:
-
-- Use Supabase Storage with URL transformations for resizing.
-
-- Lazy-load images using next/image.
+Fast data doesn't help if the page then waits on a 3 MB hero image. Supabase Storage can resize images on the fly through URL transformations, and `next/image` lazy-loads anything below the fold:
 
 ```jsx
-import Image from 'next/image';
+import Image from "next/image";
 
-<Image
-  src={post.coverImage}
-  alt={post.title}
-  width={800}
-  height={400}
-  priority={false}
-/>
+<Image src={post.coverImage} alt={post.title} width={800} height={400} />;
 ```
 
-### Only load images when visible
+Images below the fold only load when they come into view, which helps your Largest Contentful Paint (LCP) score.
 
-### Improves Largest Contentful Paint (LCP) scores
+## 6. Cache on the client too
 
-## 6. Frontend Caching Strategies
-
-- Client-side caching: Store frequent queries in React Query or SWR.
-
-- Edge caching: Use CDN + Edge Functions to cache API responses.
-
-- Stale-while-revalidate: Serve cached data immediately and refresh in the background.
+For data the user comes back to often, a client-side cache like SWR or React Query shows the last result instantly and refreshes it in the background:
 
 ```javascript
-import useSWR from 'swr';
+import useSWR from "swr";
 
-const fetcher = url => fetch(url).then(res => res.json());
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function PostsList() {
-  const { data } = useSWR('/api/posts', fetcher, { revalidateOnFocus: false });
-  return <ul>{data?.data.map(p => <li key={p.id}>{p.title}</li>)}</ul>;
+  const { data } = useSWR("/api/posts", fetcher, { revalidateOnFocus: false });
+  return <ul>{data?.data.map((p) => <li key={p.id}>{p.title}</li>)}</ul>;
 }
 ```
 
-## 7. Summary
+You can also cache Edge Function responses at the CDN with `Cache-Control` headers, so repeat requests never reach the database at all.
 
-### By combining Supabase, Edge Functions, and modern frontend techniques
+## Summary
 
-- You minimize latency.
+- Paginate and select only the columns you use.
+- Use realtime subscriptions instead of polling.
+- Do heavy or sensitive work in Edge Functions.
+- Cache at every layer: ISR for pages, the CDN for API responses and SWR in the browser.
+- Resize and lazy-load images.
 
-- You reduce unnecessary network requests.
-
-- You provide real-time updates.
-
-- You optimize perceived performance for users.
-
-- This architecture is modern, scalable, and shows recruiters that you understand both frontend and serverless backend ecosystems.
-
-## TL;DR
-
-- Use paginated queries to limit data.
-
-- Subscribe to real-time updates for interactive apps.
-
-- Offload heavy computation to Edge Functions.
-
-- Cache strategically on client and edge.
-
-- Optimize assets with lazy-loading and transformations.
+None of these are big changes on their own, but together they're the difference between an app that feels fast with ten rows and one that still feels fast with ten thousand.

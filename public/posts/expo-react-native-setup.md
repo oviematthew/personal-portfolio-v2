@@ -2,73 +2,59 @@
 title: "Kickstarting Your Mobile App with Expo & React Native"
 slug: "expo-react-native-setup"
 coverImage: "/media/blog/expo-react-native.png"
-excerpt: "A practical guide to setting up your first mobile app using Expo and React Native."
+excerpt: "How I set up a new React Native app with Expo, from the first command to a production build."
 date: "2025-03-06"
 ---
 
-Expo is the fastest way to start building React Native apps without installing Xcode or Android Studio. It is ideal for rapid prototyping, testing, and even launching full-scale production apps. With Expo, developers can focus on creating features while the platform handles the native complexity under the hood. Its ecosystem includes built-in APIs such as Camera, push notifications, geolocation, and sensors, providing a robust starting point for any app.
+Expo is how I start every React Native app now. You don't need Xcode or Android Studio to get going, and things like the camera, push notifications and location are already wrapped in packages that work the same on iOS and Android. This is the setup I use, from the first command to a store build.
 
-## Why Expo?
+## Why Expo
 
-### Expo brings several advantages
+- **No native setup to start.** You can run your app on a real phone within a few minutes, without installing Xcode or Android Studio.
+- **One codebase for iOS, Android and web.**
+- **Device APIs without native code.** Camera, notifications, location and sensors all come as Expo packages.
+- **Over-the-air updates.** You can ship JavaScript fixes without going through app review again.
+- **Good docs.** When I get stuck, the answer is usually in the Expo docs.
 
-- **Instant setup**: No need to install native build tools like Xcode or Android Studio.
-- **Cross-platform**: Supports iOS, Android, and Web out of the box.
-- **Built-in APIs**: Access to device hardware features without writing native code.
-- **Over-the-air updates**: Push updates to your app without resubmitting to app stores.
-- **Rich community and documentation**: Plenty of resources to help you get started quickly.
+## What you need
 
-## Prerequisites
+Node.js installed, and some JavaScript or TypeScript. That's it.
 
-### Before starting, ensure Node.js and npm are installed. Familiarity with JavaScript or TypeScript is recommended
+## Create the project
 
-## Setting Up
-
-### Create a new project
-
-Expo dropped the old global `expo-cli` in favor of `create-expo-app`, so there's nothing to install upfront, `npx` pulls the latest version each time:
+Expo dropped the old global `expo-cli` in favour of `create-expo-app`, so there's nothing to install first. `npx` pulls the latest version each time:
 
 ```bash
 npx create-expo-app my-app
 ```
 
-You'll be prompted to pick a template: a blank TypeScript app, or one with tab navigation already wired up.
+It asks you to pick a template: a blank TypeScript app, or one with tab navigation already wired up.
 
-### Run the local dev server
+## Run it
 
 ```bash
 cd my-app
 npx expo start
 ```
 
-Scan the QR code with the Expo Go app on iOS or Android to preview it on a physical device, or press `i` / `a` in the terminal to launch an iOS Simulator or Android Emulator directly.
+Scan the QR code with the Expo Go app on your phone to open it there, or press `i` or `a` in the terminal to launch the iOS Simulator or Android Emulator.
 
-## Folder Structure
+## Folder structure
 
-### A clean project structure helps maintainability and scalability
+New Expo templates use Expo Router, which puts screens in an `app/` folder. For a simple app I keep it close to this:
 
-```perl
+```text
 my-app/
-├── App.js
-├── assets/
-├── components/
-├── screens/
-└── navigation/
+├── app/          # screens and navigation
+├── assets/       # images and fonts
+└── components/   # shared UI pieces
 ```
 
-### App.js: Main entry point
+If a component is only used by one screen, I keep it next to that screen until something else needs it.
 
-### assets/: Images, fonts, and other media
+## A first component
 
-### components/: Reusable UI components
-
-### screens/: Page-level components
-
-### navigation/: Navigation setup (React Navigation or other)
-
-## Using Components
-
-### Create reusable UI components
+React Native components look like React, with native building blocks instead of HTML. `Pressable` is the one to use for anything tappable:
 
 ```jsx
 import { Pressable, Text } from "react-native";
@@ -82,20 +68,22 @@ export default function Button({ label, onPress }) {
 }
 ```
 
-## Deployment
+## Building for the stores
 
-### Build your app for production using Expo Application Services
+When you're ready to ship, Expo Application Services (EAS) builds the app in the cloud:
 
 ```bash
 eas build --platform all
 ```
 
-### Submit the built app to the App Store or Play Store
+And submits it to the App Store or Play Store:
 
 ```bash
 eas submit --platform ios
 ```
 
-## Wrap-Up
+You'll need Apple and Google developer accounts for this part, and the first submission takes some setup. After that it's mostly two commands.
 
-### Expo accelerates mobile development by handling native complexities. Developers can focus on UX, features, and business logic while Expo manages builds, testing, and deployment, making it perfect for both beginners and seasoned developers
+## Wrap-up
+
+Expo takes care of the native parts that used to make mobile development slow to start, so you can spend your time on the app itself. It's a good place to start whether it's your first app or your tenth.

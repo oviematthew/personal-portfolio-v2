@@ -6,7 +6,7 @@ excerpt: "A React developer’s firsthand experience transitioning to Vue 2 and 
 date: "2025-11-19"
 ---
 
-Transitioning from React to Vue has been one of the most rewarding learning experiences of my career. After working extensively with React and Next.js, I joined [Rentsync](https://rentsync.com/), which maintains high-volume production Vue apps. Experiencing both Vue 2 and Vue 3 has given me a broad perspective on framework evolution, developer ergonomics, and project architecture.
+I spent years working mostly in React and Next.js, then joined [Rentsync](https://rentsync.com/), where the production apps are built in Vue, some in Vue 2 and some in Vue 3. Switching was one of the best learning experiences I've had. These are the things that surprised me most coming from React.
 
 ## React vs Vue: First Impressions
 
@@ -22,7 +22,7 @@ Transitioning from React to Vue has been one of the most rewarding learning expe
 </template>
 ```
 
-### Vue 3's Composition API was a big shift. If React Hooks taught me to think in functions, the Composition API made me think in *reactivity*. `ref()` and `reactive()` feel like `useState` on steroids: powerful, flexible, and easier to organize when your logic scales
+### Vue 3's Composition API was a big shift. If React Hooks taught me to think in functions, the Composition API made me think in *reactivity*. `ref()` and `reactive()` do the job of `useState`, but I found them easier to organize once a component's logic grew
 
 ```js
 import { ref, computed } from "vue";
@@ -211,7 +211,7 @@ watch: {
 
 ### Styling: scoped SCSS and built-in transitions make design work smoother
 
-### Community: Vue’s documentation is crystal clear and beginner-friendly
+### Community: Vue’s documentation is clear and easy to follow, even for beginners
 
 ## Cons
 
@@ -223,6 +223,6 @@ watch: {
 
 ## Wrap-up
 
-### Transitioning from React to Vue has made me a more adaptable developer. I’ve learned that frameworks are simply tools for expressing UI logic. What matters most is how they shape collaboration, performance, and developer happiness. Vue’s reactivity model, single-file components, and elegant Composition API have completely changed how I think about building for the web
+### Moving from React to Vue made me a more adaptable developer. Frameworks are tools for describing UI, and once you've used two of them you start to see which ideas are shared and which are just one framework's way of doing things. Vue's reactivity model and single-file components changed how I think about structuring components, even when I go back to React
 
-### For anyone coming from React, Vue is not just a change. It’s a mindset shift. And once it clicks, it’s incredibly fun
+### If you're coming from React, expect the first few weeks to feel strange. Once reactivity clicks, it's a really enjoyable way to work

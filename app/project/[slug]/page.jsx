@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }) {
       {project.features && (
         <section aria-labelledby="how-it-plays" className="mt-28">
           <h2 id="how-it-plays" className="text-4xl font-semibold tracking-tighter md:text-7xl">
-            How it plays<span className="text-brand">.</span>
+            {project.featuresTitle ?? "How it plays"}<span className="text-brand">.</span>
           </h2>
           <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
             {project.features.map((group) => (

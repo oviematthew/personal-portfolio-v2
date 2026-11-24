@@ -2,19 +2,17 @@
 title: "Getting Started with Layout in SwiftUI"
 slug: "swiftui-layout-basics"
 coverImage: "/media/blog/swiftui-layout.png"
-excerpt: "Discover how to build beautiful layouts using SwiftUI’s powerful and declarative approach."
+excerpt: "Stacks, modifiers and reusable views: the SwiftUI layout basics, with examples."
 date: "2025-04-05"
 ---
 
-## SwiftUI is Apple’s declarative UI framework for iOS, macOS, watchOS, and tvOS. It simplifies layout creation by using stacks, modifiers, and reusable views
+SwiftUI is Apple's declarative UI framework for iOS, macOS, watchOS and tvOS. You describe what a screen should look like, and SwiftUI works out how to draw it. Most layouts come down to three things: stacks, modifiers and small reusable views.
 
-## Stack Basics
+## Stacks
 
-- `VStack`: vertical arrangement
-- `HStack`: horizontal arrangement
-- `ZStack`: overlapping layers
-
-## Example
+- `VStack` lays views out vertically.
+- `HStack` lays them out horizontally.
+- `ZStack` layers them on top of each other.
 
 ```swift
 VStack(alignment: .leading) {
@@ -23,9 +21,11 @@ VStack(alignment: .leading) {
 }
 ```
 
+You can nest stacks inside each other to build almost any layout, and `Spacer()` pushes things apart when you need flexible space.
+
 ## Modifiers
 
-### Modifiers change view appearance
+Modifiers change how a view looks or sits on the screen. They're applied in order, so the order matters: padding before a background gives you a padded coloured box, padding after it gives you a box with space around it.
 
 ```swift
 Text("Styled Text")
@@ -35,9 +35,9 @@ Text("Styled Text")
     .cornerRadius(10)
 ```
 
-### Responsive Layouts
+## Sizing to the available space
 
-## Use GeometryReader for dynamic sizing
+When a view needs to know how much room it has, `GeometryReader` gives you its size:
 
 ```swift
 GeometryReader { geometry in
@@ -45,7 +45,11 @@ GeometryReader { geometry in
 }
 ```
 
-## Building Reusable Views
+I use it sparingly. It takes up all the space it's offered, which can surprise you, and stacks with `.frame` usually do the job.
+
+## Reusable views
+
+Once a piece of UI shows up twice, I pull it into its own view:
 
 ```swift
 struct CustomCard: View {
@@ -63,9 +67,8 @@ struct CustomCard: View {
 }
 ```
 
-## Additional Tips
+## Tips
 
-- Combine stacks to create complex layouts.
-- Use `Spacer()` for flexible spacing.
-- Leverage `.frame`, `.padding`, `.background` for styling.
-- Preview views in Xcode for instant feedback.
+- Combine stacks for complex layouts instead of reaching for anything fancier first.
+- Use `.frame`, `.padding` and `.background` for most styling.
+- Keep the Xcode preview open. Seeing changes as you type is the fastest way to learn how layout behaves.

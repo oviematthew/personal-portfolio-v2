@@ -5,6 +5,7 @@ import Link from "next/link";
 import readingDuration from "reading-duration";
 import ReactMarkdown from "react-markdown";
 import GoBackUrl from "../../utils/GoBackUrl";
+import CodeBlock from "../../components/CodeBlock";
 
 
 async function fetchPosts(slug) {
@@ -88,7 +89,7 @@ export default async function Post({ params }) {
 
       <div className="mx-auto max-w-2xl px-6 pt-14">
         <article className="post-content w-full break-words overflow-hidden">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown components={{ pre: CodeBlock }}>{post.content}</ReactMarkdown>
         </article>
 
         <Link

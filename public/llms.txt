@@ -15,7 +15,7 @@
 - [Realtor Block](https://oviematthew.com/project/realtor-block): Real estate listings platform with map search and agent accounts. Next.js, Supabase, Clerk, Google Maps API.
 - [BOAS](https://oviematthew.com/project/boas): Denim wholesale storefront, migrated from Shopify Liquid to headless Next.js with Strapi.
 - [Addict Wellness App](https://oviematthew.com/project/chattee-app): Recovery support app concept with real-time chat and community. React Native, Firebase.
-- [Bedge Pictures](https://oviematthew.com/project/bedge-pictures): Wedding photography site with a markdown blog and spam-protected contact form. Next.js, GSAP.
+- [Bedge Pictures](https://oviematthew.com/project/bedge-pictures): Wedding photography site with a headless WooCommerce storefront (ISR product pages, cart handoff to WooCommerce checkout), a markdown blog and spam-protected contact form. Next.js, GSAP.
 - [Lizz Davies](https://oviematthew.com/project/lizz-davies): Bridal and occasion hairstylist site rebuilt from WordPress to Next.js.
 
 ## Skills

@@ -231,23 +231,63 @@
     "jobType": "Freelance",
     "techStack": [
       "Next.js",
+      "WooCommerce (headless)",
+      "ISR",
       "GSAP",
       "TailwindCSS",
       "Lucide Icons",
       "GA4",
       "GTM",
-      "Playwright",
-      "Woocommerce"
+      "Playwright"
     ],
-    "description": "A photography studio site rebuilt in Next.js for speed, SEO and editorial control.",
-    "longDescription": "A Next.js App Router rebuild with server-rendered pages and metadata for SEO, Markdown-driven stories, a reCAPTCHA-protected contact flow and WebP media for sub-second loads.\n\nGSAP handles scroll motion, and a WooCommerce subdomain runs the digital shop.",
-    "featuredImage": "/media/projects/bedge-featured.png",
+    "description": "A wedding photography studio site, redesigned and rebuilt in Next.js, with a headless WooCommerce storefront for its digital products.",
+    "longDescription": "A full redesign and Next.js App Router rebuild of a wedding photography studio site: server-rendered pages and metadata for SEO, Markdown-driven wedding stories, a reCAPTCHA-protected contact flow and WebP media for sub-second loads.\n\nThe shop used to live on its own WooCommerce subdomain. I rebuilt it as a headless storefront inside the main site. Products come from the WooCommerce Store API and are statically generated with ISR that refreshes every five minutes, so the catalogue stays fast and current without a redeploy. Customers browse and build a cart on the main site, then hand off to the existing WooCommerce checkout to pay, so payments, taxes and order emails stay where the studio already manages them.\n\nAround it sit product pages with an image gallery, a slide-out cart drawer, account sign-in that carries customers into checkout already logged in, and GSAP motion throughout.",
+    "featuredImage": "/media/projects/bedge-redesign-featured.png",
     "images": [
-      "/media/projects/page-images/bedge-pictures-1.png",
-      "/media/projects/page-images/bedge-pictures-2.png"
+      "/media/projects/page-images/bedge-redesign-1.png",
+      "/media/projects/page-images/bedge-redesign-home-dark.png",
+      "/media/projects/page-images/bedge-redesign-2.png",
+      "/media/projects/page-images/bedge-redesign-3.png",
+      "/media/projects/page-images/bedge-redesign-4.png",
+      "/media/projects/page-images/bedge-redesign-6.png"
     ],
     "live": "https://bedgepictures.com",
-    "featured": true
+    "featured": true,
+    "featuresTitle": "How the store works",
+    "features": [
+      {
+        "title": "Headless catalogue",
+        "items": [
+          "Products, prices, images and variations are read server-side from the public WooCommerce Store API, so no API keys ever reach the browser.",
+          "Product pages are pre-rendered and revalidated every five minutes (ISR). A price change in WordPress shows up on the site within minutes, with no rebuild.",
+          "The shop page adds category filters and sorting on top of the same cached data."
+        ]
+      },
+      {
+        "title": "Cart and checkout handoff",
+        "items": [
+          "The cart lives in the browser, with a slide-out drawer and a full cart page, so adding and editing items is instant.",
+          "At checkout the cart is passed to WooCommerce as a checkout link, which rebuilds it on the store and drops the customer straight onto the existing checkout.",
+          "If checkout fails, the cart is kept as a backup so the customer can restore it instead of starting over."
+        ]
+      },
+      {
+        "title": "Accounts",
+        "items": [
+          "Customers sign in or register on the main site. A small WordPress plugin exposes secured endpoints, and the Next.js side keeps a signed session cookie.",
+          "Signed one-time links carry a logged-in customer into WooCommerce checkout and their orders without a second login."
+        ]
+      }
+    ],
+    "imageCaptions": [
+      "The redesigned home page in light mode.",
+      "The home page in dark mode.",
+      "The headless shop: WooCommerce products rendered in Next.js.",
+      "A product page with its image gallery and add-to-cart.",
+      "The slide-out cart drawer, ready to hand off to WooCommerce checkout.",
+      "The shop on mobile."
+    ],
+    "galleryPreview": 4
   },
   {
     "name": "Lizz Davies",
