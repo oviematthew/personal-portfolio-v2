@@ -10,7 +10,6 @@ const LINKS = [
   { href: "/#about", label: "about" },
   { href: "/blog", label: "writing" },
   { href: "/#contact", label: "contact" },
-  { href: "https://drive.google.com/uc?export=download&id=1PzRW7u4C7Iq51PgM5KTSWs_EIQxsjS54", label: "resume", external: true },
 ];
 
 export default function Navbar() {

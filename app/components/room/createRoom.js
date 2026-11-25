@@ -639,7 +639,7 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     return g;
   };
 
-  // filing cabinet (resume) with the PS5 on top (gaming at the desk)
+  // filing cabinet with the PS5 on top (gaming at the desk)
   const cabinet = new Group();
   cabinet.position.set(LX + 0.35, 0, 3.75);
   rbox(cabinet, 0.5, 0.64, 0.5, 0.02, std(0x4e3223, 0.65), 0, 0.32, 0);
@@ -649,13 +649,6 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
   }
   root.add(cabinet);
   blob(LX + 0.35, 3.75, 0.8, 0.8);
-  register("cabinet", cabinet, {
-    label: "Resume",
-    href: "https://drive.google.com/file/d/1PzRW7u4C7Iq51PgM5KTSWs_EIQxsjS54/view",
-    external: true,
-    openOnClick: true, // the drawer opens the resume directly
-    station: "cabinet",
-  });
   const deskPs5 = new Group();
   root.add(deskPs5);
   ps5(deskPs5, LX + 0.35, 0.86, 3.75, Math.PI / 2);
@@ -1289,7 +1282,6 @@ export function createRoom(container, { onSelect, onHover, onAudio, onArrive, on
     deskGame: { spot: DESK_SPOT, exit: DESK_EXIT, face: LEFT, pose: "deskGame", desk: "game" },
     stream: { spot: DESK_SPOT, exit: DESK_EXIT, face: LEFT, pose: "deskGame", desk: "stream" },
     goals: { spot: [LX + 1.1, 1.78], exit: [-0.4, 1.78], face: LEFT, pose: "goals" },
-    cabinet: { spot: [LX + 1.2, 3.7], exit: [LX + 1.2, 3.7], face: LEFT, pose: "wave" },
     accent: { spot: [LX + 1.1, 0.98], exit: [LX + 1.1, 0.98], face: LEFT, pose: "stand" },
     sofa: { spot: [LX + 0.55, SOFA_Z - 0.3], exit: SOFA_EXIT, via: [[LX + 0.55, SOFA_Z + 0.55]], face: RIGHT, pose: "sofaSip" },
     football: { spot: [LX + 0.55, SOFA_Z - 0.3], exit: SOFA_EXIT, via: [[LX + 0.55, SOFA_Z + 0.55]], face: RIGHT, pose: "sofaWatch", tv: "football", sound: "football", party: "football", serve: true },

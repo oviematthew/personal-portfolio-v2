@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import MergingGreeting from "./MergingGreeting";
-import { Volume2, ArrowDown, Download, MousePointerClick } from "lucide-react";
+import { Volume2, ArrowDown, MousePointerClick } from "lucide-react";
 import RoomCanvas from "./room/RoomCanvas";
 
 const EASE = [0.16, 1, 0.3, 1];
-const RESUME = "https://drive.google.com/uc?export=download&id=1PzRW7u4C7Iq51PgM5KTSWs_EIQxsjS54";
 
 export default function HeroSection() {
   const reduce = useReducedMotion();
@@ -49,7 +48,7 @@ export default function HeroSection() {
             </motion.div>
             <motion.div style={{ opacity: reduce ? 1 : fade }}>
               <motion.p {...rise(0.35)} className="mt-3 max-w-xl text-base leading-relaxed text-neutral-300 md:text-lg">
-                A frontend engineer building fast, accessible web and mobile experiences.
+                A web developer building fast, accessible web and mobile experiences.
               </motion.p>
             </motion.div>
           </div>
@@ -62,14 +61,6 @@ export default function HeroSection() {
             >
               See work
               <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" />
-            </Link>
-            <Link
-              href={RESUME}
-              target="_blank"
-              className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/20 px-6 text-[15px] font-medium text-white transition hover:border-white/50 active:scale-[0.98] md:h-12 md:gap-3 md:px-7"
-            >
-              Resume
-              <Download size={16} className="transition-transform group-hover:translate-y-0.5" />
             </Link>
             <button
               onClick={playName}

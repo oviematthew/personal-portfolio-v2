@@ -16,7 +16,7 @@ export default function AboutSection() {
         <Reveal rise={0}>
           <p>
             <AboutGreeting />
-            <span className="text-white">Frontend engineer based in London, Ontario.</span> I like interfaces that load
+            <span className="text-white">Web developer based in London, Ontario.</span> I like interfaces that load
             fast, work for everyone and feel obvious to use.
           </p>
         </Reveal>
